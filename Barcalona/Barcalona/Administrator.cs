@@ -16,5 +16,10 @@ namespace Barcalona
         {
             InitializeComponent();
         }
+
+        private void listBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
