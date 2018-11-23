@@ -43,11 +43,12 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.lblPlaatsen = new System.Windows.Forms.Label();
             this.btnBevestigen = new System.Windows.Forms.Button();
+            this.xd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolgende
             // 
-            this.btnVolgende.Location = new System.Drawing.Point(522, 237);
+            this.btnVolgende.Location = new System.Drawing.Point(409, 148);
             this.btnVolgende.Name = "btnVolgende";
             this.btnVolgende.Size = new System.Drawing.Size(75, 23);
             this.btnVolgende.TabIndex = 0;
@@ -172,7 +173,7 @@
             // btnBevestigen
             // 
             this.btnBevestigen.Enabled = false;
-            this.btnBevestigen.Location = new System.Drawing.Point(522, 273);
+            this.btnBevestigen.Location = new System.Drawing.Point(409, 184);
             this.btnBevestigen.Name = "btnBevestigen";
             this.btnBevestigen.Size = new System.Drawing.Size(75, 23);
             this.btnBevestigen.TabIndex = 14;
@@ -180,11 +181,22 @@
             this.btnBevestigen.UseVisualStyleBackColor = true;
             this.btnBevestigen.Click += new System.EventHandler(this.btnBevestigen_Click);
             // 
+            // xd
+            // 
+            this.xd.Location = new System.Drawing.Point(417, 98);
+            this.xd.Name = "xd";
+            this.xd.Size = new System.Drawing.Size(75, 23);
+            this.xd.TabIndex = 15;
+            this.xd.Text = "xd";
+            this.xd.UseVisualStyleBackColor = true;
+            this.xd.Click += new System.EventHandler(this.xd_Click);
+            // 
             // Gebruiker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 311);
+            this.ClientSize = new System.Drawing.Size(577, 229);
+            this.Controls.Add(this.xd);
             this.Controls.Add(this.btnBevestigen);
             this.Controls.Add(this.lblPlaatsen);
             this.Controls.Add(this.textBox4);
@@ -225,6 +237,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label lblPlaatsen;
         private System.Windows.Forms.Button btnBevestigen;
+        private System.Windows.Forms.Button xd;
     }
 }
 

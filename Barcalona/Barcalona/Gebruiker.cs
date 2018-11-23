@@ -40,5 +40,11 @@ namespace Barcalona
             MessageBox.Show("U bent geregistreed in het systeem!", "Voltooid", MessageBoxButtons.OKCancel);
             Close();
         }
+
+        private void xd_Click(object sender, EventArgs e)
+        {
+            Administrator frm = new Administrator();
+            frm.Show();
+        }
     }
 }
