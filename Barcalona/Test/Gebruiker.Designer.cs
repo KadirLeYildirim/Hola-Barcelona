@@ -38,9 +38,9 @@
             this.cmbActiviteit = new System.Windows.Forms.ComboBox();
             this.cmbKlas = new System.Windows.Forms.ComboBox();
             this.txtGSM = new System.Windows.Forms.TextBox();
-            this.txtKlasnummer = new System.Windows.Forms.TextBox();
-            this.txtAchternaam = new System.Windows.Forms.TextBox();
-            this.txtVoornaam = new System.Windows.Forms.TextBox();
+            this.TxtNummer = new System.Windows.Forms.TextBox();
+            this.txtAchter = new System.Windows.Forms.TextBox();
+            this.txtVoor = new System.Windows.Forms.TextBox();
             this.lblPlaatsen = new System.Windows.Forms.Label();
             this.btnBevestigen = new System.Windows.Forms.Button();
             this.xd = new System.Windows.Forms.Button();
@@ -140,26 +140,26 @@
             this.txtGSM.Size = new System.Drawing.Size(121, 20);
             this.txtGSM.TabIndex = 9;
             // 
-            // txtKlasnummer
+            // TxtNummer
             // 
-            this.txtKlasnummer.Location = new System.Drawing.Point(172, 105);
-            this.txtKlasnummer.Name = "txtKlasnummer";
-            this.txtKlasnummer.Size = new System.Drawing.Size(121, 20);
-            this.txtKlasnummer.TabIndex = 10;
+            this.TxtNummer.Location = new System.Drawing.Point(172, 105);
+            this.TxtNummer.Name = "TxtNummer";
+            this.TxtNummer.Size = new System.Drawing.Size(121, 20);
+            this.TxtNummer.TabIndex = 10;
             // 
-            // txtAchternaam
+            // txtAchter
             // 
-            this.txtAchternaam.Location = new System.Drawing.Point(172, 65);
-            this.txtAchternaam.Name = "txtAchternaam";
-            this.txtAchternaam.Size = new System.Drawing.Size(121, 20);
-            this.txtAchternaam.TabIndex = 11;
+            this.txtAchter.Location = new System.Drawing.Point(172, 65);
+            this.txtAchter.Name = "txtAchter";
+            this.txtAchter.Size = new System.Drawing.Size(121, 20);
+            this.txtAchter.TabIndex = 11;
             // 
-            // txtVoornaam
+            // txtVoor
             // 
-            this.txtVoornaam.Location = new System.Drawing.Point(172, 25);
-            this.txtVoornaam.Name = "txtVoornaam";
-            this.txtVoornaam.Size = new System.Drawing.Size(121, 20);
-            this.txtVoornaam.TabIndex = 12;
+            this.txtVoor.Location = new System.Drawing.Point(172, 25);
+            this.txtVoor.Name = "txtVoor";
+            this.txtVoor.Size = new System.Drawing.Size(121, 20);
+            this.txtVoor.TabIndex = 12;
             // 
             // lblPlaatsen
             // 
@@ -199,9 +199,9 @@
             this.Controls.Add(this.xd);
             this.Controls.Add(this.btnBevestigen);
             this.Controls.Add(this.lblPlaatsen);
-            this.Controls.Add(this.txtVoornaam);
-            this.Controls.Add(this.txtAchternaam);
-            this.Controls.Add(this.txtKlasnummer);
+            this.Controls.Add(this.txtVoor);
+            this.Controls.Add(this.txtAchter);
+            this.Controls.Add(this.TxtNummer);
             this.Controls.Add(this.txtGSM);
             this.Controls.Add(this.cmbKlas);
             this.Controls.Add(this.cmbActiviteit);
@@ -232,9 +232,9 @@
         private System.Windows.Forms.ComboBox cmbActiviteit;
         private System.Windows.Forms.ComboBox cmbKlas;
         private System.Windows.Forms.TextBox txtGSM;
-        private System.Windows.Forms.TextBox txtKlasnummer;
-        private System.Windows.Forms.TextBox txtAchternaam;
-        private System.Windows.Forms.TextBox txtVoornaam;
+        private System.Windows.Forms.TextBox TxtNummer;
+        private System.Windows.Forms.TextBox txtAchter;
+        private System.Windows.Forms.TextBox txtVoor;
         private System.Windows.Forms.Label lblPlaatsen;
         private System.Windows.Forms.Button btnBevestigen;
         private System.Windows.Forms.Button xd;

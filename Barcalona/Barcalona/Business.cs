@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace Barcalona
 {
-    class BusinessGebruiker
+    class Business
     {
 
     }
