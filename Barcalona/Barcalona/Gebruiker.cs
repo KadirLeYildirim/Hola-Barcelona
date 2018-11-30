@@ -45,6 +45,7 @@ namespace Barcalona
         {
             Administrator frm = new Administrator();
             frm.Show();
+            this.Hide();
         }
     }
 }

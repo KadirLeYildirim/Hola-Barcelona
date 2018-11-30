@@ -9,13 +9,14 @@ namespace Barcalona
 {
     class PersistenceGebruiker
     {
-        private string ConnectionString = "server = localhost; userid=root; database=classicmodels;password=Test123";
+        private string ConnectionString = "server = localhost; userid=root; database=barcelona;password=Test123";
 
         MySqlConnection Connection = new MySqlConnection();
     }
 
-    //public void AddLeerling(Leerling item)
-    //{
-
-    //}
+    public List<Leerling> AddLeerling(Leerling item)
+    {
+        List<Leerling> List
+        return;
+    }
 }
