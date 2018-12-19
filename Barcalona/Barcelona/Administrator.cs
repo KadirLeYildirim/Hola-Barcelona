@@ -37,5 +37,10 @@ namespace Barcelona
             VoegBegeleiderToe Leerkracht = new VoegBegeleiderToe();
             Leerkracht.Show();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

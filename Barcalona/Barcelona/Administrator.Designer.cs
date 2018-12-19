@@ -45,6 +45,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.rdbVoormiddag = new System.Windows.Forms.RadioButton();
             this.rdbNamiddag = new System.Windows.Forms.RadioButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,7 +105,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(384, 117);
+            this.label2.Location = new System.Drawing.Point(384, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 5;
@@ -111,7 +114,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(384, 66);
+            this.label4.Location = new System.Drawing.Point(384, 42);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 13);
             this.label4.TabIndex = 7;
@@ -120,7 +123,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(384, 40);
+            this.label5.Location = new System.Drawing.Point(384, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 8;
@@ -128,7 +131,7 @@
             // 
             // txtNaam
             // 
-            this.txtNaam.Location = new System.Drawing.Point(567, 37);
+            this.txtNaam.Location = new System.Drawing.Point(567, 13);
             this.txtNaam.Name = "txtNaam";
             this.txtNaam.Size = new System.Drawing.Size(100, 20);
             this.txtNaam.TabIndex = 9;
@@ -136,7 +139,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(384, 92);
+            this.label6.Location = new System.Drawing.Point(384, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 13);
             this.label6.TabIndex = 10;
@@ -144,14 +147,14 @@
             // 
             // txtAantalPlaatsen
             // 
-            this.txtAantalPlaatsen.Location = new System.Drawing.Point(567, 89);
+            this.txtAantalPlaatsen.Location = new System.Drawing.Point(567, 65);
             this.txtAantalPlaatsen.Name = "txtAantalPlaatsen";
             this.txtAantalPlaatsen.Size = new System.Drawing.Size(100, 20);
             this.txtAantalPlaatsen.TabIndex = 12;
             // 
             // txtPrijs
             // 
-            this.txtPrijs.Location = new System.Drawing.Point(567, 63);
+            this.txtPrijs.Location = new System.Drawing.Point(567, 39);
             this.txtPrijs.Name = "txtPrijs";
             this.txtPrijs.Size = new System.Drawing.Size(100, 20);
             this.txtPrijs.TabIndex = 13;
@@ -159,7 +162,7 @@
             // lstOmschrijving
             // 
             this.lstOmschrijving.FormattingEnabled = true;
-            this.lstOmschrijving.Location = new System.Drawing.Point(476, 161);
+            this.lstOmschrijving.Location = new System.Drawing.Point(476, 137);
             this.lstOmschrijving.Name = "lstOmschrijving";
             this.lstOmschrijving.Size = new System.Drawing.Size(191, 56);
             this.lstOmschrijving.TabIndex = 14;
@@ -167,7 +170,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(384, 161);
+            this.label7.Location = new System.Drawing.Point(384, 137);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 13);
             this.label7.TabIndex = 15;
@@ -176,7 +179,7 @@
             // rdbVoormiddag
             // 
             this.rdbVoormiddag.AutoSize = true;
-            this.rdbVoormiddag.Location = new System.Drawing.Point(567, 115);
+            this.rdbVoormiddag.Location = new System.Drawing.Point(567, 91);
             this.rdbVoormiddag.Name = "rdbVoormiddag";
             this.rdbVoormiddag.Size = new System.Drawing.Size(81, 17);
             this.rdbVoormiddag.TabIndex = 16;
@@ -187,7 +190,7 @@
             // rdbNamiddag
             // 
             this.rdbNamiddag.AutoSize = true;
-            this.rdbNamiddag.Location = new System.Drawing.Point(567, 138);
+            this.rdbNamiddag.Location = new System.Drawing.Point(567, 114);
             this.rdbNamiddag.Name = "rdbNamiddag";
             this.rdbNamiddag.Size = new System.Drawing.Size(73, 17);
             this.rdbNamiddag.TabIndex = 17;
@@ -195,11 +198,41 @@
             this.rdbNamiddag.Text = "Namiddag";
             this.rdbNamiddag.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(546, 199);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 18;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(384, 202);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Kies een begeleider";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(273, 242);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(251, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "(als er meerder zijn moet je gewoon nog een kiezen)";
+            // 
             // Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 514);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.rdbNamiddag);
             this.Controls.Add(this.rdbVoormiddag);
             this.Controls.Add(this.label7);
@@ -244,5 +277,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton rdbVoormiddag;
         private System.Windows.Forms.RadioButton rdbNamiddag;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label8;
     }
 }
