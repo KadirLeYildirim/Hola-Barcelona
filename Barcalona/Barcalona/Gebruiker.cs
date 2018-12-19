@@ -26,8 +26,7 @@ namespace Barcalona
 
         private void Gebruiker_Load(object sender, EventArgs e)
         {
-            string strITN = "6ITN";
-            cmbKlas.Items.Add() = strITN;
+
         }
 
         private void btnVolgende_Click(object sender, EventArgs e)

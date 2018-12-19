@@ -48,7 +48,7 @@
             // 
             // btnVolgende
             // 
-            this.btnVolgende.Location = new System.Drawing.Point(409, 148);
+            this.btnVolgende.Location = new System.Drawing.Point(334, 98);
             this.btnVolgende.Name = "btnVolgende";
             this.btnVolgende.Size = new System.Drawing.Size(75, 23);
             this.btnVolgende.TabIndex = 0;
@@ -77,7 +77,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 68);
+            this.label3.Location = new System.Drawing.Point(51, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 3;
@@ -173,7 +173,7 @@
             // btnBevestigen
             // 
             this.btnBevestigen.Enabled = false;
-            this.btnBevestigen.Location = new System.Drawing.Point(409, 184);
+            this.btnBevestigen.Location = new System.Drawing.Point(334, 134);
             this.btnBevestigen.Name = "btnBevestigen";
             this.btnBevestigen.Size = new System.Drawing.Size(75, 23);
             this.btnBevestigen.TabIndex = 14;
@@ -183,7 +183,7 @@
             // 
             // xd
             // 
-            this.xd.Location = new System.Drawing.Point(417, 98);
+            this.xd.Location = new System.Drawing.Point(490, 198);
             this.xd.Name = "xd";
             this.xd.Size = new System.Drawing.Size(75, 23);
             this.xd.TabIndex = 15;

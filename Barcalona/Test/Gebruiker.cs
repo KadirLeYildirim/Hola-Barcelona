@@ -77,6 +77,7 @@ namespace Barcalona
 
         private void xd_Click(object sender, EventArgs e)
         {
+
         }
     }
 }

@@ -44,6 +44,7 @@
             this.lblPlaatsen = new System.Windows.Forms.Label();
             this.btnBevestigen = new System.Windows.Forms.Button();
             this.xd = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.SuspendLayout();
             // 
             // btnVolgende
@@ -191,11 +192,19 @@
             this.xd.UseVisualStyleBackColor = true;
             this.xd.Click += new System.EventHandler(this.xd_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(583, 24);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // Gebruiker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 229);
+            this.ClientSize = new System.Drawing.Size(583, 241);
             this.Controls.Add(this.xd);
             this.Controls.Add(this.btnBevestigen);
             this.Controls.Add(this.lblPlaatsen);
@@ -212,6 +221,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnVolgende);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Gebruiker";
             this.Text = "Barcalona";
             this.Load += new System.EventHandler(this.Gebruiker_Load);
@@ -238,6 +249,7 @@
         private System.Windows.Forms.Label lblPlaatsen;
         private System.Windows.Forms.Button btnBevestigen;
         private System.Windows.Forms.Button xd;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
 

@@ -60,7 +60,7 @@
             // rdbVoormiddag
             // 
             this.rdbVoormiddag.AutoSize = true;
-            this.rdbVoormiddag.Location = new System.Drawing.Point(504, 90);
+            this.rdbVoormiddag.Location = new System.Drawing.Point(547, 113);
             this.rdbVoormiddag.Name = "rdbVoormiddag";
             this.rdbVoormiddag.Size = new System.Drawing.Size(81, 17);
             this.rdbVoormiddag.TabIndex = 14;
@@ -71,7 +71,7 @@
             // rdbNamiddag
             // 
             this.rdbNamiddag.AutoSize = true;
-            this.rdbNamiddag.Location = new System.Drawing.Point(512, 113);
+            this.rdbNamiddag.Location = new System.Drawing.Point(555, 136);
             this.rdbNamiddag.Name = "rdbNamiddag";
             this.rdbNamiddag.Size = new System.Drawing.Size(73, 17);
             this.rdbNamiddag.TabIndex = 15;
@@ -93,7 +93,7 @@
             this.Column1});
             this.dtvDagen.Location = new System.Drawing.Point(12, 259);
             this.dtvDagen.Name = "dtvDagen";
-            this.dtvDagen.Size = new System.Drawing.Size(573, 192);
+            this.dtvDagen.Size = new System.Drawing.Size(635, 192);
             this.dtvDagen.TabIndex = 17;
             this.dtvDagen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvDagen_CellContentClick);
             // 
@@ -113,7 +113,7 @@
             // 
             // TxtNaamAc
             // 
-            this.TxtNaamAc.Location = new System.Drawing.Point(430, 9);
+            this.TxtNaamAc.Location = new System.Drawing.Point(473, 32);
             this.TxtNaamAc.Name = "TxtNaamAc";
             this.TxtNaamAc.Size = new System.Drawing.Size(155, 20);
             this.TxtNaamAc.TabIndex = 19;
@@ -121,7 +121,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(334, 12);
+            this.label2.Location = new System.Drawing.Point(377, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 20;
@@ -130,7 +130,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(334, 41);
+            this.label3.Location = new System.Drawing.Point(377, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 22;
@@ -138,7 +138,7 @@
             // 
             // txtPlaatsen
             // 
-            this.txtPlaatsen.Location = new System.Drawing.Point(531, 38);
+            this.txtPlaatsen.Location = new System.Drawing.Point(574, 61);
             this.txtPlaatsen.Name = "txtPlaatsen";
             this.txtPlaatsen.Size = new System.Drawing.Size(54, 20);
             this.txtPlaatsen.TabIndex = 23;
@@ -146,7 +146,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(334, 67);
+            this.label5.Location = new System.Drawing.Point(377, 90);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 26;
@@ -154,7 +154,7 @@
             // 
             // txtKosten
             // 
-            this.txtKosten.Location = new System.Drawing.Point(531, 64);
+            this.txtKosten.Location = new System.Drawing.Point(574, 87);
             this.txtKosten.Name = "txtKosten";
             this.txtKosten.Size = new System.Drawing.Size(54, 20);
             this.txtKosten.TabIndex = 25;
@@ -170,7 +170,7 @@
             // 
             // btnVoegBegeleider
             // 
-            this.btnVoegBegeleider.Location = new System.Drawing.Point(337, 136);
+            this.btnVoegBegeleider.Location = new System.Drawing.Point(380, 159);
             this.btnVoegBegeleider.Name = "btnVoegBegeleider";
             this.btnVoegBegeleider.Size = new System.Drawing.Size(116, 23);
             this.btnVoegBegeleider.TabIndex = 28;
@@ -180,7 +180,7 @@
             // cmbBegeleiders
             // 
             this.cmbBegeleiders.FormattingEnabled = true;
-            this.cmbBegeleiders.Location = new System.Drawing.Point(459, 138);
+            this.cmbBegeleiders.Location = new System.Drawing.Point(502, 161);
             this.cmbBegeleiders.Name = "cmbBegeleiders";
             this.cmbBegeleiders.Size = new System.Drawing.Size(126, 21);
             this.cmbBegeleiders.TabIndex = 29;
@@ -188,7 +188,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(334, 104);
+            this.label4.Location = new System.Drawing.Point(377, 127);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 30;
@@ -198,7 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 463);
+            this.ClientSize = new System.Drawing.Size(659, 463);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbBegeleiders);
             this.Controls.Add(this.btnVoegBegeleider);
