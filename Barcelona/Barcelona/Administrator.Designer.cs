@@ -44,7 +44,7 @@
             this.rdbVoormiddag = new System.Windows.Forms.RadioButton();
             this.rdbNamiddag = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBevestigen = new System.Windows.Forms.Button();
             this.clbBegeleiders = new System.Windows.Forms.CheckedListBox();
             this.lstNamen = new System.Windows.Forms.ListBox();
             this.txtOmschrijving = new System.Windows.Forms.TextBox();
@@ -191,15 +191,15 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Kies een begeleider";
             // 
-            // button1
+            // btnBevestigen
             // 
-            this.button1.Location = new System.Drawing.Point(387, 230);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 63);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Bevestig";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBevestigen.Location = new System.Drawing.Point(387, 230);
+            this.btnBevestigen.Name = "btnBevestigen";
+            this.btnBevestigen.Size = new System.Drawing.Size(97, 63);
+            this.btnBevestigen.TabIndex = 9;
+            this.btnBevestigen.Text = "Bevestig";
+            this.btnBevestigen.UseVisualStyleBackColor = true;
+            this.btnBevestigen.Click += new System.EventHandler(this.button1_Click);
             // 
             // clbBegeleiders
             // 
@@ -234,7 +234,7 @@
             this.Controls.Add(this.txtOmschrijving);
             this.Controls.Add(this.lstNamen);
             this.Controls.Add(this.clbBegeleiders);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBevestigen);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.rdbNamiddag);
             this.Controls.Add(this.rdbVoormiddag);
@@ -276,7 +276,7 @@
         private System.Windows.Forms.RadioButton rdbVoormiddag;
         private System.Windows.Forms.RadioButton rdbNamiddag;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBevestigen;
         private System.Windows.Forms.CheckedListBox clbBegeleiders;
         private System.Windows.Forms.ListBox lstNamen;
         private System.Windows.Forms.TextBox txtOmschrijving;
