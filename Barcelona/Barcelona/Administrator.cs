@@ -12,6 +12,7 @@ namespace Barcelona
 {
     public partial class Administrator : Form
     {
+        Business bus = new Business();
         public Administrator()
         {
             InitializeComponent();
@@ -19,6 +20,11 @@ namespace Barcelona
 
         private void Administrator_Load(object sender, EventArgs e)
         {
+            clbBegeleiders.Items.Clear();
+            foreach (string lijn in bus.getBegeleiders2())
+            {
+                clbBegeleiders.Items.Add(lijn);
+            }
 
         }
 
@@ -36,11 +42,80 @@ namespace Barcelona
         {
             VoegBegeleiderToe Leerkracht = new VoegBegeleiderToe();
             Leerkracht.Show();
+            this.Close();
+            clbBegeleiders.Items.Clear();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVoegActiviteitToe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string strUur = "_";
+            if (rdbNamiddag.Checked == true)
+            {
+                strUur = "De namiddag";
+            }
+            if (rdbVoormiddag.Checked == true)
+            {
+                strUur="De voormiddag";
+            }
+            foreach(string item in clbBegeleiders.SelectedItems)
+            {
+                string strLetter = "", strNaam = "";
+                for (int i = 0; i < item.Length; i++)
+                {
+                    strLetter = item.Substring(i, 1);
+                    if (strLetter == " ")
+                    {
+                        i = item.Length;
+                    }
+                    strNaam += strLetter;
+                }
+                bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
+            }
+            bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
+                Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur);
+            
+            makeEmpty();
+        }
+
+        private void clbBegeleiders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btnOverzetten_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void mclDag_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        public void makeEmpty()
+        {
+            txtNaam.Text = "";
+            txtAantalPlaatsen.Text = "";
+            txtPrijs.Text = "";
+            txtOmschrijving.Text = "";
+            rdbVoormiddag.Checked = false;
+            rdbVoormiddag.Checked = false;
+            mclDag.ShowToday = true;
+            clbBegeleiders.Items.Clear();
+            foreach (string lijn in bus.getBegeleiders2())
+            {
+                clbBegeleiders.Items.Add(lijn);
+            }
         }
     }
 }

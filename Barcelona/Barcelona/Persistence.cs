@@ -47,6 +47,52 @@ namespace Barcelona
 
             return lijst;
         }
+        public void addActiviteitToDB(Activiteit item)
+        {
+            string strDag, strMaand, strJaar, strDatum;
+            strDag = item.datum.ToString().Substring(0,2);
+            strMaand = item.datum.ToString().Substring(3, 2);
+            strJaar = item.datum.ToString().Substring(6, 4);
+            strDatum = strJaar + "-" + strMaand + "-" + strDag;
+
+            MySqlCommand cmd = new MySqlCommand("insert into barcelona.activiteiten" +
+                "(`ActiviteitNaam`,`Omschrijving`,`Kostprijs`,`AantalPlaatsen`,`AantalDeelnemers`,`ActiviteitDag`,`ActiviteitUUr`)" +
+                "values('" + item.naam + "', '" + item.omschrijving + "'," + item.kostprijs + "," +item.plaatsen + ","+item.deelnemers+",'"+strDatum+"','"+item.uur+"')",conn);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+
+        }
+        public void connectActiviteitBegeleiderInDB(string pstrNaam, string pstrAcNaam)
+        {
+            int intIDBegeleider, intIDActiviteit;
+            MySqlCommand cmd = new MySqlCommand("select idBegeleider from barcelona.begeleiders where BegeleiderVoornaam='" + pstrNaam + "'", conn);
+            conn.Open();
+            intIDBegeleider = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            MySqlCommand cmd2 = new MySqlCommand("select idActiviteit from barcelona.activiteiten where ActiviteitNaam='" + pstrAcNaam + "'", conn);
+            conn.Open();
+            intIDActiviteit = Convert.ToInt32(cmd2.ExecuteScalar());
+            conn.Close();
+
+            MySqlCommand cmd3 = new MySqlCommand("insert into barcelona.activiteiten_begeleiders(`Activiteiten_idActiviteiten`,`Begeleiders_idBegeleiders`) values("+intIDActiviteit+","+intIDBegeleider+")", conn);
+            conn.Open();
+            cmd3.ExecuteNonQuery();
+            conn.Close();
+        }
+        public List<Activiteit> getActiviteitenFromDB()
+        {
+            List<Activiteit> lijst = new List<Activiteit>();
+
+            MySqlCommand cmd = new MySqlCommand("", conn);
+
+
+            return lijst;
+        }
+
 
     }
 }

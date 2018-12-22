@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnVoegActiviteitToe = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvKalender = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVoegLeerkrachtToe = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.mclDag = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,36 +40,28 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtAantalPlaatsen = new System.Windows.Forms.TextBox();
             this.txtPrijs = new System.Windows.Forms.TextBox();
-            this.lstOmschrijving = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.rdbVoormiddag = new System.Windows.Forms.RadioButton();
             this.rdbNamiddag = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.clbBegeleiders = new System.Windows.Forms.CheckedListBox();
+            this.lstNamen = new System.Windows.Forms.ListBox();
+            this.txtOmschrijving = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKalender)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnVoegActiviteitToe
+            // dgvKalender
             // 
-            this.btnVoegActiviteitToe.Location = new System.Drawing.Point(12, 12);
-            this.btnVoegActiviteitToe.Name = "btnVoegActiviteitToe";
-            this.btnVoegActiviteitToe.Size = new System.Drawing.Size(100, 41);
-            this.btnVoegActiviteitToe.TabIndex = 0;
-            this.btnVoegActiviteitToe.Text = "Voeg een activiteit toe";
-            this.btnVoegActiviteitToe.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvKalender.AllowUserToOrderColumns = true;
+            this.dgvKalender.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKalender.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 294);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(655, 208);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvKalender.Location = new System.Drawing.Point(12, 305);
+            this.dgvKalender.Name = "dgvKalender";
+            this.dgvKalender.Size = new System.Drawing.Size(655, 208);
+            this.dgvKalender.TabIndex = 1;
+            this.dgvKalender.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 
@@ -79,7 +70,7 @@
             // 
             // btnVoegLeerkrachtToe
             // 
-            this.btnVoegLeerkrachtToe.Location = new System.Drawing.Point(12, 59);
+            this.btnVoegLeerkrachtToe.Location = new System.Drawing.Point(12, 12);
             this.btnVoegLeerkrachtToe.Name = "btnVoegLeerkrachtToe";
             this.btnVoegLeerkrachtToe.Size = new System.Drawing.Size(100, 41);
             this.btnVoegLeerkrachtToe.TabIndex = 2;
@@ -87,11 +78,12 @@
             this.btnVoegLeerkrachtToe.UseVisualStyleBackColor = true;
             this.btnVoegLeerkrachtToe.Click += new System.EventHandler(this.btnVoegLeerkrachtToe_Click);
             // 
-            // monthCalendar1
+            // mclDag
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(145, 31);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 3;
+            this.mclDag.Location = new System.Drawing.Point(145, 31);
+            this.mclDag.Name = "mclDag";
+            this.mclDag.TabIndex = 3;
+            this.mclDag.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mclDag_DateChanged);
             // 
             // label1
             // 
@@ -159,14 +151,6 @@
             this.txtPrijs.Size = new System.Drawing.Size(100, 20);
             this.txtPrijs.TabIndex = 13;
             // 
-            // lstOmschrijving
-            // 
-            this.lstOmschrijving.FormattingEnabled = true;
-            this.lstOmschrijving.Location = new System.Drawing.Point(476, 137);
-            this.lstOmschrijving.Name = "lstOmschrijving";
-            this.lstOmschrijving.Size = new System.Drawing.Size(191, 56);
-            this.lstOmschrijving.TabIndex = 14;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -198,15 +182,6 @@
             this.rdbNamiddag.Text = "Namiddag";
             this.rdbNamiddag.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(546, 199);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 18;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -216,27 +191,54 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Kies een begeleider";
             // 
-            // label8
+            // button1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(273, 242);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(251, 13);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "(als er meerder zijn moet je gewoon nog een kiezen)";
+            this.button1.Location = new System.Drawing.Point(387, 230);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 63);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Bevestig";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // clbBegeleiders
+            // 
+            this.clbBegeleiders.FormattingEnabled = true;
+            this.clbBegeleiders.Location = new System.Drawing.Point(507, 199);
+            this.clbBegeleiders.Name = "clbBegeleiders";
+            this.clbBegeleiders.Size = new System.Drawing.Size(160, 94);
+            this.clbBegeleiders.TabIndex = 21;
+            this.clbBegeleiders.SelectedIndexChanged += new System.EventHandler(this.clbBegeleiders_SelectedIndexChanged);
+            // 
+            // lstNamen
+            // 
+            this.lstNamen.FormattingEnabled = true;
+            this.lstNamen.Location = new System.Drawing.Point(93, 202);
+            this.lstNamen.Name = "lstNamen";
+            this.lstNamen.Size = new System.Drawing.Size(197, 56);
+            this.lstNamen.TabIndex = 22;
+            // 
+            // txtOmschrijving
+            // 
+            this.txtOmschrijving.Location = new System.Drawing.Point(493, 134);
+            this.txtOmschrijving.Multiline = true;
+            this.txtOmschrijving.Name = "txtOmschrijving";
+            this.txtOmschrijving.Size = new System.Drawing.Size(174, 59);
+            this.txtOmschrijving.TabIndex = 23;
             // 
             // Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 514);
-            this.Controls.Add(this.label8);
+            this.ClientSize = new System.Drawing.Size(679, 525);
+            this.Controls.Add(this.txtOmschrijving);
+            this.Controls.Add(this.lstNamen);
+            this.Controls.Add(this.clbBegeleiders);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.rdbNamiddag);
             this.Controls.Add(this.rdbVoormiddag);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.lstOmschrijving);
             this.Controls.Add(this.txtPrijs);
             this.Controls.Add(this.txtAantalPlaatsen);
             this.Controls.Add(this.label6);
@@ -245,26 +247,23 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.mclDag);
             this.Controls.Add(this.btnVoegLeerkrachtToe);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnVoegActiviteitToe);
+            this.Controls.Add(this.dgvKalender);
             this.Name = "Administrator";
             this.Text = "Administrator";
             this.Load += new System.EventHandler(this.Administrator_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKalender)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnVoegActiviteitToe;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvKalender;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button btnVoegLeerkrachtToe;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar mclDag;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -273,12 +272,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAantalPlaatsen;
         private System.Windows.Forms.TextBox txtPrijs;
-        private System.Windows.Forms.ListBox lstOmschrijving;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton rdbVoormiddag;
         private System.Windows.Forms.RadioButton rdbNamiddag;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckedListBox clbBegeleiders;
+        private System.Windows.Forms.ListBox lstNamen;
+        private System.Windows.Forms.TextBox txtOmschrijving;
     }
 }

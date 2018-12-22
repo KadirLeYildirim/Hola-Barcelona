@@ -50,6 +50,28 @@ namespace Barcelona
 
             return result;
         }
+        public List<string> getBegeleiders2()
+        {
+            List<string> result = new List<string>();
+
+            foreach (Begeleider item in pers.GetBegeleidersFromDB())
+            {
+                result.Add(item.AlleenNaam());
+            }
+
+            return result;
+        }
+        public void addActiviteit(string pstrNaam, string pstrOmschrijving, double pdblKost,
+            int pintPlaatsen, DateTime pdteDatum, string pstrUur)
+        {
+            Activiteit item = new Activiteit(pstrNaam, pstrOmschrijving, pdblKost, pintPlaatsen,
+                0, pdteDatum, pstrUur);
+            pers.addActiviteitToDB(item);
+        }
+        public void connectActiviteitBegeleider(string pstrBegeleider, string pstrActiviteit)
+        {
+            pers.connectActiviteitBegeleiderInDB(pstrBegeleider, pstrActiviteit);
+        }
 
 
     }

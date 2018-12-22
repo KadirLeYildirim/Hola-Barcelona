@@ -20,10 +20,12 @@ namespace Barcelona
 
         private void VoegLeerkrachtToe_Load(object sender, EventArgs e)
         {
+            lstBegeleiders.Items.Clear();
             foreach(string lijn in bus.getBegeleiders())
             {
                 lstBegeleiders.Items.Add(lijn);
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,10 +36,13 @@ namespace Barcelona
             {
                 lstBegeleiders.Items.Add(lijn);
             }
+           
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
+            Administrator admin = new Administrator();
+            admin.Show();
             this.Close();
         }
 

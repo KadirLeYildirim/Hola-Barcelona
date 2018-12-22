@@ -47,12 +47,19 @@ namespace Barcelona
             _achternaam = pstrAchternaam;
             _gsmNummer = pstrGsmnummer;
         }
+        public Begeleider(int pintID)
+        {
+            _id = pintID;
+        }
 
         public override string ToString()
         {
             return _id + "= Naam:" + _voornaam + _achternaam + " gsm nummer: " + _gsmNummer;
         }
-
+        public string AlleenNaam()
+        {
+            return _voornaam + " " + _achternaam;
+        }
 
     }
 }
