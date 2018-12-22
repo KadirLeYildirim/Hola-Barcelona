@@ -60,7 +60,7 @@
             this.btnBevestigen.Location = new System.Drawing.Point(177, 100);
             this.btnBevestigen.Name = "btnBevestigen";
             this.btnBevestigen.Size = new System.Drawing.Size(110, 57);
-            this.btnBevestigen.TabIndex = 2;
+            this.btnBevestigen.TabIndex = 4;
             this.btnBevestigen.Text = "Bevestigen";
             this.btnBevestigen.UseVisualStyleBackColor = true;
             this.btnBevestigen.Click += new System.EventHandler(this.button1_Click);
@@ -88,21 +88,21 @@
             this.txtGsmNummer.Location = new System.Drawing.Point(140, 68);
             this.txtGsmNummer.Name = "txtGsmNummer";
             this.txtGsmNummer.Size = new System.Drawing.Size(147, 20);
-            this.txtGsmNummer.TabIndex = 7;
+            this.txtGsmNummer.TabIndex = 3;
             // 
             // txtAchternaam
             // 
             this.txtAchternaam.Location = new System.Drawing.Point(140, 42);
             this.txtAchternaam.Name = "txtAchternaam";
             this.txtAchternaam.Size = new System.Drawing.Size(147, 20);
-            this.txtAchternaam.TabIndex = 8;
+            this.txtAchternaam.TabIndex = 2;
             // 
             // btnAnnuleren
             // 
             this.btnAnnuleren.Location = new System.Drawing.Point(12, 100);
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(110, 57);
-            this.btnAnnuleren.TabIndex = 10;
+            this.btnAnnuleren.TabIndex = 5;
             this.btnAnnuleren.Text = "Terug naar administator";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
             this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);

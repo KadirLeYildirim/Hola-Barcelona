@@ -67,7 +67,9 @@ namespace Barcelona
             {
                 strUur="De voormiddag";
             }
-            foreach(string item in clbBegeleiders.SelectedItems)
+            bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
+    Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur);
+            foreach (string item in clbBegeleiders.SelectedItems)
             {
                 string strLetter = "", strNaam = "";
                 for (int i = 0; i < item.Length; i++)
@@ -81,8 +83,6 @@ namespace Barcelona
                 }
                 bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
             }
-            bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
-                Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur);
             
             makeEmpty();
         }

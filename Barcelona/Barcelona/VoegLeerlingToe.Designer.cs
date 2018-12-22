@@ -50,7 +50,7 @@
             this.txtVoornaam.Location = new System.Drawing.Point(147, 23);
             this.txtVoornaam.Name = "txtVoornaam";
             this.txtVoornaam.Size = new System.Drawing.Size(121, 20);
-            this.txtVoornaam.TabIndex = 0;
+            this.txtVoornaam.TabIndex = 1;
             // 
             // label1
             // 
@@ -73,7 +73,7 @@
             this.txtAchternaam.Location = new System.Drawing.Point(147, 49);
             this.txtAchternaam.Name = "txtAchternaam";
             this.txtAchternaam.Size = new System.Drawing.Size(121, 20);
-            this.txtAchternaam.TabIndex = 4;
+            this.txtAchternaam.TabIndex = 2;
             this.txtAchternaam.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label2
@@ -107,15 +107,15 @@
             // 
             this.cmbKlas.FormattingEnabled = true;
             this.cmbKlas.Items.AddRange(new object[] {
-            "6ITN",
             "6AIT",
+            "6ITN",
             "6MO1",
             "6MO2",
             "6OMC"});
             this.cmbKlas.Location = new System.Drawing.Point(195, 101);
             this.cmbKlas.Name = "cmbKlas";
             this.cmbKlas.Size = new System.Drawing.Size(73, 21);
-            this.cmbKlas.TabIndex = 8;
+            this.cmbKlas.TabIndex = 4;
             // 
             // label4
             // 
@@ -132,7 +132,7 @@
             this.cmbKeuze.Location = new System.Drawing.Point(333, 75);
             this.cmbKeuze.Name = "cmbKeuze";
             this.cmbKeuze.Size = new System.Drawing.Size(121, 21);
-            this.cmbKeuze.TabIndex = 10;
+            this.cmbKeuze.TabIndex = 6;
             // 
             // label5
             // 
@@ -158,7 +158,7 @@
             this.button1.Location = new System.Drawing.Point(355, 130);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 38);
-            this.button1.TabIndex = 13;
+            this.button1.TabIndex = 8;
             this.button1.Text = "Bevestigen";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -168,7 +168,7 @@
             this.btnVolgende.Location = new System.Drawing.Point(355, 101);
             this.btnVolgende.Name = "btnVolgende";
             this.btnVolgende.Size = new System.Drawing.Size(99, 23);
-            this.btnVolgende.TabIndex = 14;
+            this.btnVolgende.TabIndex = 7;
             this.btnVolgende.Text = "Volgende";
             this.btnVolgende.UseVisualStyleBackColor = true;
             // 
@@ -177,7 +177,7 @@
             this.btnRegistreer.Location = new System.Drawing.Point(130, 130);
             this.btnRegistreer.Name = "btnRegistreer";
             this.btnRegistreer.Size = new System.Drawing.Size(138, 38);
-            this.btnRegistreer.TabIndex = 15;
+            this.btnRegistreer.TabIndex = 5;
             this.btnRegistreer.Text = "Voeg leerling toe";
             this.btnRegistreer.UseVisualStyleBackColor = true;
             // 

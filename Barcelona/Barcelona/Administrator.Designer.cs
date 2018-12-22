@@ -73,7 +73,7 @@
             this.btnVoegLeerkrachtToe.Location = new System.Drawing.Point(12, 12);
             this.btnVoegLeerkrachtToe.Name = "btnVoegLeerkrachtToe";
             this.btnVoegLeerkrachtToe.Size = new System.Drawing.Size(100, 41);
-            this.btnVoegLeerkrachtToe.TabIndex = 2;
+            this.btnVoegLeerkrachtToe.TabIndex = 10;
             this.btnVoegLeerkrachtToe.Text = "Voeg een begeleider toe";
             this.btnVoegLeerkrachtToe.UseVisualStyleBackColor = true;
             this.btnVoegLeerkrachtToe.Click += new System.EventHandler(this.btnVoegLeerkrachtToe_Click);
@@ -82,7 +82,7 @@
             // 
             this.mclDag.Location = new System.Drawing.Point(145, 31);
             this.mclDag.Name = "mclDag";
-            this.mclDag.TabIndex = 3;
+            this.mclDag.TabIndex = 1;
             this.mclDag.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mclDag_DateChanged);
             // 
             // label1
@@ -126,7 +126,7 @@
             this.txtNaam.Location = new System.Drawing.Point(567, 13);
             this.txtNaam.Name = "txtNaam";
             this.txtNaam.Size = new System.Drawing.Size(100, 20);
-            this.txtNaam.TabIndex = 9;
+            this.txtNaam.TabIndex = 2;
             // 
             // label6
             // 
@@ -142,14 +142,14 @@
             this.txtAantalPlaatsen.Location = new System.Drawing.Point(567, 65);
             this.txtAantalPlaatsen.Name = "txtAantalPlaatsen";
             this.txtAantalPlaatsen.Size = new System.Drawing.Size(100, 20);
-            this.txtAantalPlaatsen.TabIndex = 12;
+            this.txtAantalPlaatsen.TabIndex = 4;
             // 
             // txtPrijs
             // 
             this.txtPrijs.Location = new System.Drawing.Point(567, 39);
             this.txtPrijs.Name = "txtPrijs";
             this.txtPrijs.Size = new System.Drawing.Size(100, 20);
-            this.txtPrijs.TabIndex = 13;
+            this.txtPrijs.TabIndex = 3;
             // 
             // label7
             // 
@@ -166,7 +166,7 @@
             this.rdbVoormiddag.Location = new System.Drawing.Point(567, 91);
             this.rdbVoormiddag.Name = "rdbVoormiddag";
             this.rdbVoormiddag.Size = new System.Drawing.Size(81, 17);
-            this.rdbVoormiddag.TabIndex = 16;
+            this.rdbVoormiddag.TabIndex = 5;
             this.rdbVoormiddag.TabStop = true;
             this.rdbVoormiddag.Text = "Voormiddag";
             this.rdbVoormiddag.UseVisualStyleBackColor = true;
@@ -177,7 +177,7 @@
             this.rdbNamiddag.Location = new System.Drawing.Point(567, 114);
             this.rdbNamiddag.Name = "rdbNamiddag";
             this.rdbNamiddag.Size = new System.Drawing.Size(73, 17);
-            this.rdbNamiddag.TabIndex = 17;
+            this.rdbNamiddag.TabIndex = 6;
             this.rdbNamiddag.TabStop = true;
             this.rdbNamiddag.Text = "Namiddag";
             this.rdbNamiddag.UseVisualStyleBackColor = true;
@@ -196,7 +196,7 @@
             this.button1.Location = new System.Drawing.Point(387, 230);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 63);
-            this.button1.TabIndex = 20;
+            this.button1.TabIndex = 9;
             this.button1.Text = "Bevestig";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -207,7 +207,7 @@
             this.clbBegeleiders.Location = new System.Drawing.Point(507, 199);
             this.clbBegeleiders.Name = "clbBegeleiders";
             this.clbBegeleiders.Size = new System.Drawing.Size(160, 94);
-            this.clbBegeleiders.TabIndex = 21;
+            this.clbBegeleiders.TabIndex = 8;
             this.clbBegeleiders.SelectedIndexChanged += new System.EventHandler(this.clbBegeleiders_SelectedIndexChanged);
             // 
             // lstNamen
@@ -224,7 +224,7 @@
             this.txtOmschrijving.Multiline = true;
             this.txtOmschrijving.Name = "txtOmschrijving";
             this.txtOmschrijving.Size = new System.Drawing.Size(174, 59);
-            this.txtOmschrijving.TabIndex = 23;
+            this.txtOmschrijving.TabIndex = 7;
             // 
             // Administrator
             // 

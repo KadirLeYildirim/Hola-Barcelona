@@ -78,7 +78,7 @@ namespace Barcelona
             intIDActiviteit = Convert.ToInt32(cmd2.ExecuteScalar());
             conn.Close();
 
-            MySqlCommand cmd3 = new MySqlCommand("insert into barcelona.activiteiten_begeleiders(`Activiteiten_idActiviteiten`,`Begeleiders_idBegeleiders`) values("+intIDActiviteit+","+intIDBegeleider+")", conn);
+            MySqlCommand cmd3 = new MySqlCommand("insert into barcelona.activiteiten_begeleiders(`activiteiten_idActiviteit`,`begeleiders_idBegeleider`) values("+intIDActiviteit+","+intIDBegeleider+")", conn);
             conn.Open();
             cmd3.ExecuteNonQuery();
             conn.Close();
