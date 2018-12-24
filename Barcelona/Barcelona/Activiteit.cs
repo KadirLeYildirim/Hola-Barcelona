@@ -82,6 +82,25 @@ namespace Barcelona
             _uur = pstrUur;
         }
 
+        public override string ToString()
+        {
+            return "Activiteit ID: " + _id + " is " + _activiteitNaam + ": " +
+                _omschrijving + Environment.NewLine + "Prijs per persoon: " + _kostprijs +
+                Environment.NewLine + "Heeft " + _deelnemers + " deelnemers en er zijn nog " +
+                _plaatsen + Environment.NewLine + "De activiteit neemt op " + _datum.ToString().Substring(0,10) +
+                " plaats en is tijdens de " + _uur;
+        }
+        public string alleenTijd()
+        {
+            return Convert.ToString(_datum).Substring(0, 10) + "," + _uur;
+        }
+        public string zonderTijd()
+        {
+            return "Activiteit ID: " + _id + " is " + _activiteitNaam + ": " +
+                _omschrijving + Environment.NewLine + "Prijs per persoon: " + _kostprijs +
+                Environment.NewLine + "Heeft " + _deelnemers + " deelnemers en er zijn nog " +
+                _plaatsen;
+        }
 
     }
 }

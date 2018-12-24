@@ -87,9 +87,24 @@ namespace Barcelona
         {
             List<Activiteit> lijst = new List<Activiteit>();
 
-            MySqlCommand cmd = new MySqlCommand("", conn);
+            MySqlCommand cmd = new MySqlCommand("select * from barcelona.activiteiten", conn);
 
-
+            conn.Open();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Activiteit a = new Activiteit(Convert.ToInt32(dataReader["idActiviteit"]),
+                    dataReader["ActiviteitNaam"].ToString(),
+                    dataReader["Omschrijving"].ToString(),
+                    Convert.ToDouble(dataReader["Kostprijs"]),
+                    Convert.ToInt32(dataReader["AantalPlaatsen"]),
+                    Convert.ToInt32(dataReader["AantalDeelnemers"]),
+                    Convert.ToDateTime(dataReader["ActiviteitDag"]),
+                    dataReader["ActiviteitUUr"].ToString());
+                lijst.Add(a);
+            }
+            conn.Close();
+            
             return lijst;
         }
 

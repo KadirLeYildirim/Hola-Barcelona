@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvKalender = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVoegLeerkrachtToe = new System.Windows.Forms.Button();
             this.mclDag = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,8 +45,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnBevestigen = new System.Windows.Forms.Button();
             this.clbBegeleiders = new System.Windows.Forms.CheckedListBox();
-            this.lstNamen = new System.Windows.Forms.ListBox();
             this.txtOmschrijving = new System.Windows.Forms.TextBox();
+            this.lstActiviteiten = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKalender)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,18 +54,11 @@
             // 
             this.dgvKalender.AllowUserToOrderColumns = true;
             this.dgvKalender.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKalender.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
             this.dgvKalender.Location = new System.Drawing.Point(12, 305);
             this.dgvKalender.Name = "dgvKalender";
             this.dgvKalender.Size = new System.Drawing.Size(655, 208);
             this.dgvKalender.TabIndex = 1;
             this.dgvKalender.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
             // 
             // btnVoegLeerkrachtToe
             // 
@@ -210,14 +202,6 @@
             this.clbBegeleiders.TabIndex = 8;
             this.clbBegeleiders.SelectedIndexChanged += new System.EventHandler(this.clbBegeleiders_SelectedIndexChanged);
             // 
-            // lstNamen
-            // 
-            this.lstNamen.FormattingEnabled = true;
-            this.lstNamen.Location = new System.Drawing.Point(93, 202);
-            this.lstNamen.Name = "lstNamen";
-            this.lstNamen.Size = new System.Drawing.Size(197, 56);
-            this.lstNamen.TabIndex = 22;
-            // 
             // txtOmschrijving
             // 
             this.txtOmschrijving.Location = new System.Drawing.Point(493, 134);
@@ -226,13 +210,21 @@
             this.txtOmschrijving.Size = new System.Drawing.Size(174, 59);
             this.txtOmschrijving.TabIndex = 7;
             // 
+            // lstActiviteiten
+            // 
+            this.lstActiviteiten.FormattingEnabled = true;
+            this.lstActiviteiten.Location = new System.Drawing.Point(33, 199);
+            this.lstActiviteiten.Name = "lstActiviteiten";
+            this.lstActiviteiten.Size = new System.Drawing.Size(315, 95);
+            this.lstActiviteiten.TabIndex = 20;
+            // 
             // Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 525);
+            this.Controls.Add(this.lstActiviteiten);
             this.Controls.Add(this.txtOmschrijving);
-            this.Controls.Add(this.lstNamen);
             this.Controls.Add(this.clbBegeleiders);
             this.Controls.Add(this.btnBevestigen);
             this.Controls.Add(this.label3);
@@ -261,7 +253,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvKalender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button btnVoegLeerkrachtToe;
         private System.Windows.Forms.MonthCalendar mclDag;
         private System.Windows.Forms.Label label1;
@@ -278,7 +269,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnBevestigen;
         private System.Windows.Forms.CheckedListBox clbBegeleiders;
-        private System.Windows.Forms.ListBox lstNamen;
         private System.Windows.Forms.TextBox txtOmschrijving;
+        private System.Windows.Forms.ListBox lstActiviteiten;
     }
 }

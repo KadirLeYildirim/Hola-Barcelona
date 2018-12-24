@@ -61,6 +61,7 @@ namespace Barcelona
 
             return result;
         }
+
         public void addActiviteit(string pstrNaam, string pstrOmschrijving, double pdblKost,
             int pintPlaatsen, DateTime pdteDatum, string pstrUur)
         {
@@ -72,7 +73,39 @@ namespace Barcelona
         {
             pers.connectActiviteitBegeleiderInDB(pstrBegeleider, pstrActiviteit);
         }
+        public List<string> getActiviteiten()
+        {
+            List<string> result = new List<string>();
 
+            foreach(Activiteit item in pers.getActiviteitenFromDB())
+            {
+                result.Add(item.ToString());
+            }
+
+            return result;
+        }
+        public List<string> getDatumActiviteiten()
+        {
+            List<string> result = new List<string>();
+
+            foreach(Activiteit item in pers.getActiviteitenFromDB())
+            {
+                result.Add(item.alleenTijd());
+            }
+
+            return result;
+        }
+        public List<string> getActiviteitenZonderTijd()
+        {
+            List<string> result = new List<string>();
+
+            foreach (Activiteit item in pers.getActiviteitenFromDB())
+            {
+                result.Add(item.zonderTijd());
+            }
+
+            return result;
+        }
 
     }
 }

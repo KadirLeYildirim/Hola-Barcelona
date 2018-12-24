@@ -25,7 +25,17 @@ namespace Barcelona
             {
                 clbBegeleiders.Items.Add(lijn);
             }
-
+            dgvKalender.Columns.Clear();
+            dgvKalender.Rows.Clear();
+            foreach(string lijn in bus.getDatumActiviteiten())
+            {
+                dgvKalender.Columns.Add("",lijn);
+            }
+            foreach(string lijn in bus.getActiviteitenZonderTijd())
+            {
+                dgvKalender.Rows.Add(lijn);
+            }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -83,8 +93,18 @@ namespace Barcelona
                 }
                 bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
             }
-            
             makeEmpty();
+
+            dgvKalender.Columns.Clear();
+            dgvKalender.Rows.Clear();
+            foreach (string lijn in bus.getDatumActiviteiten())
+            {
+                dgvKalender.Columns.Add("", lijn);
+            }
+            foreach (string lijn in bus.getActiviteitenZonderTijd())
+            {
+                dgvKalender.Rows.Add(lijn);
+            }
         }
 
         private void clbBegeleiders_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,5 +137,7 @@ namespace Barcelona
                 clbBegeleiders.Items.Add(lijn);
             }
         }
+
+
     }
 }
