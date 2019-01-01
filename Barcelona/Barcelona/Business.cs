@@ -88,24 +88,26 @@ namespace Barcelona
         {
             List<string> result = new List<string>();
 
-            foreach(Activiteit item in pers.getActiviteitenFromDB())
+            foreach(Activiteit item in pers.getDatumActiviteitenFromDB())
             {
                 result.Add(item.alleenTijd());
             }
 
             return result;
         }
-        public List<string> getActiviteitenZonderTijd()
+        public List<string> getNaamActiviteiten()
         {
             List<string> result = new List<string>();
 
             foreach (Activiteit item in pers.getActiviteitenFromDB())
             {
-                result.Add(item.zonderTijd());
+                result.Add(item.alleenNaam());
             }
 
             return result;
         }
+
+        
 
     }
 }

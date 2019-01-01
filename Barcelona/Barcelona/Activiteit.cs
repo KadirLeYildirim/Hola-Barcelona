@@ -81,6 +81,11 @@ namespace Barcelona
             _datum = pdteDatum;
             _uur = pstrUur;
         }
+        public Activiteit(DateTime pdteDatum, string pstrUUr)
+        {
+            _datum = pdteDatum;
+            _uur = pstrUUr;
+        }
 
         public override string ToString()
         {
@@ -92,7 +97,7 @@ namespace Barcelona
         }
         public string alleenTijd()
         {
-            return Convert.ToString(_datum).Substring(0, 10) + "," + _uur;
+            return Convert.ToString(_datum).Substring(0, 10) + " - " + _uur;
         }
         public string zonderTijd()
         {
@@ -100,6 +105,10 @@ namespace Barcelona
                 _omschrijving + Environment.NewLine + "Prijs per persoon: " + _kostprijs +
                 Environment.NewLine + "Heeft " + _deelnemers + " deelnemers en er zijn nog " +
                 _plaatsen;
+        }
+        public string alleenNaam()
+        {
+            return _activiteitNaam;
         }
 
     }

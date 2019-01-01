@@ -54,6 +54,11 @@
     <Compile Include="Administrator.Designer.cs">
       <DependentUpon>Administrator.cs</DependentUpon>
     </Compile>
+    <Compile Include="barcelonaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>barcelonaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Begeleider.cs" />
     <Compile Include="Business.cs" />
     <Compile Include="Leerling.cs" />
@@ -90,6 +95,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="barcelonaDataSet.xsc">
+      <DependentUpon>barcelonaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="barcelonaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>barcelonaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="barcelonaDataSet.xss">
+      <DependentUpon>barcelonaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -31,11 +31,11 @@ namespace Barcelona
             {
                 dgvKalender.Columns.Add("",lijn);
             }
-            foreach(string lijn in bus.getActiviteitenZonderTijd())
+            foreach(string lijn in bus.getNaamActiviteiten())
             {
                 dgvKalender.Rows.Add(lijn);
             }
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -101,7 +101,7 @@ namespace Barcelona
             {
                 dgvKalender.Columns.Add("", lijn);
             }
-            foreach (string lijn in bus.getActiviteitenZonderTijd())
+            foreach (string lijn in bus.getNaamActiviteiten())
             {
                 dgvKalender.Rows.Add(lijn);
             }

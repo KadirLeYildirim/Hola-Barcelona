@@ -107,6 +107,24 @@ namespace Barcelona
             
             return lijst;
         }
+        public List<Activiteit> getDatumActiviteitenFromDB()
+        {
+            List<Activiteit> lijst = new List<Activiteit>();
+
+            MySqlCommand cmd = new MySqlCommand("select distinct ActiviteitDag, ActiviteitUUr from barcelona.activiteiten order by ActiviteitDag asc, ActiviteitUUr desc", conn);
+
+            conn.Open();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Activiteit a = new Activiteit(Convert.ToDateTime(dataReader["ActiviteitDag"]),
+                    dataReader["ActiviteitUUr"].ToString());
+                lijst.Add(a);
+            }
+            conn.Close();
+
+            return lijst;
+        }
 
 
     }
