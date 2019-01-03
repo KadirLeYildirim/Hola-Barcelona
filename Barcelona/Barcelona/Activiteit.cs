@@ -89,11 +89,11 @@ namespace Barcelona
 
         public override string ToString()
         {
-            return "Activiteit ID: " + _id + " is " + _activiteitNaam + ": " +
-                _omschrijving + Environment.NewLine + "Prijs per persoon: " + _kostprijs +
-                Environment.NewLine + "Heeft " + _deelnemers + " deelnemers en er zijn nog " +
-                _plaatsen + Environment.NewLine + "De activiteit neemt op " + _datum.ToString().Substring(0,10) +
-                " plaats en is tijdens de " + _uur;
+            return _datum.ToString().Substring(0, 10) + "  tijdens " + _uur.ToLower() + " :" +
+                Environment.NewLine + _activiteitNaam + " heeft " + _deelnemers +
+                " deelnemers, heeft nog " + _plaatsen + " plaatsen over en het kost € "
+                + _kostprijs + " per persoon." + Environment.NewLine + "Omschrijving: "
+                + _omschrijving + Environment.NewLine;
         }
         public string alleenTijd()
         {

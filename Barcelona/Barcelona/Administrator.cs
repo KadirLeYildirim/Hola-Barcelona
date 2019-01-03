@@ -20,22 +20,8 @@ namespace Barcelona
 
         private void Administrator_Load(object sender, EventArgs e)
         {
-            clbBegeleiders.Items.Clear();
-            foreach (string lijn in bus.getBegeleiders2())
-            {
-                clbBegeleiders.Items.Add(lijn);
-            }
-            dgvKalender.Columns.Clear();
-            dgvKalender.Rows.Clear();
-            foreach(string lijn in bus.getDatumActiviteiten())
-            {
-                dgvKalender.Columns.Add("",lijn);
-            }
-            foreach(string lijn in bus.getNaamActiviteiten())
-            {
-                dgvKalender.Rows.Add(lijn);
-            }
-
+            toonBegeleiders();
+            toonActiviteiten();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -50,6 +36,7 @@ namespace Barcelona
 
         private void btnVoegLeerkrachtToe_Click(object sender, EventArgs e)
         {
+            //Dit opend een begeleider form om een nieuwe begeleider toe te voegen
             VoegBegeleiderToe Leerkracht = new VoegBegeleiderToe();
             Leerkracht.Show();
             this.Close();
@@ -68,6 +55,7 @@ namespace Barcelona
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Voegt een activiteit toe
             string strUur = "_";
             if (rdbNamiddag.Checked == true)
             {
@@ -79,6 +67,7 @@ namespace Barcelona
             }
             bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
     Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur);
+            //Dit connecteerd een activiteit en de gekozen begeleider
             foreach (string item in clbBegeleiders.SelectedItems)
             {
                 string strLetter = "", strNaam = "";
@@ -95,16 +84,7 @@ namespace Barcelona
             }
             makeEmpty();
 
-            dgvKalender.Columns.Clear();
-            dgvKalender.Rows.Clear();
-            foreach (string lijn in bus.getDatumActiviteiten())
-            {
-                dgvKalender.Columns.Add("", lijn);
-            }
-            foreach (string lijn in bus.getNaamActiviteiten())
-            {
-                dgvKalender.Rows.Add(lijn);
-            }
+            toonActiviteiten();
         }
 
         private void clbBegeleiders_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,7 +112,24 @@ namespace Barcelona
             rdbVoormiddag.Checked = false;
             mclDag.ShowToday = true;
             clbBegeleiders.Items.Clear();
-            foreach (string lijn in bus.getBegeleiders2())
+            foreach (string lijn in bus.getBegeleidersNamen())
+            {
+                clbBegeleiders.Items.Add(lijn);
+            }
+        }
+        public void toonActiviteiten()
+        {
+            txtActiviteiten.Clear();
+            foreach(string lijn in bus.getActiviteiten())
+            {
+                txtActiviteiten.Text+=lijn+Environment.NewLine;
+            }
+
+        }
+        public void toonBegeleiders()
+        {
+            clbBegeleiders.Items.Clear();
+            foreach (string lijn in bus.getBegeleidersNamen())
             {
                 clbBegeleiders.Items.Add(lijn);
             }

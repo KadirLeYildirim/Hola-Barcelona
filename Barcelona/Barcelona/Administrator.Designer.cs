@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvKalender = new System.Windows.Forms.DataGridView();
             this.btnVoegLeerkrachtToe = new System.Windows.Forms.Button();
             this.mclDag = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,19 +45,8 @@
             this.btnBevestigen = new System.Windows.Forms.Button();
             this.clbBegeleiders = new System.Windows.Forms.CheckedListBox();
             this.txtOmschrijving = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKalender)).BeginInit();
+            this.txtActiviteiten = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // dgvKalender
-            // 
-            this.dgvKalender.AllowUserToOrderColumns = true;
-            this.dgvKalender.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKalender.Location = new System.Drawing.Point(12, 305);
-            this.dgvKalender.Name = "dgvKalender";
-            this.dgvKalender.RowHeadersVisible = false;
-            this.dgvKalender.Size = new System.Drawing.Size(655, 208);
-            this.dgvKalender.TabIndex = 1;
-            this.dgvKalender.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnVoegLeerkrachtToe
             // 
@@ -210,11 +198,20 @@
             this.txtOmschrijving.Size = new System.Drawing.Size(174, 59);
             this.txtOmschrijving.TabIndex = 7;
             // 
+            // txtActiviteiten
+            // 
+            this.txtActiviteiten.Location = new System.Drawing.Point(12, 307);
+            this.txtActiviteiten.Multiline = true;
+            this.txtActiviteiten.Name = "txtActiviteiten";
+            this.txtActiviteiten.Size = new System.Drawing.Size(655, 206);
+            this.txtActiviteiten.TabIndex = 20;
+            // 
             // Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 525);
+            this.Controls.Add(this.txtActiviteiten);
             this.Controls.Add(this.txtOmschrijving);
             this.Controls.Add(this.clbBegeleiders);
             this.Controls.Add(this.btnBevestigen);
@@ -232,18 +229,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mclDag);
             this.Controls.Add(this.btnVoegLeerkrachtToe);
-            this.Controls.Add(this.dgvKalender);
             this.Name = "Administrator";
             this.Text = "Administrator";
             this.Load += new System.EventHandler(this.Administrator_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKalender)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvKalender;
         private System.Windows.Forms.Button btnVoegLeerkrachtToe;
         private System.Windows.Forms.MonthCalendar mclDag;
         private System.Windows.Forms.Label label1;
@@ -261,5 +255,6 @@
         private System.Windows.Forms.Button btnBevestigen;
         private System.Windows.Forms.CheckedListBox clbBegeleiders;
         private System.Windows.Forms.TextBox txtOmschrijving;
+        private System.Windows.Forms.TextBox txtActiviteiten;
     }
 }

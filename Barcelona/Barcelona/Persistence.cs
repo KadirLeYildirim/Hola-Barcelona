@@ -87,7 +87,7 @@ namespace Barcelona
         {
             List<Activiteit> lijst = new List<Activiteit>();
 
-            MySqlCommand cmd = new MySqlCommand("select * from barcelona.activiteiten", conn);
+            MySqlCommand cmd = new MySqlCommand("select * from barcelona.activiteiten order by ActiviteitDag asc, ActiviteitUUr desc", conn);
 
             conn.Open();
             MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -107,17 +107,29 @@ namespace Barcelona
             
             return lijst;
         }
-        public List<Activiteit> getDatumActiviteitenFromDB()
+        public List<Activiteit> getWantedActiviteitenFromDB(string pstrDatum, string pstrUUr)
         {
             List<Activiteit> lijst = new List<Activiteit>();
+            string strDatum, strDag, strMaand, strJaar;
+            strDag = pstrDatum.Substring(0, 2);
+            strMaand = pstrDatum.Substring(3, 2);
+            strJaar = pstrDatum.Substring(6, 4);
+            strDatum = strJaar + "-" + strMaand + "-" + strDag;
 
-            MySqlCommand cmd = new MySqlCommand("select distinct ActiviteitDag, ActiviteitUUr from barcelona.activiteiten order by ActiviteitDag asc, ActiviteitUUr desc", conn);
+            MySqlCommand cmd = new MySqlCommand("select * from barcelona.activiteiten where "+
+                "ActiviteitDag = '" + strDatum + "' and ActiviteitUUr = '" + pstrUUr + "'", conn);
 
             conn.Open();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                Activiteit a = new Activiteit(Convert.ToDateTime(dataReader["ActiviteitDag"]),
+                Activiteit a = new Activiteit(Convert.ToInt32(dataReader["idActiviteit"]),
+                    dataReader["ActiviteitNaam"].ToString(),
+                    dataReader["Omschrijving"].ToString(),
+                    Convert.ToDouble(dataReader["Kostprijs"]),
+                    Convert.ToInt32(dataReader["AantalPlaatsen"]),
+                    Convert.ToInt32(dataReader["AantalDeelnemers"]),
+                    Convert.ToDateTime(dataReader["ActiviteitDag"]),
                     dataReader["ActiviteitUUr"].ToString());
                 lijst.Add(a);
             }
@@ -125,7 +137,6 @@ namespace Barcelona
 
             return lijst;
         }
-
 
     }
 }

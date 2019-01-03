@@ -50,7 +50,7 @@ namespace Barcelona
 
             return result;
         }
-        public List<string> getBegeleiders2()
+        public List<string> getBegeleidersNamen()
         {
             List<string> result = new List<string>();
 
@@ -84,22 +84,37 @@ namespace Barcelona
 
             return result;
         }
-        public List<string> getDatumActiviteiten()
-        {
-            List<string> result = new List<string>();
-
-            foreach(Activiteit item in pers.getDatumActiviteitenFromDB())
-            {
-                result.Add(item.alleenTijd());
-            }
-
-            return result;
-        }
         public List<string> getNaamActiviteiten()
         {
             List<string> result = new List<string>();
 
             foreach (Activiteit item in pers.getActiviteitenFromDB())
+            {
+                result.Add(item.alleenNaam());
+            }
+
+            return result;
+        }
+        public List<string> getWantedActiviteiten(string pstrTijd)
+        {
+            List<string> result = new List<string>();
+            string strDatum, strUUr="", strLetter;
+
+            strDatum = pstrTijd.Substring(0, 10);
+
+            for(int i=0; i<pstrTijd.Length; i++)
+            {
+                if(i > 12)
+                {
+                    strLetter = pstrTijd.Substring(i, 1);
+                    strUUr += strLetter;
+                }
+                else
+                {
+                }
+            }
+
+            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(strDatum,strUUr))
             {
                 result.Add(item.alleenNaam());
             }
