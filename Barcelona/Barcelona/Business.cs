@@ -61,6 +61,17 @@ namespace Barcelona
 
             return result;
         }
+        public List<string> getWantedBegeleiders(string pstrNaam)
+        {
+            List<string> result = new List<string>();
+
+            foreach (Begeleider item in pers.GetWantedBegeleidersFromDB(pstrNaam))
+            {
+                result.Add(item.AlleenNaam());
+            }
+
+            return result;
+        }
 
         public void addActiviteit(string pstrNaam, string pstrOmschrijving, double pdblKost,
             int pintPlaatsen, DateTime pdteDatum, string pstrUur)
@@ -95,34 +106,83 @@ namespace Barcelona
 
             return result;
         }
-        public List<string> getWantedActiviteiten(string pstrTijd)
+        public string getWantedNaamActiviteiten(string pstrNaam)
         {
-            List<string> result = new List<string>();
-            string strDatum, strUUr="", strLetter;
+            string result="";
 
-            strDatum = pstrTijd.Substring(0, 10);
-
-            for(int i=0; i<pstrTijd.Length; i++)
+            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(pstrNaam))
             {
-                if(i > 12)
-                {
-                    strLetter = pstrTijd.Substring(i, 1);
-                    strUUr += strLetter;
-                }
-                else
-                {
-                }
-            }
-
-            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(strDatum,strUUr))
-            {
-                result.Add(item.alleenNaam());
+                result = item.alleenNaam();
             }
 
             return result;
         }
+        public string getWantedOmschrijvingActiviteiten(string pstrNaam)
+        {
+            string result = "";
 
-        
+            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(pstrNaam))
+            {
+                result = item.alleenOmschrijving();
+            }
+
+            return result;
+        }
+        public string getWantedKostprijsActiviteiten(string pstrNaam)
+        {
+            string result = "";
+
+            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(pstrNaam))
+            {
+                result = item.alleenKostprijs();
+            }
+
+            return result;
+        }
+        public string getWantedPlaatsenActiviteiten(string pstrNaam)
+        {
+            string result = "";
+
+            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(pstrNaam))
+            {
+                result = item.alleenPlaatsen();
+            }
+
+            return result;
+        }
+        public string getWantedDeelnemersActiviteiten(string pstrNaam)
+        {
+            string result = "";
+
+            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(pstrNaam))
+            {
+                result = item.alleenDeelnemers();
+            }
+
+            return result;
+        }
+        public string getWantedDatumActiviteiten(string pstrNaam)
+        {
+            string result = "";
+
+            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(pstrNaam))
+            {
+                result = item.alleenDatum();
+            }
+
+            return result;
+        }
+        public string getWantedUUrActiviteiten(string pstrNaam)
+        {
+            string result = "";
+
+            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(pstrNaam))
+            {
+                result = item.alleenUUr();
+            }
+
+            return result;
+        }
 
     }
 }

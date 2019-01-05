@@ -135,6 +135,10 @@ namespace Barcelona
             }
         }
 
-
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ActiviteitAanpassen form = new ActiviteitAanpassen();
+            form.Show();
+        }
     }
 }

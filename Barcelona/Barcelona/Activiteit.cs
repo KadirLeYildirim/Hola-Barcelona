@@ -110,6 +110,29 @@ namespace Barcelona
         {
             return _activiteitNaam;
         }
-
+        public string alleenOmschrijving()
+        {
+            return _omschrijving;
+        }
+        public string alleenKostprijs()
+        {
+            return Convert.ToString(_kostprijs);
+        }
+        public string alleenPlaatsen()
+        {
+            return Convert.ToString(_plaatsen);
+        }
+        public string alleenDeelnemers()
+        {
+            return Convert.ToString(_deelnemers);
+        }
+        public string alleenDatum()
+        {
+            return Convert.ToString(_datum).Substring(0,10);
+        }
+        public string alleenUUr()
+        {
+            return _uur;
+        }
     }
 }

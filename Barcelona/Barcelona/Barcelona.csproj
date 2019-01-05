@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,6 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activiteit.cs" />
+    <Compile Include="ActiviteitAanpassen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActiviteitAanpassen.Designer.cs">
+      <DependentUpon>ActiviteitAanpassen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +67,12 @@
       <DependentUpon>barcelonaDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Begeleider.cs" />
+    <Compile Include="BegeleiderAanpassen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BegeleiderAanpassen.Designer.cs">
+      <DependentUpon>BegeleiderAanpassen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business.cs" />
     <Compile Include="Leerling.cs" />
     <Compile Include="Persistence.cs" />
@@ -77,8 +90,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ActiviteitAanpassen.resx">
+      <DependentUpon>ActiviteitAanpassen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrator.resx">
       <DependentUpon>Administrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BegeleiderAanpassen.resx">
+      <DependentUpon>BegeleiderAanpassen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VoegBegeleiderToe.resx">
       <DependentUpon>VoegBegeleiderToe.cs</DependentUpon>

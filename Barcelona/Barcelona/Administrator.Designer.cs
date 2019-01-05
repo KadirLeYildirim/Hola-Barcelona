@@ -46,6 +46,8 @@
             this.clbBegeleiders = new System.Windows.Forms.CheckedListBox();
             this.txtOmschrijving = new System.Windows.Forms.TextBox();
             this.txtActiviteiten = new System.Windows.Forms.TextBox();
+            this.btnActiviteitAanpassen = new System.Windows.Forms.Button();
+            this.btnBegeleiderAanpassen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVoegLeerkrachtToe
@@ -206,11 +208,32 @@
             this.txtActiviteiten.Size = new System.Drawing.Size(655, 206);
             this.txtActiviteiten.TabIndex = 20;
             // 
+            // btnActiviteitAanpassen
+            // 
+            this.btnActiviteitAanpassen.Location = new System.Drawing.Point(12, 59);
+            this.btnActiviteitAanpassen.Name = "btnActiviteitAanpassen";
+            this.btnActiviteitAanpassen.Size = new System.Drawing.Size(100, 41);
+            this.btnActiviteitAanpassen.TabIndex = 21;
+            this.btnActiviteitAanpassen.Text = "Pas een activiteit aan";
+            this.btnActiviteitAanpassen.UseVisualStyleBackColor = true;
+            this.btnActiviteitAanpassen.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnBegeleiderAanpassen
+            // 
+            this.btnBegeleiderAanpassen.Location = new System.Drawing.Point(12, 106);
+            this.btnBegeleiderAanpassen.Name = "btnBegeleiderAanpassen";
+            this.btnBegeleiderAanpassen.Size = new System.Drawing.Size(100, 41);
+            this.btnBegeleiderAanpassen.TabIndex = 22;
+            this.btnBegeleiderAanpassen.Text = "Pas een begeleider aan";
+            this.btnBegeleiderAanpassen.UseVisualStyleBackColor = true;
+            // 
             // Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 525);
+            this.Controls.Add(this.btnBegeleiderAanpassen);
+            this.Controls.Add(this.btnActiviteitAanpassen);
             this.Controls.Add(this.txtActiviteiten);
             this.Controls.Add(this.txtOmschrijving);
             this.Controls.Add(this.clbBegeleiders);
@@ -256,5 +279,7 @@
         private System.Windows.Forms.CheckedListBox clbBegeleiders;
         private System.Windows.Forms.TextBox txtOmschrijving;
         private System.Windows.Forms.TextBox txtActiviteiten;
+        private System.Windows.Forms.Button btnActiviteitAanpassen;
+        private System.Windows.Forms.Button btnBegeleiderAanpassen;
     }
 }

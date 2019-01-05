@@ -47,6 +47,38 @@ namespace Barcelona
 
             return lijst;
         }
+        public List<Begeleider> GetWantedBegeleidersFromDB(string pstrNaam)
+        {
+            List<Begeleider> lijst = new List<Begeleider>();
+            int intIDActiviteit=0, intIDBegeleider=0;
+
+            MySqlCommand cmd = new MySqlCommand("select idActiviteit from barcelona.activiteiten where ActiviteitNaam='" + pstrNaam + "'", conn);
+            conn.Open();
+            intIDActiviteit += Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            MySqlCommand cmd2 = new MySqlCommand("select begeleiders_idBegeleider from barcelona.activiteiten_begeleiders where activiteiten_idActiviteit=" + intIDActiviteit, conn);
+            conn.Open();
+            intIDBegeleider = Convert.ToInt32(cmd2.ExecuteScalar());
+            conn.Close();
+
+            MySqlCommand cmd3 = new MySqlCommand("select * from barcelona.begeleiders where idBegeleider=" + intIDBegeleider, conn);
+
+            conn.Open();
+            MySqlDataReader dataReader = cmd3.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Begeleider b = new Begeleider(Convert.ToInt32(dataReader["idBegeleider"]),
+                    dataReader["BegeleiderVoornaam"].ToString(),
+                    dataReader["BegeleiderAchternaam"].ToString(),
+                    dataReader["GsmNummer"].ToString());
+                lijst.Add(b);
+            }
+            conn.Close();
+
+            return lijst;
+        }
+
         public void addActiviteitToDB(Activiteit item)
         {
             string strDag, strMaand, strJaar, strDatum;
@@ -107,17 +139,11 @@ namespace Barcelona
             
             return lijst;
         }
-        public List<Activiteit> getWantedActiviteitenFromDB(string pstrDatum, string pstrUUr)
+        public List<Activiteit> getWantedActiviteitenFromDB(string pstrNaam)
         {
             List<Activiteit> lijst = new List<Activiteit>();
-            string strDatum, strDag, strMaand, strJaar;
-            strDag = pstrDatum.Substring(0, 2);
-            strMaand = pstrDatum.Substring(3, 2);
-            strJaar = pstrDatum.Substring(6, 4);
-            strDatum = strJaar + "-" + strMaand + "-" + strDag;
 
-            MySqlCommand cmd = new MySqlCommand("select * from barcelona.activiteiten where "+
-                "ActiviteitDag = '" + strDatum + "' and ActiviteitUUr = '" + pstrUUr + "'", conn);
+            MySqlCommand cmd = new MySqlCommand("select * from barcelona.activiteiten where ActiviteitNaam = '"+pstrNaam+"'",conn);
 
             conn.Open();
             MySqlDataReader dataReader = cmd.ExecuteReader();
