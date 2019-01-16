@@ -139,6 +139,7 @@ namespace Barcelona
         {
             ActiviteitAanpassen form = new ActiviteitAanpassen();
             form.Show();
+            this.Close();
         }
     }
 }

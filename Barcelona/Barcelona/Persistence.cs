@@ -17,6 +17,7 @@ namespace Barcelona
                 "password='1453istanbul1453';database=barcelona");
         }
 
+        //alles wat met begeleiders te maken heeft
         public void addBegeleiderToDB(Begeleider item)
         {
             MySqlCommand cmd = new MySqlCommand("insert into barcelona.begeleiders " +
@@ -79,6 +80,7 @@ namespace Barcelona
             return lijst;
         }
 
+        //Alles wat met activiteiten te maken heeft
         public void addActiviteitToDB(Activiteit item)
         {
             string strDag, strMaand, strJaar, strDatum;
@@ -162,6 +164,39 @@ namespace Barcelona
             conn.Close();
 
             return lijst;
+        }
+        public void updateActiviteitenInDB(string pstrOrigineleNaam ,string pstrNaam, string pstrOmschrijving,
+            double pdblKost, int pintPlaatsen, int pintDeelnemers, string pstrDatum, string pstrUUR)
+        {
+            int intID=0;
+            string strDatum, strDag, strMaand, strJaar;
+            strDag = pstrDatum.Substring(0, 2);
+            strMaand = pstrDatum.Substring(3, 2);
+            strJaar = pstrDatum.Substring(6, 4);
+            strDatum = strJaar + "-" + strMaand + "-" + strDag;
+
+            MySqlCommand cmd = new MySqlCommand("select idActiviteit from barcelona.activiteiten where ActiviteitNaam='" + pstrOrigineleNaam + "'", conn);
+            conn.Open();
+            intID += Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            MySqlCommand cmd1 = new MySqlCommand("update barcelona.activiteiten set activiteiten.ActiviteitNaam='" + pstrNaam + "' where idActiviteit=" + intID, conn);
+            MySqlCommand cmd2 = new MySqlCommand("update barcelona.activiteiten set activiteiten.Omschrijving='" + pstrOmschrijving+ "' where idActiviteit=" + intID, conn);
+            MySqlCommand cmd3 = new MySqlCommand("update barcelona.activiteiten set activiteiten.Kostprijs=" + pdblKost+ " where idActiviteit=" + intID, conn);
+            MySqlCommand cmd4 = new MySqlCommand("update barcelona.activiteiten set activiteiten.AantalPlaatsen=" + pintPlaatsen + " where idActiviteit=" + intID, conn);
+            MySqlCommand cmd5 = new MySqlCommand("update barcelona.activiteiten set activiteiten.AantalDeelnemers=" + pintDeelnemers+ " where idActiviteit=" + intID, conn);
+            MySqlCommand cmd6 = new MySqlCommand("update barcelona.activiteiten set activiteiten.ActiviteitDag='" + strDatum+ "' where idActiviteit=" + intID, conn);
+            MySqlCommand cmd7 = new MySqlCommand("update barcelona.activiteiten set activiteiten.ActiviteitUUr='" + pstrUUR+ "' where idActiviteit=" + intID, conn);
+
+            conn.Open();
+            cmd1.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
+            cmd3.ExecuteNonQuery();
+            cmd4.ExecuteNonQuery();
+            cmd5.ExecuteNonQuery();
+            cmd6.ExecuteNonQuery();
+            cmd7.ExecuteNonQuery();
+            conn.Close();
         }
 
     }

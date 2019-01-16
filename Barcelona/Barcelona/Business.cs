@@ -84,6 +84,7 @@ namespace Barcelona
         {
             pers.connectActiviteitBegeleiderInDB(pstrBegeleider, pstrActiviteit);
         }
+        //Om activiteiten te weergeven
         public List<string> getActiviteiten()
         {
             List<string> result = new List<string>();
@@ -106,6 +107,7 @@ namespace Barcelona
 
             return result;
         }
+        //Nodig om activiteiten aan te passen
         public string getWantedNaamActiviteiten(string pstrNaam)
         {
             string result="";
@@ -182,6 +184,13 @@ namespace Barcelona
             }
 
             return result;
+        }
+        //Gekozen activiteit aanpassen
+        public void updateActiviteit(string pstrOrigineleNaam, string pstrNaam, string pstrOmschrijving,
+            double pdblKost, int pintPlaatsen, int pintDeelnemers, string pstrDatum, string pstrUUR)
+        {
+            pers.updateActiviteitenInDB(pstrOrigineleNaam, pstrNaam, pstrOmschrijving, pdblKost,
+                pintPlaatsen, pintDeelnemers, pstrDatum, pstrUUR);
         }
 
     }

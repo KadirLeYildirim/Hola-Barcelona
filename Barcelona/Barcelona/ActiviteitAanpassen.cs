@@ -30,11 +30,54 @@ namespace Barcelona
         private void btnTerug_Click(object sender, EventArgs e)
         {
             this.Close();
+            Administrator admin = new Administrator();
+            admin.Show();
         }
 
         private void lstActiviteiten_SelectedIndexChanged(object sender, EventArgs e)
         {
             vulIN();            
+        }
+
+        private void btnVerwijderen_Click(object sender, EventArgs e)
+        {
+            bool blnAntwoord;
+            string ant;
+            MessageBox.Show("Bent u zeker dat u deze activiteit wilt verwijderen?", "Activiteit verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        }
+
+        private void btnBevestigen_Click(object sender, EventArgs e)
+        {
+            string strUUR="";
+            if (rdbNamiddag.Checked == true)
+            {
+                strUUR = "De namiddag";
+            }
+            if (rdbVoormiddag.Checked == true)
+            {
+                strUUR = "De voormiddag";
+            }
+            bus.updateActiviteit(lstActiviteiten.SelectedItem.ToString(), txtNaam.Text, txtOmschrijving.Text,
+                Convert.ToDouble(txtPrijs.Text), Convert.ToInt32(txtAantalPlaatsen.Text),
+                Convert.ToInt32(txtDeelnemers.Text), txtDatum.Text, strUUR);
+            foreach (string lijn in bus.getNaamActiviteiten())
+            {
+                lstActiviteiten.Items.Add(lijn);
+            }
+            foreach (string item in clbBegeleiders.SelectedItems)
+            {
+                string strLetter = "", strNaam = "";
+                for (int i = 0; i < item.Length; i++)
+                {
+                    strLetter = item.Substring(i, 1);
+                    if (strLetter == " ")
+                    {
+                        i = item.Length;
+                    }
+                    strNaam += strLetter;
+                }
+                bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
+            }
         }
 
         public void vulIN()
@@ -56,15 +99,10 @@ namespace Barcelona
             }
             foreach(string lijn in bus.getWantedBegeleiders(lstActiviteiten.SelectedItem.ToString()))
             {
-                clbBegeleiders.Items.Add(lijn);
+                lstGekozenBegeleiders.Items.Add(lijn);
             }
 
-        }
 
-        private void btnVerwijderen_Click(object sender, EventArgs e)
-        {
-
-            MessageBox.Show("Bent u zeker dat u deze activiteit wilt verwijderen?", "Activiteit verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
         }
     }
 }
