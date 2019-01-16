@@ -28,7 +28,7 @@ namespace Barcelona
         {
             Administrator admin = new Administrator();
             admin.Show();
-			this.Close();
+
             
         }
 

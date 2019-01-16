@@ -31,10 +31,8 @@ namespace Barcelona
 
 		public void addLeerlingToDB(Leerling item)
 		{
-			MySqlCommand cmd = new MySqlCommand("insert into barcelona.leerling " +
-				"(`LeerlingVoornaam`, `AchternaamAchternaam`, `GsmNummer`)" +
-				"values('" + item.voorNaam + "', '" + item.achterNaam + "', '" +
-				item.gsmNummer + "')", conn);
+			MySqlCommand cmd = new MySqlCommand("insert into barcelona.leerlingen(`LeerlingVoornaam`, `LeerlingAchternaam`, `Klas`,`GsmNummer`)"+
+                " values('"+item.voorNaam+"', '"+item.achterNaam+"', '"+item.klas+"', '"+item.gsmNummer+"')", conn);
 			conn.Open();
 			cmd.ExecuteNonQuery();
 			conn.Close();

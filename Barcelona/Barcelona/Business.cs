@@ -42,7 +42,7 @@ namespace Barcelona
 
 		public void addLeerling(string pstrVoornaam, string pstrAchternaam, string pstrGsm, string pstrKlas)
 		{
-			Leerling item = new Leerling(pstrVoornaam, pstrAchternaam, pstrGsm, pstrKlas);
+			Leerling item = new Leerling(pstrVoornaam, pstrAchternaam, pstrKlas, pstrGsm);
 			pers.addLeerlingToDB(item);
 		}
 

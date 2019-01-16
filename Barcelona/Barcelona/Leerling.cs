@@ -12,11 +12,8 @@ namespace Barcelona
         private string _voorNaam;
         private string _achterNaam;
         private string _klas;
-        private int _gsmNummer;
-		private string pstrVoornaam;
-		private string pstrAchternaam;
-		private string pstrGsm;
-		private string pstrKlas;
+        private string _gsmNummer;
+
 
 		public int id
         {
@@ -38,36 +35,30 @@ namespace Barcelona
             get { return _klas; }
             set { _klas = value; }
         }
-        public int gsmNummer
+        public string gsmNummer
         {
             get { return _gsmNummer; }
             set { _gsmNummer = value; }
         }
 
         public Leerling(int pintID ,string pstrVoornaam, string pstrAchternaam, string pstrKlas,
-            int pintGsmNummer)
+            string pstrGsmNummer)
         {
             _id = pintID;
             _voorNaam = pstrVoornaam;
             _achterNaam = pstrAchternaam;
             _klas = pstrKlas;
-            _gsmNummer = pintGsmNummer;
+            _gsmNummer = pstrGsmNummer;
         }
         public Leerling(string pstrVoornaam, string pstrAchternaam, string pstrKlas,
-            int pintGsmNummer)
+            string pstrGsmNummer)
         {
             _voorNaam = pstrVoornaam;
             _achterNaam = pstrAchternaam;
             _klas = pstrKlas;
-            _gsmNummer = pintGsmNummer;
+            _gsmNummer = pstrGsmNummer;
         }
 
-		public Leerling(string pstrVoornaam, string pstrAchternaam, string pstrGsm, string pstrKlas)
-		{
-			this.pstrVoornaam = pstrVoornaam;
-			this.pstrAchternaam = pstrAchternaam;
-			this.pstrGsm = pstrGsm;
-			this.pstrKlas = pstrKlas;
-		}
+
 	}
 }
