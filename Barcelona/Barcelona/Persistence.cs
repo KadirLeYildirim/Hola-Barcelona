@@ -23,7 +23,7 @@ namespace Barcelona
             MySqlCommand cmd = new MySqlCommand("insert into barcelona.begeleiders " +
                 "(`BegeleiderVoornaam`, `BegeleiderAchternaam`, `GsmNummer`)" +
                 "values('" + item.voornaam + "', '" + item.achternaam + "', '" +
-                item.gsmNummer + "0482576868')", conn);
+                item.gsmNummer + "')", conn);
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -220,8 +220,6 @@ namespace Barcelona
             cmd7.ExecuteNonQuery();
             conn.Close();
         }
-
-		//fetch
 
     }
 }
