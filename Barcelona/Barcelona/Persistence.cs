@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace Barcelona
 {
-    class Persistence
+	class Persistence
     {
         private MySqlConnection conn;
 
@@ -27,7 +27,19 @@ namespace Barcelona
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public List<Begeleider> GetBegeleidersFromDB()
+
+		public void addLeerlingToDB(Leerling item)
+		{
+			MySqlCommand cmd = new MySqlCommand("insert into barcelona.leerling " +
+				"(`LeerlingVoornaam`, `AchternaamAchternaam`, `GsmNummer`)" +
+				"values('" + item.voorNaam + "', '" + item.achterNaam + "', '" +
+				item.gsmNummer + "0482576868')", conn);
+			conn.Open();
+			cmd.ExecuteNonQuery();
+			conn.Close();
+		}
+
+		public List<Begeleider> GetBegeleidersFromDB()
         {
             List<Begeleider> lijst = new List<Begeleider>();
 
@@ -97,7 +109,17 @@ namespace Barcelona
 
 
         }
-        public void connectActiviteitBegeleiderInDB(string pstrNaam, string pstrAcNaam)
+		public void ActiviteitPerDatum(Activiteit item)
+		{
+			MySqlCommand cmd = new MySqlCommand("select * from barcelona.activiteiten groupby CURDATE()", conn);
+			string strDag, strMaand, strJaar, strDatum;
+			strDag = item.datum.ToString().Substring(0, 2);
+			strMaand = item.datum.ToString().Substring(3, 2);
+			strJaar = item.datum.ToString().Substring(6, 4);
+			strDatum = strJaar + "-" + strMaand + "-" + strDag;
+		}
+
+		public void connectActiviteitBegeleiderInDB(string pstrNaam, string pstrAcNaam)
         {
             int intIDBegeleider, intIDActiviteit;
             MySqlCommand cmd = new MySqlCommand("select idBegeleider from barcelona.begeleiders where BegeleiderVoornaam='" + pstrNaam + "'", conn);

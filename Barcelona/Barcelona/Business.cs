@@ -39,7 +39,14 @@ namespace Barcelona
             Begeleider item = new Begeleider(pstrVoornaam,pstrAchternaam,pstrGsm);
             pers.addBegeleiderToDB(item);
         }
-        public List<string> getBegeleiders()
+
+		public void addLeerling(string pstrVoornaam, string pstrAchternaam, string pstrGsm, string pstrKlas)
+		{
+			Leerling item = new Leerling(pstrVoornaam, pstrAchternaam, pstrGsm, pstrKlas);
+			pers.addLeerlingToDB(item);
+		}
+
+		public List<string> getBegeleiders()
         {
             List<string> result = new List<string>();
 

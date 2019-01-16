@@ -12,7 +12,9 @@ namespace Barcelona
 {
     public partial class VoegLeerlingToe : Form
     {
-        public VoegLeerlingToe()
+		Business bus = new Business();
+
+		public VoegLeerlingToe()
         {
             InitializeComponent();
         }
@@ -26,17 +28,34 @@ namespace Barcelona
         {
             Administrator admin = new Administrator();
             admin.Show();
+			this.Close();
             
         }
 
         private void VoegLeerlingToe_Load(object sender, EventArgs e)
         {
-
+			vullen(cmbKeuze);
+			string strdate = Convert.ToString(DateTime.Now);
+			label5.Text += "   " + strdate;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
         }
-    }
+
+		public void vullen(ComboBox cmbKeuze)
+		{
+			cmbKeuze.Text = bus.getWantedNaamActiviteiten(cmbKeuze.SelectedItem.ToString());
+		}
+
+		private void btnVolgende_Click(object sender, EventArgs e)
+		{
+				button1.Show();
+		}
+
+		private void btnRegistreer_Click(object sender, EventArgs e)
+		{
+			bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.SelectedItem));
+		}
+	}
 }
