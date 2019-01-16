@@ -199,6 +199,6 @@ namespace Barcelona
             pers.updateActiviteitenInDB(pstrOrigineleNaam, pstrNaam, pstrOmschrijving, pdblKost,
                 pintPlaatsen, pintDeelnemers, pstrDatum, pstrUUR);
         }
-
-    }
+		//fetch
+	}
 }

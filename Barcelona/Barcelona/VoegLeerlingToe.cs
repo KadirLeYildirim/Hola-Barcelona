@@ -57,5 +57,7 @@ namespace Barcelona
 		{
 			bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.SelectedItem));
 		}
+
+		//fetch
 	}
 }

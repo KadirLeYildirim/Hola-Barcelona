@@ -69,5 +69,6 @@ namespace Barcelona
 			this.pstrGsm = pstrGsm;
 			this.pstrKlas = pstrKlas;
 		}
+		//fetch
 	}
 }
