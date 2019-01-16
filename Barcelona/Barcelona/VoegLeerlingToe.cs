@@ -45,7 +45,7 @@ namespace Barcelona
 
 		public void vullen(ComboBox cmbKeuze)
 		{
-			cmbKeuze.Text = bus.getWantedNaamActiviteiten(cmbKeuze.SelectedItem.ToString());
+			cmbKeuze.Text = Convert.ToString(bus.getNaamActiviteiten());
 		}
 
 		private void btnVolgende_Click(object sender, EventArgs e)

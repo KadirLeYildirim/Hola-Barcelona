@@ -103,7 +103,8 @@ namespace Barcelona
 
             return result;
         }
-        public List<string> getNaamActiviteiten()
+
+		public List<string> getNaamActiviteiten()
         {
             List<string> result = new List<string>();
 
