@@ -83,6 +83,7 @@ namespace Barcelona
         public void vulIN()
         {
             clbBegeleiders.Items.Clear();
+            lstGekozenBegeleiders.Items.Clear();
             txtNaam.Text = bus.getWantedNaamActiviteiten(lstActiviteiten.SelectedItem.ToString());
             txtOmschrijving.Text = bus.getWantedOmschrijvingActiviteiten(lstActiviteiten.SelectedItem.ToString());
             txtAantalPlaatsen.Text = bus.getWantedPlaatsenActiviteiten(lstActiviteiten.SelectedItem.ToString());
@@ -101,8 +102,10 @@ namespace Barcelona
             {
                 lstGekozenBegeleiders.Items.Add(lijn);
             }
-
-
+            foreach (string lijn in bus.getBegeleidersNamen())
+            {
+                clbBegeleiders.Items.Add(lijn);
+            }
         }
     }
 }

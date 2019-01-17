@@ -13,14 +13,14 @@ namespace Barcelona
 
         public Persistence()
         {
-            conn = new MySqlConnection("server=localhost;user id=root;"+
-                "password='1453istanbul1453';database=barcelona");
+            conn = new MySqlConnection("server=ID191774_6itngip22.db.webhosting.be;user id=ID191774_6itngip22;"+
+                "password=dfb21Msf85; database=ID191774_6itngip22");
         }
 
         //alles wat met begeleiders te maken heeft
         public void addBegeleiderToDB(Begeleider item)
         {
-            MySqlCommand cmd = new MySqlCommand("insert into barcelona.begeleiders " +
+            MySqlCommand cmd = new MySqlCommand("insert into ID191774_6itngip22.begeleiders " +
                 "(`BegeleiderVoornaam`, `BegeleiderAchternaam`, `GsmNummer`)" +
                 "values('" + item.voornaam + "', '" + item.achternaam + "', '" +
                 item.gsmNummer + "')", conn);
@@ -31,7 +31,7 @@ namespace Barcelona
 
 		public void addLeerlingToDB(Leerling item)
 		{
-			MySqlCommand cmd = new MySqlCommand("insert into barcelona.leerlingen(`LeerlingVoornaam`, `LeerlingAchternaam`, `Klas`,`GsmNummer`)"+
+			MySqlCommand cmd = new MySqlCommand("insert into ID191774_6itngip22.leerlingen(`LeerlingVoornaam`, `LeerlingAchternaam`, `Klas`,`GsmNummer`)" +
                 " values('"+item.voorNaam+"', '"+item.achterNaam+"', '"+item.klas+"', '"+item.gsmNummer+"')", conn);
 			conn.Open();
 			cmd.ExecuteNonQuery();
@@ -42,7 +42,7 @@ namespace Barcelona
         {
             List<Begeleider> lijst = new List<Begeleider>();
 
-            MySqlCommand cmd = new MySqlCommand("select * from barcelona.begeleiders", conn);
+            MySqlCommand cmd = new MySqlCommand("select * from ID191774_6itngip22.begeleiders", conn);
 
             conn.Open();
             MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -63,17 +63,17 @@ namespace Barcelona
             List<Begeleider> lijst = new List<Begeleider>();
             int intIDActiviteit=0, intIDBegeleider=0;
 
-            MySqlCommand cmd = new MySqlCommand("select idActiviteit from barcelona.activiteiten where ActiviteitNaam='" + pstrNaam + "'", conn);
+            MySqlCommand cmd = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam='" + pstrNaam + "'", conn);
             conn.Open();
             intIDActiviteit += Convert.ToInt32(cmd.ExecuteScalar());
             conn.Close();
 
-            MySqlCommand cmd2 = new MySqlCommand("select begeleiders_idBegeleider from barcelona.activiteiten_begeleiders where activiteiten_idActiviteit=" + intIDActiviteit, conn);
+            MySqlCommand cmd2 = new MySqlCommand("select begeleiders_idBegeleider from ID191774_6itngip22.activiteiten_begeleiders where activiteiten_idActiviteit=" + intIDActiviteit, conn);
             conn.Open();
             intIDBegeleider = Convert.ToInt32(cmd2.ExecuteScalar());
             conn.Close();
 
-            MySqlCommand cmd3 = new MySqlCommand("select * from barcelona.begeleiders where idBegeleider=" + intIDBegeleider, conn);
+            MySqlCommand cmd3 = new MySqlCommand("select * from ID191774_6itngip22.begeleiders where idBegeleider=" + intIDBegeleider, conn);
 
             conn.Open();
             MySqlDataReader dataReader = cmd3.ExecuteReader();
@@ -99,7 +99,7 @@ namespace Barcelona
             strJaar = item.datum.ToString().Substring(6, 4);
             strDatum = strJaar + "-" + strMaand + "-" + strDag;
 
-            MySqlCommand cmd = new MySqlCommand("insert into barcelona.activiteiten" +
+            MySqlCommand cmd = new MySqlCommand("insert into ID191774_6itngip22.activiteiten" +
                 "(`ActiviteitNaam`,`Omschrijving`,`Kostprijs`,`AantalPlaatsen`,`AantalDeelnemers`,`ActiviteitDag`,`ActiviteitUUr`)" +
                 "values('" + item.naam + "', '" + item.omschrijving + "'," + item.kostprijs + "," +item.plaatsen + ","+item.deelnemers+",'"+strDatum+"','"+item.uur+"')",conn);
 
@@ -111,7 +111,7 @@ namespace Barcelona
         }
 		public void ActiviteitPerDatum(Activiteit item)
 		{
-			MySqlCommand cmd = new MySqlCommand("select * from barcelona.activiteiten groupby CURDATE()", conn);
+			MySqlCommand cmd = new MySqlCommand("select * from ID191774_6itngip22.activiteiten groupby CURDATE()", conn);
 			string strDag, strMaand, strJaar, strDatum;
 			strDag = item.datum.ToString().Substring(0, 2);
 			strMaand = item.datum.ToString().Substring(3, 2);
@@ -122,17 +122,17 @@ namespace Barcelona
 		public void connectActiviteitBegeleiderInDB(string pstrNaam, string pstrAcNaam)
         {
             int intIDBegeleider, intIDActiviteit;
-            MySqlCommand cmd = new MySqlCommand("select idBegeleider from barcelona.begeleiders where BegeleiderVoornaam='" + pstrNaam + "'", conn);
+            MySqlCommand cmd = new MySqlCommand("select idBegeleider from ID191774_6itngip22.begeleiders where BegeleiderVoornaam='" + pstrNaam + "'", conn);
             conn.Open();
             intIDBegeleider = Convert.ToInt32(cmd.ExecuteScalar());
             conn.Close();
 
-            MySqlCommand cmd2 = new MySqlCommand("select idActiviteit from barcelona.activiteiten where ActiviteitNaam='" + pstrAcNaam + "'", conn);
+            MySqlCommand cmd2 = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam='" + pstrAcNaam + "'", conn);
             conn.Open();
             intIDActiviteit = Convert.ToInt32(cmd2.ExecuteScalar());
             conn.Close();
 
-            MySqlCommand cmd3 = new MySqlCommand("insert into barcelona.activiteiten_begeleiders(`activiteiten_idActiviteit`,`begeleiders_idBegeleider`) values("+intIDActiviteit+","+intIDBegeleider+")", conn);
+            MySqlCommand cmd3 = new MySqlCommand("insert into ID191774_6itngip22.activiteiten_begeleiders(`activiteiten_idActiviteit`,`begeleiders_idBegeleider`) values(" + intIDActiviteit+","+intIDBegeleider+")", conn);
             conn.Open();
             cmd3.ExecuteNonQuery();
             conn.Close();
@@ -141,7 +141,7 @@ namespace Barcelona
         {
             List<Activiteit> lijst = new List<Activiteit>();
 
-            MySqlCommand cmd = new MySqlCommand("select * from barcelona.activiteiten order by ActiviteitDag asc, ActiviteitUUr desc", conn);
+            MySqlCommand cmd = new MySqlCommand("select * from ID191774_6itngip22.activiteiten order by ActiviteitDag asc, ActiviteitUUr desc", conn);
 
             conn.Open();
             MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -165,7 +165,7 @@ namespace Barcelona
         {
             List<Activiteit> lijst = new List<Activiteit>();
 
-            MySqlCommand cmd = new MySqlCommand("select * from barcelona.activiteiten where ActiviteitNaam = '"+pstrNaam+"'",conn);
+            MySqlCommand cmd = new MySqlCommand("select * from ID191774_6itngip22.activiteiten where ActiviteitNaam = '" + pstrNaam+"'",conn);
 
             conn.Open();
             MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -195,18 +195,18 @@ namespace Barcelona
             strJaar = pstrDatum.Substring(6, 4);
             strDatum = strJaar + "-" + strMaand + "-" + strDag;
 
-            MySqlCommand cmd = new MySqlCommand("select idActiviteit from barcelona.activiteiten where ActiviteitNaam='" + pstrOrigineleNaam + "'", conn);
+            MySqlCommand cmd = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam='" + pstrOrigineleNaam + "'", conn);
             conn.Open();
             intID += Convert.ToInt32(cmd.ExecuteScalar());
             conn.Close();
 
-            MySqlCommand cmd1 = new MySqlCommand("update barcelona.activiteiten set activiteiten.ActiviteitNaam='" + pstrNaam + "' where idActiviteit=" + intID, conn);
-            MySqlCommand cmd2 = new MySqlCommand("update barcelona.activiteiten set activiteiten.Omschrijving='" + pstrOmschrijving+ "' where idActiviteit=" + intID, conn);
-            MySqlCommand cmd3 = new MySqlCommand("update barcelona.activiteiten set activiteiten.Kostprijs=" + pdblKost+ " where idActiviteit=" + intID, conn);
-            MySqlCommand cmd4 = new MySqlCommand("update barcelona.activiteiten set activiteiten.AantalPlaatsen=" + pintPlaatsen + " where idActiviteit=" + intID, conn);
-            MySqlCommand cmd5 = new MySqlCommand("update barcelona.activiteiten set activiteiten.AantalDeelnemers=" + pintDeelnemers+ " where idActiviteit=" + intID, conn);
-            MySqlCommand cmd6 = new MySqlCommand("update barcelona.activiteiten set activiteiten.ActiviteitDag='" + strDatum+ "' where idActiviteit=" + intID, conn);
-            MySqlCommand cmd7 = new MySqlCommand("update barcelona.activiteiten set activiteiten.ActiviteitUUr='" + pstrUUR+ "' where idActiviteit=" + intID, conn);
+            MySqlCommand cmd1 = new MySqlCommand("update ID191774_6itngip22.activiteiten set activiteiten.ActiviteitNaam='" + pstrNaam + "' where idActiviteit=" + intID, conn);
+            MySqlCommand cmd2 = new MySqlCommand("update ID191774_6itngip22.activiteiten set activiteiten.Omschrijving='" + pstrOmschrijving+ "' where idActiviteit=" + intID, conn);
+            MySqlCommand cmd3 = new MySqlCommand("update ID191774_6itngip22.activiteiten set activiteiten.Kostprijs=" + pdblKost+ " where idActiviteit=" + intID, conn);
+            MySqlCommand cmd4 = new MySqlCommand("update ID191774_6itngip22.activiteiten set activiteiten.AantalPlaatsen=" + pintPlaatsen + " where idActiviteit=" + intID, conn);
+            MySqlCommand cmd5 = new MySqlCommand("update ID191774_6itngip22.activiteiten set activiteiten.AantalDeelnemers=" + pintDeelnemers+ " where idActiviteit=" + intID, conn);
+            MySqlCommand cmd6 = new MySqlCommand("update ID191774_6itngip22.activiteiten set activiteiten.ActiviteitDag='" + strDatum+ "' where idActiviteit=" + intID, conn);
+            MySqlCommand cmd7 = new MySqlCommand("update ID191774_6itngip22.activiteiten set activiteiten.ActiviteitUUr='" + pstrUUR+ "' where idActiviteit=" + intID, conn);
 
             conn.Open();
             cmd1.ExecuteNonQuery();
