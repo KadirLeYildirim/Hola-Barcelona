@@ -64,7 +64,39 @@ namespace Barcelona
             {
                 lstActiviteiten.Items.Add(lijn);
             }
-            foreach (string item in clbBegeleiders.SelectedItems)
+            //Verwijderd eerst alle gekozen begeleiders(Zeer belangerijk NIET AANRAKEN)
+            foreach (string item in lstGekozenBegeleiders.Items)
+            {
+                string strLetter = "", strNaam = "";
+                for (int i = 0; i < item.Length; i++)
+                {
+                    strLetter = item.Substring(i, 1);
+                    if (strLetter == " ")
+                    {
+                        i = item.Length;
+                    }
+                    strNaam += strLetter;
+                }
+                bus.deleteActiviteitBegeleiderConnectie(strNaam, txtNaam.Text);
+            }
+            //Helpt met begeleiders te verbinden
+            int intJa=0;
+            foreach(string item in clbBegeleiders.SelectedItems)
+            {
+                foreach(string item2 in lstGekozenBegeleiders.Items)
+                {
+                    if (item == item2)
+                    {
+                        intJa++;
+                    }    
+                }
+                if (intJa == 0)
+                {
+                    lstGekozenBegeleiders.Items.Add(item);
+                }
+            }
+            //Verbind gekozen begeleiders
+            foreach (string item in lstGekozenBegeleiders.Items)
             {
                 string strLetter = "", strNaam = "";
                 for (int i = 0; i < item.Length; i++)
@@ -78,6 +110,7 @@ namespace Barcelona
                 }
                 bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
             }
+            vulIN();
         }
 
         public void vulIN()
@@ -106,6 +139,12 @@ namespace Barcelona
             {
                 clbBegeleiders.Items.Add(lijn);
             }
+
+        }
+
+        private void lstGekozenBegeleiders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

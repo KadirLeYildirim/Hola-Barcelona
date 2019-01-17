@@ -84,7 +84,7 @@
             this.btnBevestigen.Name = "btnBevestigen";
             this.btnBevestigen.Size = new System.Drawing.Size(91, 56);
             this.btnBevestigen.TabIndex = 32;
-            this.btnBevestigen.Text = "Bevestig";
+            this.btnBevestigen.Text = "Aanpassen";
             this.btnBevestigen.UseVisualStyleBackColor = true;
             this.btnBevestigen.Click += new System.EventHandler(this.btnBevestigen_Click);
             // 
@@ -253,6 +253,7 @@
             this.lstGekozenBegeleiders.Name = "lstGekozenBegeleiders";
             this.lstGekozenBegeleiders.Size = new System.Drawing.Size(117, 95);
             this.lstGekozenBegeleiders.TabIndex = 44;
+            this.lstGekozenBegeleiders.SelectedIndexChanged += new System.EventHandler(this.lstGekozenBegeleiders_SelectedIndexChanged);
             // 
             // ActiviteitAanpassen
             // 

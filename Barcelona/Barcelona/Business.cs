@@ -91,6 +91,10 @@ namespace Barcelona
         {
             pers.connectActiviteitBegeleiderInDB(pstrBegeleider, pstrActiviteit);
         }
+        public void deleteActiviteitBegeleiderConnectie(string pstrBegeleider, string pstrActiviteit)
+        {
+            pers.deleteActiviteitBegeleiderConnectieInDB(pstrBegeleider, pstrActiviteit);
+        }
         //Om activiteiten te weergeven
         public List<string> getActiviteiten()
         {
