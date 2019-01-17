@@ -42,8 +42,27 @@ namespace Barcelona
         private void btnVerwijderen_Click(object sender, EventArgs e)
         {
             bool blnAntwoord;
-            string ant;
-            MessageBox.Show("Bent u zeker dat u deze activiteit wilt verwijderen?", "Activiteit verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            blnAntwoord=Convert.ToBoolean(MessageBox.Show("Bent u zeker dat u deze activiteit wilt verwijderen?", "Activiteit verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning));
+            if (blnAntwoord == true)
+            {
+                bus.deleteActiviteit(txtNaam.Text);
+                lstActiviteiten.Items.Clear();
+                foreach (string lijn in bus.getNaamActiviteiten())
+                {
+                    lstActiviteiten.Items.Add(lijn);
+                }
+                txtNaam.Clear();
+                txtDeelnemers.Clear();
+                txtAantalPlaatsen.Clear();
+                txtDatum.Clear();
+                txtOmschrijving.Clear();
+                txtPrijs.Clear();
+                lstGekozenBegeleiders.Items.Clear();
+                rdbNamiddag.Checked = false;
+                rdbVoormiddag.Checked = false;
+            }
+            else { }
+
         }
 
         private void btnBevestigen_Click(object sender, EventArgs e)

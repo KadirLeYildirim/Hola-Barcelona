@@ -204,5 +204,9 @@ namespace Barcelona
             pers.updateActiviteitenInDB(pstrOrigineleNaam, pstrNaam, pstrOmschrijving, pdblKost,
                 pintPlaatsen, pintDeelnemers, pstrDatum, pstrUUR);
         }
+        public void deleteActiviteit(string pstrNaam)
+        {
+            pers.deleteActiviteitInDB(pstrNaam);
+        }
 	}
 }

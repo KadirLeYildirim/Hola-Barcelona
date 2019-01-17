@@ -237,6 +237,23 @@ namespace Barcelona
             cmd7.ExecuteNonQuery();
             conn.Close();
         }
+        public void deleteActiviteitInDB(string pstrNaam)
+        {
+            int intIDActiviteit;
+            MySqlCommand cmd = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam='" + pstrNaam + "'", conn);
+            conn.Open();
+            intIDActiviteit = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            MySqlCommand cmd2 = new MySqlCommand("delete from ID191774_6itngip22.activiteiten where idActiviteit=" + intIDActiviteit, conn);
+            MySqlCommand cmd3 = new MySqlCommand("delete from ID191774_6itngip22.activiteiten_begeleiders where activiteiten_idActiviteit=" + intIDActiviteit, conn);
+            MySqlCommand cmd4 = new MySqlCommand("delete from ID191774_6itngip22.activiteiten_leerlingen where Activiteiten_idActiviteiten=" + intIDActiviteit, conn);
+            conn.Open();
+            cmd4.ExecuteNonQuery();
+            cmd3.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
+            conn.Close();
+        }
 
     }
 }
