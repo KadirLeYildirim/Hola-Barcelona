@@ -79,6 +79,47 @@ namespace Barcelona
 
             return result;
         }
+        public string getWantedBegeleiderVoornaam(string pstrNaam)
+        {
+            string result="";
+
+            foreach (Begeleider item in pers.getWantedBegeleiders2FromDB(pstrNaam))
+            {
+                result=item.AlleenVoornaam();
+            }
+
+            return result;
+        }
+        public string getWantedBegeleiderAchternaam(string pstrNaam)
+        {
+            string result = "";
+
+            foreach (Begeleider item in pers.getWantedBegeleiders2FromDB(pstrNaam))
+            {
+                result = item.AlleenAchternaam();
+            }
+
+            return result;
+        }
+        public string getWantedBegeleiderGsmNummer(string pstrNaam)
+        {
+            string result = "";
+
+            foreach (Begeleider item in pers.getWantedBegeleiders2FromDB(pstrNaam))
+            {
+                result = item.AlleenGsmNummer();
+            }
+
+            return result;
+        }
+        public void updateBegeleider(string pstrOrigineleNaam, string pstrVoornaam, string pstrAchternaam, string pstrGsmNummer)
+        {
+            pers.updateBegeleiderInDB(pstrOrigineleNaam, pstrVoornaam, pstrAchternaam, pstrGsmNummer);
+        }
+        public void deleteBegeleider(string pstrNaam)
+        {
+            pers.deleteBegeleiderInDB(pstrNaam);
+        }
 
         public void addActiviteit(string pstrNaam, string pstrOmschrijving, double pdblKost,
             int pintPlaatsen, DateTime pdteDatum, string pstrUur)

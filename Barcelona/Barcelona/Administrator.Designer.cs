@@ -226,6 +226,7 @@
             this.btnBegeleiderAanpassen.TabIndex = 22;
             this.btnBegeleiderAanpassen.Text = "Pas een begeleider aan";
             this.btnBegeleiderAanpassen.UseVisualStyleBackColor = true;
+            this.btnBegeleiderAanpassen.Click += new System.EventHandler(this.btnBegeleiderAanpassen_Click);
             // 
             // Administrator
             // 

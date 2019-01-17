@@ -130,6 +130,11 @@ namespace Barcelona
                 bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
             }
             vulIN();
+            lstActiviteiten.Items.Clear();
+            foreach (string lijn in bus.getNaamActiviteiten())
+            {
+                lstActiviteiten.Items.Add(lijn);
+            }
         }
 
         public void vulIN()

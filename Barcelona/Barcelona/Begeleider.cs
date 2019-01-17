@@ -60,6 +60,18 @@ namespace Barcelona
         {
             return _voornaam + " " + _achternaam;
         }
+        public string AlleenVoornaam()
+        {
+            return _voornaam;
+        }
+        public string AlleenAchternaam()
+        {
+            return _achternaam;
+        }
+        public string AlleenGsmNummer()
+        {
+            return _gsmNummer;
+        }
 
     }
 }

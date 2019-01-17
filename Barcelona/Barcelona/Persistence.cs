@@ -89,6 +89,60 @@ namespace Barcelona
 
             return lijst;
         }
+        public List<Begeleider> getWantedBegeleiders2FromDB(string pstrNaam)
+        {
+            List<Begeleider> lijst = new List<Begeleider>();
+
+            MySqlCommand cmd = new MySqlCommand("select * from ID191774_6itngip22.begeleiders where BegeleiderVoornaam='" + pstrNaam+"'", conn);
+
+            conn.Open();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Begeleider b = new Begeleider(Convert.ToInt32(dataReader["idBegeleider"]),
+                    dataReader["BegeleiderVoornaam"].ToString(),
+                    dataReader["BegeleiderAchternaam"].ToString(),
+                    dataReader["GsmNummer"].ToString());
+                lijst.Add(b);
+            }
+            conn.Close();
+            return lijst;
+        }
+        public void updateBegeleiderInDB(string pstrOrigineleNaam, string pstrVoornaam, string pstrAchternaam, string pstrGsmNummer)
+        {
+            int intID=0;
+
+            MySqlCommand cmd = new MySqlCommand("select idBegeleider from ID191774_6itngip22.begeleiders where BegeleiderVoornaam='" + pstrOrigineleNaam + "'", conn);
+            conn.Open();
+            intID += Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            MySqlCommand cmd1 = new MySqlCommand("update ID191774_6itngip22.begeleiders set begeleiders.BegeleiderVoornaam ='"+pstrVoornaam+"' where idBegeleider="+intID, conn);
+            MySqlCommand cmd2 = new MySqlCommand("update ID191774_6itngip22.begeleiders set begeleiders.BegeleiderAchternaam ='" + pstrAchternaam + "' where idBegeleider=" + intID, conn);
+            MySqlCommand cmd3 = new MySqlCommand("update ID191774_6itngip22.begeleiders set begeleiders.GsmNummer ='" + pstrGsmNummer + "' where idBegeleider=" + intID, conn);
+
+            conn.Open();
+            cmd1.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
+            cmd3.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void deleteBegeleiderInDB(string pstrNaam)
+        {
+            int intID = 0;
+
+            MySqlCommand cmd = new MySqlCommand("select idBegeleider from ID191774_6itngip22.begeleiders where BegeleiderVoornaam='" + pstrNaam + "'", conn);
+            conn.Open();
+            intID += Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            MySqlCommand cmd1 = new MySqlCommand("delete from ID191774_6itngip22.begeleiders where idBegeleider=" + intID, conn);
+            MySqlCommand cmd2 = new MySqlCommand("delete from ID191774_6itngip22.activiteiten_begeleiders where begeleiders_idBegeleider=" + intID, conn);
+            conn.Open();
+            cmd2.ExecuteNonQuery();
+            cmd1.ExecuteNonQuery();
+            conn.Close();
+        }
 
         //Alles wat met activiteiten te maken heeft
         public void addActiviteitToDB(Activiteit item)

@@ -141,6 +141,12 @@ namespace Barcelona
             form.Show();
             this.Close();
         }
-        
+
+        private void btnBegeleiderAanpassen_Click(object sender, EventArgs e)
+        {
+            BegeleiderAanpassen begaanpassen = new BegeleiderAanpassen();
+            begaanpassen.Show();
+            this.Close();
+        }
     }
 }
