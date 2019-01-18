@@ -61,11 +61,6 @@
     <Compile Include="Administrator.Designer.cs">
       <DependentUpon>Administrator.cs</DependentUpon>
     </Compile>
-    <Compile Include="barcelonaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>barcelonaDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Begeleider.cs" />
     <Compile Include="BegeleiderAanpassen.cs">
       <SubType>Form</SubType>
@@ -82,11 +77,11 @@
     <Compile Include="VoegBegeleiderToe.Designer.cs">
       <DependentUpon>VoegBegeleiderToe.cs</DependentUpon>
     </Compile>
-    <Compile Include="VoegLeerlingToe.cs">
+    <Compile Include="Gebruiker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VoegLeerlingToe.Designer.cs">
-      <DependentUpon>VoegLeerlingToe.cs</DependentUpon>
+    <Compile Include="Gebruiker.Designer.cs">
+      <DependentUpon>Gebruiker.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,8 +97,8 @@
     <EmbeddedResource Include="VoegBegeleiderToe.resx">
       <DependentUpon>VoegBegeleiderToe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VoegLeerlingToe.resx">
-      <DependentUpon>VoegLeerlingToe.cs</DependentUpon>
+    <EmbeddedResource Include="Gebruiker.resx">
+      <DependentUpon>Gebruiker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -114,17 +109,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="barcelonaDataSet.xsc">
-      <DependentUpon>barcelonaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="barcelonaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>barcelonaDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="barcelonaDataSet.xss">
-      <DependentUpon>barcelonaDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

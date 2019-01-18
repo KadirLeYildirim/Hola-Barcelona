@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Barcelona
 {
-    public partial class VoegLeerlingToe : Form
+    public partial class Gebruiker : Form
     {
 		Business bus = new Business();
 
-		public VoegLeerlingToe()
+		public Gebruiker()
         {
             InitializeComponent();
         }

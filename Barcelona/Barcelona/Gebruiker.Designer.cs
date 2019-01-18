@@ -1,6 +1,6 @@
 ﻿namespace Barcelona
 {
-    partial class VoegLeerlingToe
+    partial class Gebruiker
     {
         /// <summary>
         /// Required designer variable.
