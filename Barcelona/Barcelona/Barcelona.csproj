@@ -70,6 +70,12 @@
     </Compile>
     <Compile Include="Business.cs" />
     <Compile Include="Leerling.cs" />
+    <Compile Include="Lijsten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lijsten.Designer.cs">
+      <DependentUpon>Lijsten.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence.cs" />
     <Compile Include="VoegBegeleiderToe.cs">
       <SubType>Form</SubType>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BegeleiderAanpassen.resx">
       <DependentUpon>BegeleiderAanpassen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lijsten.resx">
+      <DependentUpon>Lijsten.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VoegBegeleiderToe.resx">
       <DependentUpon>VoegBegeleiderToe.cs</DependentUpon>

@@ -48,6 +48,7 @@
             this.txtActiviteiten = new System.Windows.Forms.TextBox();
             this.btnActiviteitAanpassen = new System.Windows.Forms.Button();
             this.btnBegeleiderAanpassen = new System.Windows.Forms.Button();
+            this.btnLijsten = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVoegLeerkrachtToe
@@ -228,11 +229,22 @@
             this.btnBegeleiderAanpassen.UseVisualStyleBackColor = true;
             this.btnBegeleiderAanpassen.Click += new System.EventHandler(this.btnBegeleiderAanpassen_Click);
             // 
+            // btnLijsten
+            // 
+            this.btnLijsten.Location = new System.Drawing.Point(12, 153);
+            this.btnLijsten.Name = "btnLijsten";
+            this.btnLijsten.Size = new System.Drawing.Size(100, 41);
+            this.btnLijsten.TabIndex = 23;
+            this.btnLijsten.Text = "Lijsten";
+            this.btnLijsten.UseVisualStyleBackColor = true;
+            this.btnLijsten.Click += new System.EventHandler(this.btnLijsten_Click);
+            // 
             // Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 525);
+            this.Controls.Add(this.btnLijsten);
             this.Controls.Add(this.btnBegeleiderAanpassen);
             this.Controls.Add(this.btnActiviteitAanpassen);
             this.Controls.Add(this.txtActiviteiten);
@@ -282,5 +294,6 @@
         private System.Windows.Forms.TextBox txtActiviteiten;
         private System.Windows.Forms.Button btnActiviteitAanpassen;
         private System.Windows.Forms.Button btnBegeleiderAanpassen;
+        private System.Windows.Forms.Button btnLijsten;
     }
 }

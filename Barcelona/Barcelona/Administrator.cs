@@ -150,5 +150,12 @@ namespace Barcelona
             begaanpassen.Show();
             this.Close();
         }
+
+        private void btnLijsten_Click(object sender, EventArgs e)
+        {
+            Lijsten lijsten = new Lijsten();
+            lijsten.Show();
+            this.Close();
+        }
     }
 }
