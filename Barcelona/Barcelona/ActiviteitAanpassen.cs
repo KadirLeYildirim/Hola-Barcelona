@@ -143,7 +143,6 @@ namespace Barcelona
 
         public void vulIN()
         {
-            clbBegeleiders.Items.Clear();
             lstGekozenBegeleiders.Items.Clear();
             txtNaam.Text = bus.getWantedNaamActiviteiten(lstActiviteiten.SelectedItem.ToString());
             txtOmschrijving.Text = bus.getWantedOmschrijvingActiviteiten(lstActiviteiten.SelectedItem.ToString());
@@ -168,6 +167,31 @@ namespace Barcelona
         }
 
         private void lstGekozenBegeleiders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string item;
+            for (int i = 0; i < clbBegeleiders.CheckedItems.Count; i++)
+            {
+                string strLetter = "", strNaam = "";
+                item = clbBegeleiders.CheckedItems[i].ToString();
+                for (int j = 0; j < item.Length; j++)
+                {
+                    strLetter = item.Substring(j, 1);
+                    if (strLetter == " ")
+                    {
+                        j = item.Length;
+                    }
+                    strNaam += strLetter;
+                }
+                bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
+            }
+        }
+
+        private void btnVerwijderBegleider_Click(object sender, EventArgs e)
         {
 
         }

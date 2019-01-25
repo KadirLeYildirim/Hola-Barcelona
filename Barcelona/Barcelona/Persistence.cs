@@ -143,6 +143,24 @@ namespace Barcelona
             cmd1.ExecuteNonQuery();
             conn.Close();
         }
+        public void deleteBegeleiderWantedActiviteit(string pstrBegeleiderNaam, string pstrActiviteitNaam)
+        {
+            int intIDBeg = 0;
+            int intIDAc = 0;
+
+            MySqlCommand cmd = new MySqlCommand("select idBegeleider from ID191774_6itngip22.begeleiders where BegeleiderVoornaam='" + pstrBegeleiderNaam + "'", conn);
+            conn.Open();
+            intIDBeg += Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+
+            MySqlCommand cmd1 = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam='" + pstrActiviteitNaam + "'", conn);
+            conn.Open();
+            intIDAc += Convert.ToInt32(cmd1.ExecuteScalar());
+            conn.Close();
+
+            MySqlCommand cmd2 = new MySqlCommand("delete from ID191774_6itngip22.activiteiten_begeleiders where begeleiders_idBegeleider= " + intIDBeg + " activiteiten_IDActiviteit= " + intIDAc ,conn);
+
+        }
 
         //Alles wat met activiteiten te maken heeft
         public void addActiviteitToDB(Activiteit item)
@@ -308,6 +326,7 @@ namespace Barcelona
             cmd2.ExecuteNonQuery();
             conn.Close();
         }
+
 
     }
 }

@@ -51,7 +51,7 @@
             this.btnVerwijderen = new System.Windows.Forms.Button();
             this.g = new System.Windows.Forms.Label();
             this.lstGekozenBegeleiders = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVerwijderBegeleider = new System.Windows.Forms.Button();
             this.btnVerwijderBegleider = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             this.lstActiviteiten.FormattingEnabled = true;
             this.lstActiviteiten.Location = new System.Drawing.Point(12, 12);
             this.lstActiviteiten.Name = "lstActiviteiten";
-            this.lstActiviteiten.Size = new System.Drawing.Size(329, 459);
+            this.lstActiviteiten.Size = new System.Drawing.Size(329, 433);
             this.lstActiviteiten.TabIndex = 0;
             this.lstActiviteiten.SelectedIndexChanged += new System.EventHandler(this.lstActiviteiten_SelectedIndexChanged);
             // 
@@ -75,14 +75,14 @@
             // clbBegeleiders
             // 
             this.clbBegeleiders.FormattingEnabled = true;
-            this.clbBegeleiders.Location = new System.Drawing.Point(501, 270);
+            this.clbBegeleiders.Location = new System.Drawing.Point(501, 263);
             this.clbBegeleiders.Name = "clbBegeleiders";
             this.clbBegeleiders.Size = new System.Drawing.Size(132, 94);
             this.clbBegeleiders.TabIndex = 30;
             // 
             // btnBevestigen
             // 
-            this.btnBevestigen.Location = new System.Drawing.Point(542, 414);
+            this.btnBevestigen.Location = new System.Drawing.Point(542, 389);
             this.btnBevestigen.Name = "btnBevestigen";
             this.btnBevestigen.Size = new System.Drawing.Size(91, 56);
             this.btnBevestigen.TabIndex = 32;
@@ -93,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(533, 254);
+            this.label3.Location = new System.Drawing.Point(533, 247);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 13);
             this.label3.TabIndex = 35;
@@ -189,9 +189,9 @@
             // 
             // btnTerug
             // 
-            this.btnTerug.Location = new System.Drawing.Point(353, 415);
+            this.btnTerug.Location = new System.Drawing.Point(353, 389);
             this.btnTerug.Name = "btnTerug";
-            this.btnTerug.Size = new System.Drawing.Size(91, 56);
+            this.btnTerug.Size = new System.Drawing.Size(91, 57);
             this.btnTerug.TabIndex = 36;
             this.btnTerug.Text = "Terug";
             this.btnTerug.UseVisualStyleBackColor = true;
@@ -231,7 +231,7 @@
             // 
             // btnVerwijderen
             // 
-            this.btnVerwijderen.Location = new System.Drawing.Point(450, 414);
+            this.btnVerwijderen.Location = new System.Drawing.Point(450, 389);
             this.btnVerwijderen.Name = "btnVerwijderen";
             this.btnVerwijderen.Size = new System.Drawing.Size(86, 57);
             this.btnVerwijderen.TabIndex = 41;
@@ -242,7 +242,7 @@
             // g
             // 
             this.g.AutoSize = true;
-            this.g.Location = new System.Drawing.Point(350, 254);
+            this.g.Location = new System.Drawing.Point(350, 247);
             this.g.Name = "g";
             this.g.Size = new System.Drawing.Size(107, 13);
             this.g.TabIndex = 43;
@@ -251,37 +251,39 @@
             // lstGekozenBegeleiders
             // 
             this.lstGekozenBegeleiders.FormattingEnabled = true;
-            this.lstGekozenBegeleiders.Location = new System.Drawing.Point(353, 270);
+            this.lstGekozenBegeleiders.Location = new System.Drawing.Point(353, 263);
             this.lstGekozenBegeleiders.Name = "lstGekozenBegeleiders";
-            this.lstGekozenBegeleiders.Size = new System.Drawing.Size(117, 95);
+            this.lstGekozenBegeleiders.Size = new System.Drawing.Size(132, 95);
             this.lstGekozenBegeleiders.TabIndex = 44;
             this.lstGekozenBegeleiders.SelectedIndexChanged += new System.EventHandler(this.lstGekozenBegeleiders_SelectedIndexChanged);
             // 
-            // button1
+            // btnVerwijderBegeleider
             // 
-            this.button1.Location = new System.Drawing.Point(519, 370);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 23);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Voeg begeleider toe";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnVerwijderBegeleider.Location = new System.Drawing.Point(501, 363);
+            this.btnVerwijderBegeleider.Name = "btnVerwijderBegeleider";
+            this.btnVerwijderBegeleider.Size = new System.Drawing.Size(132, 23);
+            this.btnVerwijderBegeleider.TabIndex = 45;
+            this.btnVerwijderBegeleider.Text = "Voeg begeleider toe";
+            this.btnVerwijderBegeleider.UseVisualStyleBackColor = true;
+            this.btnVerwijderBegeleider.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnVerwijderBegleider
             // 
-            this.btnVerwijderBegleider.Location = new System.Drawing.Point(353, 370);
+            this.btnVerwijderBegleider.Location = new System.Drawing.Point(353, 364);
             this.btnVerwijderBegleider.Name = "btnVerwijderBegleider";
-            this.btnVerwijderBegleider.Size = new System.Drawing.Size(117, 23);
+            this.btnVerwijderBegleider.Size = new System.Drawing.Size(132, 23);
             this.btnVerwijderBegleider.TabIndex = 46;
             this.btnVerwijderBegleider.Text = "Verwijder begeleider";
             this.btnVerwijderBegleider.UseVisualStyleBackColor = true;
+            this.btnVerwijderBegleider.Click += new System.EventHandler(this.btnVerwijderBegleider_Click);
             // 
             // ActiviteitAanpassen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 482);
+            this.ClientSize = new System.Drawing.Size(645, 455);
             this.Controls.Add(this.btnVerwijderBegleider);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnVerwijderBegeleider);
             this.Controls.Add(this.lstGekozenBegeleiders);
             this.Controls.Add(this.g);
             this.Controls.Add(this.btnVerwijderen);
@@ -338,7 +340,7 @@
         private System.Windows.Forms.Button btnVerwijderen;
         private System.Windows.Forms.Label g;
         private System.Windows.Forms.ListBox lstGekozenBegeleiders;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVerwijderBegeleider;
         private System.Windows.Forms.Button btnVerwijderBegleider;
     }
 }

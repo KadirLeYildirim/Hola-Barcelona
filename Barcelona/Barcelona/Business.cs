@@ -120,6 +120,7 @@ namespace Barcelona
         {
             pers.deleteBegeleiderInDB(pstrNaam);
         }
+        
 
         public void addActiviteit(string pstrNaam, string pstrOmschrijving, double pdblKost,
             int pintPlaatsen, DateTime pdteDatum, string pstrUur)
