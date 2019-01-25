@@ -51,6 +51,8 @@
             this.btnVerwijderen = new System.Windows.Forms.Button();
             this.g = new System.Windows.Forms.Label();
             this.lstGekozenBegeleiders = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnVerwijderBegleider = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstActiviteiten
@@ -58,7 +60,7 @@
             this.lstActiviteiten.FormattingEnabled = true;
             this.lstActiviteiten.Location = new System.Drawing.Point(12, 12);
             this.lstActiviteiten.Name = "lstActiviteiten";
-            this.lstActiviteiten.Size = new System.Drawing.Size(329, 394);
+            this.lstActiviteiten.Size = new System.Drawing.Size(329, 459);
             this.lstActiviteiten.TabIndex = 0;
             this.lstActiviteiten.SelectedIndexChanged += new System.EventHandler(this.lstActiviteiten_SelectedIndexChanged);
             // 
@@ -80,7 +82,7 @@
             // 
             // btnBevestigen
             // 
-            this.btnBevestigen.Location = new System.Drawing.Point(542, 370);
+            this.btnBevestigen.Location = new System.Drawing.Point(542, 414);
             this.btnBevestigen.Name = "btnBevestigen";
             this.btnBevestigen.Size = new System.Drawing.Size(91, 56);
             this.btnBevestigen.TabIndex = 32;
@@ -187,7 +189,7 @@
             // 
             // btnTerug
             // 
-            this.btnTerug.Location = new System.Drawing.Point(353, 371);
+            this.btnTerug.Location = new System.Drawing.Point(353, 415);
             this.btnTerug.Name = "btnTerug";
             this.btnTerug.Size = new System.Drawing.Size(91, 56);
             this.btnTerug.TabIndex = 36;
@@ -229,7 +231,7 @@
             // 
             // btnVerwijderen
             // 
-            this.btnVerwijderen.Location = new System.Drawing.Point(450, 370);
+            this.btnVerwijderen.Location = new System.Drawing.Point(450, 414);
             this.btnVerwijderen.Name = "btnVerwijderen";
             this.btnVerwijderen.Size = new System.Drawing.Size(86, 57);
             this.btnVerwijderen.TabIndex = 41;
@@ -255,11 +257,31 @@
             this.lstGekozenBegeleiders.TabIndex = 44;
             this.lstGekozenBegeleiders.SelectedIndexChanged += new System.EventHandler(this.lstGekozenBegeleiders_SelectedIndexChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(519, 370);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 23);
+            this.button1.TabIndex = 45;
+            this.button1.Text = "Voeg begeleider toe";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnVerwijderBegleider
+            // 
+            this.btnVerwijderBegleider.Location = new System.Drawing.Point(353, 370);
+            this.btnVerwijderBegleider.Name = "btnVerwijderBegleider";
+            this.btnVerwijderBegleider.Size = new System.Drawing.Size(117, 23);
+            this.btnVerwijderBegleider.TabIndex = 46;
+            this.btnVerwijderBegleider.Text = "Verwijder begeleider";
+            this.btnVerwijderBegleider.UseVisualStyleBackColor = true;
+            // 
             // ActiviteitAanpassen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 438);
+            this.ClientSize = new System.Drawing.Size(645, 482);
+            this.Controls.Add(this.btnVerwijderBegleider);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lstGekozenBegeleiders);
             this.Controls.Add(this.g);
             this.Controls.Add(this.btnVerwijderen);
@@ -316,5 +338,7 @@
         private System.Windows.Forms.Button btnVerwijderen;
         private System.Windows.Forms.Label g;
         private System.Windows.Forms.ListBox lstGekozenBegeleiders;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVerwijderBegleider;
     }
 }

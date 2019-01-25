@@ -25,6 +25,10 @@ namespace Barcelona
             {
                 lstActiviteiten.Items.Add(lijn);
             }
+            foreach (string lijn in bus.getBegeleidersNamen())
+            {
+                clbBegeleiders.Items.Add(lijn);
+            }
         }
 
         private void btnTerug_Click(object sender, EventArgs e)
@@ -159,10 +163,7 @@ namespace Barcelona
             {
                 lstGekozenBegeleiders.Items.Add(lijn);
             }
-            foreach (string lijn in bus.getBegeleidersNamen())
-            {
-                clbBegeleiders.Items.Add(lijn);
-            }
+
 
         }
 

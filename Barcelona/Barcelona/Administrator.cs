@@ -68,15 +68,17 @@ namespace Barcelona
             bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
     Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur);
             //Dit connecteerd een activiteit en de gekozen begeleider
-            foreach (string item in clbBegeleiders.SelectedItems)
+            string item;
+            for (int i = 0; i < clbBegeleiders.CheckedItems.Count; i++)
             {
                 string strLetter = "", strNaam = "";
-                for (int i = 0; i < item.Length; i++)
+                item = clbBegeleiders.CheckedItems[i].ToString();
+                for (int j = 0; j < item.Length; j++)
                 {
-                    strLetter = item.Substring(i, 1);
+                    strLetter = item.Substring(j, 1);
                     if (strLetter == " ")
                     {
-                        i = item.Length;
+                        j = item.Length;
                     }
                     strNaam += strLetter;
                 }
