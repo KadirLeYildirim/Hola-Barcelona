@@ -240,6 +240,17 @@ namespace Barcelona
             cmd3.ExecuteNonQuery();
             conn.Close();
         }
+        public void deleteActiviteitLeerlingenConnectieInDB(string pstrAcNaam)
+        {
+            int intIDActiviteit;
+            MySqlCommand cmd2 = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam='" + pstrAcNaam + "'", conn);
+            conn.Open();
+            intIDActiviteit = Convert.ToInt32(cmd2.ExecuteScalar());
+            conn.Close();
+
+
+
+        }
 
         public List<Activiteit> getActiviteitenFromDB()
         {
