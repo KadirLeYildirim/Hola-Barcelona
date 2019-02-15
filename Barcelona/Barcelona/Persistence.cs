@@ -58,10 +58,13 @@ namespace Barcelona
 
             return lijst;
         }
+        //Haalt gevraagde begeleiders uit de database gebaseerd bij de bijhoorende activiteit
         public List<Begeleider> GetWantedBegeleidersFromDB(string pstrNaam)
         {
             List<Begeleider> lijst = new List<Begeleider>();
-            int intIDActiviteit=0, intIDBegeleider=0;
+            List<Begeleider> lijstIDBegeleider = new List<Begeleider>();
+            List<int> lijstID = new List<int>();
+            int intIDActiviteit = 0;
 
             MySqlCommand cmd = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam='" + pstrNaam + "'", conn);
             conn.Open();
@@ -70,23 +73,33 @@ namespace Barcelona
 
             MySqlCommand cmd2 = new MySqlCommand("select begeleiders_idBegeleider from ID191774_6itngip22.activiteiten_begeleiders where activiteiten_idActiviteit=" + intIDActiviteit, conn);
             conn.Open();
-            intIDBegeleider = Convert.ToInt32(cmd2.ExecuteScalar());
-            conn.Close();
-
-            MySqlCommand cmd3 = new MySqlCommand("select * from ID191774_6itngip22.begeleiders where idBegeleider=" + intIDBegeleider, conn);
-
-            conn.Open();
-            MySqlDataReader dataReader = cmd3.ExecuteReader();
-            while (dataReader.Read())
+            MySqlDataReader dataReaderID = cmd2.ExecuteReader();
+            while (dataReaderID.Read())
             {
-                Begeleider b = new Begeleider(Convert.ToInt32(dataReader["idBegeleider"]),
-                    dataReader["BegeleiderVoornaam"].ToString(),
-                    dataReader["BegeleiderAchternaam"].ToString(),
-                    dataReader["GsmNummer"].ToString());
-                lijst.Add(b);
+                Begeleider b = new Begeleider(Convert.ToInt32(dataReaderID["begeleiders_idBegeleider"]));
+                lijstIDBegeleider.Add(b);
             }
             conn.Close();
 
+            foreach(Begeleider item in lijstIDBegeleider)
+            {
+                lijstID.Add(item.AlleenID());
+            }
+            foreach(int id in lijstID)
+            {
+                MySqlCommand cmd3 = new MySqlCommand("select * from ID191774_6itngip22.begeleiders where idBegeleider=" + id, conn);
+                conn.Open();
+                MySqlDataReader dataReader = cmd3.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Begeleider b = new Begeleider(Convert.ToInt32(dataReader["idBegeleider"]),
+                        dataReader["BegeleiderVoornaam"].ToString(),
+                        dataReader["BegeleiderAchternaam"].ToString(),
+                        dataReader["GsmNummer"].ToString());
+                    lijst.Add(b);
+                }
+                conn.Close();
+            }
             return lijst;
         }
         public List<Begeleider> getWantedBegeleiders2FromDB(string pstrNaam)

@@ -34,6 +34,7 @@ namespace Barcelona
             set { _gsmNummer = value; }
         }
 
+
         public Begeleider(int pintID,string pstrVoornaam, string pstrAchternaam, string pstrGsmNummer)
         {
             _id = pintID;
@@ -72,6 +73,11 @@ namespace Barcelona
         {
             return _gsmNummer;
         }
+        public int AlleenID()
+        {
+            return _id;
+        }
+    
 
     }
 }

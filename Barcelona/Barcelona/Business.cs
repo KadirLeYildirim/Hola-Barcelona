@@ -68,6 +68,7 @@ namespace Barcelona
 
             return result;
         }
+        
         public List<string> getWantedBegeleiders(string pstrNaam)
         {
             List<string> result = new List<string>();
@@ -79,6 +80,7 @@ namespace Barcelona
 
             return result;
         }
+        //Is nodig om begeleiders up te daten
         public string getWantedBegeleiderVoornaam(string pstrNaam)
         {
             string result="";
