@@ -71,7 +71,7 @@ namespace Barcelona
                 strNaam += strLetter;
             }
             bool blnAntwoord;
-            blnAntwoord = Convert.ToBoolean(MessageBox.Show("Bent u zeker dat u deze activiteit wilt verwijderen?", "Activiteit verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning));
+            blnAntwoord = Convert.ToBoolean(MessageBox.Show("Bent u zeker dat u deze begeleider wilt verwijderen?", "Begeleider verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning));
             if (blnAntwoord == true)
             {
                 bus.deleteBegeleider(strNaam);

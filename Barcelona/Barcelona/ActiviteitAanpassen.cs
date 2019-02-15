@@ -153,7 +153,28 @@ namespace Barcelona
 
         private void btnVerwijderBegleider_Click(object sender, EventArgs e)
         {
+            string strNaam = "", strLetter;
+            for (int i = 0; i < lstGekozenBegeleiders.SelectedItem.ToString().Length; i++)
+            {
+                strLetter = lstGekozenBegeleiders.SelectedItem.ToString().Substring(i, 1);
+                if (strLetter == " ")
+                {
+                    i = lstGekozenBegeleiders.SelectedItem.ToString().Length;
+                }
+                strNaam += strLetter;
+            }
+            bool blnAntwoord;
+            blnAntwoord = Convert.ToBoolean(MessageBox.Show("Bent u zeker dat u deze begeleider wilt verwijderen?", "Begeleider verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning));
+            if (blnAntwoord == true)
+            {
+                bus.deleteActiviteitBegeleiderConnectie(strNaam, txtNaam.Text);
+                lstGekozenBegeleiders.Items.Clear();
+                foreach (string lijn in bus.getWantedBegeleiders(txtNaam.Text))
+                {
+                    lstGekozenBegeleiders.Items.Add(lijn);
+                }
 
+            }
         }
     }
 }
