@@ -247,9 +247,50 @@ namespace Barcelona
             conn.Open();
             intIDActiviteit = Convert.ToInt32(cmd2.ExecuteScalar());
             conn.Close();
+        }
 
+        public List<Leerling> GetWantedLeerlingFromDB(string pstrNaam)
+        {
+            List<Leerling> lijst = new List<Leerling>();
+            List<Leerling> lijstIDLeerling = new List<Leerling>();
+            List<int> lijstID = new List<int>();
+            int intIDActiviteit = 0;
 
+            MySqlCommand cmd = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam='" + pstrNaam + "'", conn);
+            conn.Open();
+            intIDActiviteit += Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
 
+            MySqlCommand cmd2 = new MySqlCommand("select Leerlingen_idLeerlingen from ID191774_6itngip22.activiteiten_leerlingen where activiteiten_idActiviteit=" + intIDActiviteit, conn);
+            conn.Open();
+            MySqlDataReader dataReaderID = cmd2.ExecuteReader();
+            while (dataReaderID.Read())
+            {
+                Leerling b = new Leerling(Convert.ToInt32(dataReaderID["Leerlingen_idLeerlingen"]));
+                lijstIDLeerling.Add(b);
+            }
+            conn.Close();
+
+            foreach (Leerling item in lijstIDLeerling)
+            {
+                lijstID.Add(item.AlleenID());
+            }
+            foreach (int id in lijstID)
+            {
+                MySqlCommand cmd3 = new MySqlCommand("select * from ID191774_6itngip22.leerlingen where idLeerling=" + id, conn);
+                conn.Open();
+                MySqlDataReader dataReader = cmd3.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Leerling b = new Leerling(Convert.ToString(dataReader["idLeerling"]),
+                        dataReader["LeerlingVoornaam"].ToString(),
+                        dataReader["LeerlingAchternaam"].ToString(),
+                        dataReader["GsmNummer"].ToString());
+                    lijst.Add(b);
+                }
+                conn.Close();
+            }
+            return lijst;
         }
 
         public List<Activiteit> getActiviteitenFromDB()

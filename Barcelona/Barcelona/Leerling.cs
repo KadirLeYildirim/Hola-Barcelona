@@ -59,6 +59,34 @@ namespace Barcelona
             _gsmNummer = pstrGsmNummer;
         }
 
+        public Leerling(int pintID)
+        {
+            _id = pintID;
+        }
 
-	}
+        public override string ToString()
+        {
+            return _id + "= Naam:" + _voorNaam + _achterNaam + " gsm nummer: " + _gsmNummer;
+        }
+        public string AlleenNaam()
+        {
+            return _voorNaam + " " + _achterNaam;
+        }
+        public string AlleenVoornaam()
+        {
+            return _voorNaam;
+        }
+        public string AlleenAchternaam()
+        {
+            return _achterNaam;
+        }
+        public string AlleenGsmNummer()
+        {
+            return _gsmNummer;
+        }
+        public int AlleenID()
+        {
+            return _id;
+        }
+    }
 }
