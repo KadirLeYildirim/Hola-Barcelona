@@ -28,13 +28,27 @@ namespace Barcelona
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            vulIN();
+            //vulIN();
+            foreach (string lijn in bus.getWantedBegeleiders(comboBox1.SelectedItem.ToString()))
+            {
+                listBox1.Items.Add(lijn);
+            }   
         }
-        public void vulIN()
-        {
-            comboBox1.Items.Clear();
-            comboBox1.Items.Add(bus.getNaamActiviteiten());
 
+        //public void vulIN()
+        //{
+        //    foreach (string lijn in bus.getWantedBegeleiders(comboBox1.SelectedItem.ToString()))
+        //    {
+        //        listBox1.Items.Add(lijn);
+        //    }
+        //}
+
+        private void Lijsten_Load(object sender, EventArgs e)
+        {
+            foreach (string lijn in bus.getNaamActiviteiten())
+            {
+                comboBox1.Items.Add(lijn);
+            }
         }
     }
 }

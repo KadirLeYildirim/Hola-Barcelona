@@ -30,6 +30,7 @@
         {
             this.btnTerug = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnTerug
@@ -49,16 +50,26 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 1;
-             // 
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(352, 12);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(300, 329);
+            this.listBox1.TabIndex = 2;
+            // 
             // Lijsten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 450);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnTerug);
             this.Name = "Lijsten";
             this.Text = "Lijsten";
+            this.Load += new System.EventHandler(this.Lijsten_Load);
             this.ResumeLayout(false);
 
         }
@@ -67,5 +78,6 @@
 
         private System.Windows.Forms.Button btnTerug;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

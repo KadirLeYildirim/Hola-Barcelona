@@ -174,7 +174,7 @@ namespace Barcelona
                     lstGekozenBegeleiders.Items.Add(lijn);
                 }
 
-            }
+            } else { }
         }
     }
 }

@@ -18,11 +18,13 @@ namespace Barcelona
             get { return _activiteiten; }
             set { _activiteiten = value; }
         }
+
         public List<Leerling> leerlingen
         {
             get { return _leerlingen; }
             set { _leerlingen = value; }
         }
+
         public List<Begeleider> begeleiders
         {
             get { return _begeleiders; }
@@ -57,6 +59,7 @@ namespace Barcelona
 
             return result;
         }
+
         public List<string> getBegeleidersNamen()
         {
             List<string> result = new List<string>();
@@ -80,6 +83,7 @@ namespace Barcelona
 
             return result;
         }
+        
         //Is nodig om begeleiders up te daten
         public string getWantedBegeleiderVoornaam(string pstrNaam)
         {
@@ -92,6 +96,7 @@ namespace Barcelona
 
             return result;
         }
+
         public string getWantedBegeleiderAchternaam(string pstrNaam)
         {
             string result = "";
@@ -103,6 +108,7 @@ namespace Barcelona
 
             return result;
         }
+
         public string getWantedBegeleiderGsmNummer(string pstrNaam)
         {
             string result = "";
@@ -114,6 +120,7 @@ namespace Barcelona
 
             return result;
         }
+
         public void updateBegeleider(string pstrOrigineleNaam, string pstrVoornaam, string pstrAchternaam, string pstrGsmNummer)
         {
             pers.updateBegeleiderInDB(pstrOrigineleNaam, pstrVoornaam, pstrAchternaam, pstrGsmNummer);
@@ -131,6 +138,7 @@ namespace Barcelona
                 0, pdteDatum, pstrUur);
             pers.addActiviteitToDB(item);
         }
+
         public void connectActiviteitBegeleider(string pstrBegeleider, string pstrActiviteit)
         {
             pers.connectActiviteitBegeleiderInDB(pstrBegeleider, pstrActiviteit);
@@ -140,6 +148,7 @@ namespace Barcelona
             pers.deleteActiviteitBegeleiderConnectieInDB(pstrBegeleider, pstrActiviteit);
         }
         //Om activiteiten te weergeven
+
         public List<string> getActiviteiten()
         {
             List<string> result = new List<string>();
@@ -163,6 +172,7 @@ namespace Barcelona
 
             return result;
         }
+        
         //Nodig om activiteiten aan te passen
         public string getWantedNaamActiviteiten(string pstrNaam)
         {
@@ -175,6 +185,7 @@ namespace Barcelona
 
             return result;
         }
+
         public string getWantedOmschrijvingActiviteiten(string pstrNaam)
         {
             string result = "";
@@ -186,6 +197,7 @@ namespace Barcelona
 
             return result;
         }
+
         public string getWantedKostprijsActiviteiten(string pstrNaam)
         {
             string result = "";
@@ -197,6 +209,7 @@ namespace Barcelona
 
             return result;
         }
+
         public string getWantedPlaatsenActiviteiten(string pstrNaam)
         {
             string result = "";
@@ -208,6 +221,7 @@ namespace Barcelona
 
             return result;
         }
+
         public string getWantedDeelnemersActiviteiten(string pstrNaam)
         {
             string result = "";
@@ -219,6 +233,7 @@ namespace Barcelona
 
             return result;
         }
+
         public string getWantedDatumActiviteiten(string pstrNaam)
         {
             string result = "";
@@ -230,6 +245,7 @@ namespace Barcelona
 
             return result;
         }
+
         public string getWantedUUrActiviteiten(string pstrNaam)
         {
             string result = "";
