@@ -58,6 +58,7 @@ namespace Barcelona
 
             return lijst;
         }
+
         //Haalt gevraagde begeleiders uit de database gebaseerd bij de bijhoorende activiteit
         public List<Begeleider> GetWantedBegeleidersFromDB(string pstrNaam)
         {
@@ -102,6 +103,7 @@ namespace Barcelona
             }
             return lijst;
         }
+
         public List<Begeleider> getWantedBegeleiders2FromDB(string pstrNaam)
         {
             List<Begeleider> lijst = new List<Begeleider>();
@@ -121,6 +123,7 @@ namespace Barcelona
             conn.Close();
             return lijst;
         }
+
         public void updateBegeleiderInDB(string pstrOrigineleNaam, string pstrVoornaam, string pstrAchternaam, string pstrGsmNummer)
         {
             int intID=0;
@@ -140,6 +143,7 @@ namespace Barcelona
             cmd3.ExecuteNonQuery();
             conn.Close();
         }
+
         public void deleteBegeleiderInDB(string pstrNaam)
         {
             int intID = 0;
@@ -156,6 +160,7 @@ namespace Barcelona
             cmd1.ExecuteNonQuery();
             conn.Close();
         }
+
         public void deleteBegeleiderWantedActiviteit(string pstrBegeleiderNaam, string pstrActiviteitNaam)
         {
             int intIDBeg = 0;
@@ -193,6 +198,7 @@ namespace Barcelona
 
 
         }
+
 		public void ActiviteitPerDatum(Activiteit item)
 		{
 			MySqlCommand cmd = new MySqlCommand("select * from ID191774_6itngip22.activiteiten groupby CURDATE()", conn);
@@ -221,6 +227,7 @@ namespace Barcelona
             cmd3.ExecuteNonQuery();
             conn.Close();
         }
+
         public void deleteActiviteitBegeleiderConnectieInDB(string pstrNaam, string pstrAcNaam)
         {
             int intIDBegeleider, intIDActiviteit;
@@ -239,6 +246,7 @@ namespace Barcelona
             cmd3.ExecuteNonQuery();
             conn.Close();
         }
+
         public void deleteActiviteitLeerlingenConnectieInDB(string pstrAcNaam)
         {
             int intIDActiviteit;
@@ -316,6 +324,7 @@ namespace Barcelona
             
             return lijst;
         }
+
         public List<Activiteit> getWantedActiviteitenFromDB(string pstrNaam)
         {
             List<Activiteit> lijst = new List<Activiteit>();
@@ -340,6 +349,7 @@ namespace Barcelona
 
             return lijst;
         }
+
         public void updateActiviteitenInDB(string pstrOrigineleNaam ,string pstrNaam, string pstrOmschrijving,
             double pdblKost, int pintPlaatsen, int pintDeelnemers, string pstrDatum, string pstrUUR)
         {
@@ -373,6 +383,7 @@ namespace Barcelona
             cmd7.ExecuteNonQuery();
             conn.Close();
         }
+
         public void deleteActiviteitInDB(string pstrNaam)
         {
             int intIDActiviteit;
@@ -390,7 +401,5 @@ namespace Barcelona
             cmd2.ExecuteNonQuery();
             conn.Close();
         }
-
-
     }
 }
