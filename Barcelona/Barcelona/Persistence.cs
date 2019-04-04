@@ -172,7 +172,6 @@ namespace Barcelona
             conn.Close();
 
             MySqlCommand cmd2 = new MySqlCommand("delete from ID191774_6itngip22.activiteiten_begeleiders where begeleiders_idBegeleider= " + intIDBeg + " activiteiten_IDActiviteit= " + intIDAc ,conn);
-
         }
 
         //Alles wat met activiteiten te maken heeft
