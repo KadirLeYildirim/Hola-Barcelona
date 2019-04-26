@@ -401,5 +401,31 @@ namespace Barcelona
             cmd2.ExecuteNonQuery();
             conn.Close();
         }
+
+        public void ActiviteitenAuto()
+        {
+            List<Activiteit> ActiviteitenAuto = new List<Activiteit>();
+
+            MySqlCommand cmd = new MySqlCommand("Select ActiviteitDag, COUNT(IF(ActiviteitUUr = 'De Namiddag', 1, NULL)) 'Namiddag', COUNT(IF(ActiviteitUUr = 'De Voormiddag', 1, NULL)) 'Voormiddag' from ID191774_6itngip22.activiteiten group by ActiviteitDag");
+            conn.Open();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                if (Convert.ToInt32(dataReader["Namiddag"]) == 1)
+                {
+                    Activiteit a = new Activiteit(Convert.ToDateTime(dataReader["ActiviteitDag"]), de naamdig)
+                }
+            }
+
+        }
+
+        public List<Activiteit> ActiviteitenKeuzes()
+        {
+            List<Activiteit> ActiviteitenDag = new List<Activiteit>();
+            List<Activiteit> ActiviteitUUr = new List<Activiteit>();
+
+            return ActiviteitUUr;
+        }
+        
     }
 }
