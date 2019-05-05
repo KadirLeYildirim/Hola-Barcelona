@@ -104,6 +104,27 @@ namespace Barcelona
             return result;
         }
 
+        public void AddAutoActiviteitLeerlingConnectie(string strLeerlingVoor, string strLeerlingAchter)
+        {
+            pers.AddAutoActiviteitLeerlingConnectieToDB(strLeerlingVoor, strLeerlingAchter);
+        }
+
+        public void addKeuzeActivteitLeerlingConnectie(List<string> lijst, string strLeerlingVoor, string strLeerlingAchter)
+        {
+            List<Activiteit> activiteiten = new List<Activiteit>();
+            foreach(string item in lijst)
+            {
+                if (item != "")
+                {
+                    Activiteit a = new Activiteit(item);
+                    activiteiten.Add(a);
+                }
+                else { }
+            }
+
+            pers.addKeuzeActivteitLeerlingConnectieToDB(activiteiten,strLeerlingVoor,strLeerlingAchter);
+        }
+
         public List<string> getBegeleiders()
         {
             List<string> result = new List<string>();

@@ -29,6 +29,7 @@ namespace Barcelona
             conn.Close();
         }
 
+        //Gekke code die ervoor zorgt dat alle activteiten verbonden worden met leerlingen, niet aanraken!!!
         public List<Activiteit> getKeuzeActiviteitenFromDB(Activiteit pOudeDatum)
         {
             List<Activiteit> datumKeuzeActiviteiten = new List<Activiteit>();
@@ -177,7 +178,7 @@ namespace Barcelona
 			conn.Close();
 		}
 
-        public void AddActiviteitLeerlingConnectieToDB(string strLeerlingVoor, string strLeerlingAchter)
+        public void AddAutoActiviteitLeerlingConnectieToDB(string strLeerlingVoor, string strLeerlingAchter)
         {
             List<Activiteit> ActiviteitenAuto = new List<Activiteit>();
             List<Activiteit> ActiviteitenID = new List<Activiteit>();
@@ -228,6 +229,39 @@ namespace Barcelona
                 cmd4.ExecuteNonQuery();
                 conn.Close();
             }
+        }
+
+        public void addKeuzeActivteitLeerlingConnectieToDB(List<Activiteit> lijst, string strLeerlingVoor, string strLeerlingAchter)
+        {
+            List<Activiteit> idActiviteiten = new List<Activiteit>();
+            int intIDLeerling;
+
+            foreach (Activiteit item in lijst)
+            {
+                MySqlCommand cmd = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam = '"+item.naam+"'", conn);
+
+                conn.Open();
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Activiteit a = new Activiteit(Convert.ToInt32(dataReader["idActiviteit"]));
+                    idActiviteiten.Add(a);
+                }
+            }
+
+            MySqlCommand cmd3 = new MySqlCommand("select idLeerling from ID191774_6itngip22.leerlingen where LeerlingVoornaam = '" + strLeerlingVoor + "' and LeerlingAchternaam = '" + strLeerlingAchter + "'", conn);
+            conn.Open();
+            intIDLeerling = Convert.ToInt32(cmd3.ExecuteScalar());
+            conn.Close();
+
+            foreach (Activiteit item in idActiviteiten)
+            {
+                MySqlCommand cmd4 = new MySqlCommand("insert into ID191774_6itngip22.activiteiten_leerlingen(`Activiteiten_idActiviteiten`,`Leerlingen_idLeerlingen`) values(" + item.id + ", " + intIDLeerling + ")", conn);
+                conn.Open();
+                cmd4.ExecuteNonQuery();
+                conn.Close();
+            }
+
         }
 
         public List<Begeleider> GetBegeleidersFromDB()

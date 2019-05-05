@@ -202,7 +202,7 @@
             // cmbAlleKeuzes
             // 
             this.cmbAlleKeuzes.FormattingEnabled = true;
-            this.cmbAlleKeuzes.Location = new System.Drawing.Point(436, 226);
+            this.cmbAlleKeuzes.Location = new System.Drawing.Point(484, 214);
             this.cmbAlleKeuzes.Name = "cmbAlleKeuzes";
             this.cmbAlleKeuzes.Size = new System.Drawing.Size(121, 24);
             this.cmbAlleKeuzes.TabIndex = 14;

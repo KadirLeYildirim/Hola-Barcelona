@@ -49,19 +49,19 @@ namespace Barcelona
             {
                 cmbKeuze.Items.Add(item);
             }
-            if (lblDatum.Text == "1/01/0001 -")
-            {
-                lblDatum.Text = "";
-                btnVolgende.Enabled = false;
-            }
+            cmbAlleKeuzes.Items.Add(cmbKeuze.SelectedItem);
 
-            
-		}
+        }
 
 		private void btnRegistreer_Click(object sender, EventArgs e)
 		{
+            List<string> keuzeActiviteiten = new List<string>();
 			bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.SelectedItem));
-		}
+            bus.AddAutoActiviteitLeerlingConnectie(txtVoornaam.Text,txtAchternaam.Text);
+            cmbAlleKeuzes.Items.Add(cmbKeuze.SelectedItem);
+            foreach(string item in cmbAlleKeuzes.ToString())
+            bus.addKeuzeActivteitLeerlingConnectie(keuzeActiviteiten, txtVoornaam.Text, txtAchternaam.Text);
+        }
 
         private void label5_Click(object sender, EventArgs e)
         {
