@@ -86,6 +86,24 @@ namespace Barcelona
             _datum = pdteDatum;
             _uur = pstrUUr;
         }
+        public Activiteit(int pintID)
+        {
+            _id = pintID;
+        }
+        public Activiteit(string pstrNaam)
+        {
+            _activiteitNaam = pstrNaam;
+        }
+        public Activiteit(int pintID, string pstrNaam, DateTime pdteDatum, string pstrUUr)
+        {
+            _id = pintID;
+            _activiteitNaam = pstrNaam; 
+            _datum = pdteDatum;
+            _uur = pstrUUr;
+        }
+        public Activiteit()
+        {
+        }
 
         public override string ToString()
         {

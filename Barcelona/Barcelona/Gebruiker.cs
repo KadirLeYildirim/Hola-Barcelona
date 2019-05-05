@@ -34,30 +34,40 @@ namespace Barcelona
 
         private void VoegLeerlingToe_Load(object sender, EventArgs e)
         {
-			vullen(cmbKeuze);
-			string strdate = Convert.ToString(DateTime.Now);
-			label5.Text += "   " + strdate;
+            btnVolgende.PerformClick();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
         }
 
-		public void vullen(ComboBox cmbKeuze)
-		{
-			cmbKeuze.Text = Convert.ToString(bus.getNaamActiviteiten());
-		}
-
 		private void btnVolgende_Click(object sender, EventArgs e)
 		{
-				button1.Show();
+            cmbKeuze.Items.Clear();
+            lblDatum.Text = bus.getDatumKeuzeActiviteiten(lblDatum.Text);
+            foreach (string item in bus.getKeuzeActiviteiten(lblDatum.Text))
+            {
+                cmbKeuze.Items.Add(item);
+            }
+            if (lblDatum.Text == "1/01/0001 -")
+            {
+                lblDatum.Text = "";
+                btnVolgende.Enabled = false;
+            }
+
+            
 		}
 
 		private void btnRegistreer_Click(object sender, EventArgs e)
 		{
 			bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.SelectedItem));
 		}
-	}
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 
 	//test
 }

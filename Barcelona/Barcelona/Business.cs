@@ -48,7 +48,63 @@ namespace Barcelona
 			pers.addLeerlingToDB(item);
 		}
 
-		public List<string> getBegeleiders()
+        public List<string> getKeuzeActiviteiten(string pstrTijd)
+        {
+            List<string> result = new List<string>();
+            Activiteit a = new Activiteit();
+            if (pstrTijd == "_")
+            {
+
+            }
+            else
+            {
+                string strUUr;
+                DateTime dteDatum;
+                int intAantal;
+
+                dteDatum = Convert.ToDateTime(pstrTijd.Substring(0, 10));
+                intAantal = (pstrTijd.Length) - 13;
+                strUUr = pstrTijd.Substring(pstrTijd.Length - (intAantal), intAantal);
+                a.datum = dteDatum;
+                a.uur = strUUr;
+            }
+
+
+            foreach (Activiteit item in pers.getKeuzeActiviteitenFromDB(a))
+            {
+                result.Add(item.alleenNaam());
+            }
+
+            return result;
+        }
+
+        public string getDatumKeuzeActiviteiten(string pstrTijd)
+        {
+            string result;
+            Activiteit a = new Activiteit();
+            if (pstrTijd == "_")
+            {
+
+            }
+            else
+            {
+                string strUUr;
+                DateTime dteDatum;
+                int intAantal;
+
+                dteDatum = Convert.ToDateTime(pstrTijd.Substring(0, 10));
+                intAantal = (pstrTijd.Length) - 13;
+                strUUr = pstrTijd.Substring(pstrTijd.Length - (intAantal), intAantal);
+                a.datum = dteDatum;
+                a.uur = strUUr;
+            }
+
+            result = pers.getDatumKeuzeActiviteitenFromDB(a).alleenTijd();
+
+            return result;
+        }
+
+        public List<string> getBegeleiders()
         {
             List<string> result = new List<string>();
 
