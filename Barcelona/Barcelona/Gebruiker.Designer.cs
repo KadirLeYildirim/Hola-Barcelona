@@ -43,7 +43,7 @@
             this.btnVolgende = new System.Windows.Forms.Button();
             this.btnRegistreer = new System.Windows.Forms.Button();
             this.lblDatum = new System.Windows.Forms.Label();
-            this.cmbAlleKeuzes = new System.Windows.Forms.ComboBox();
+            this.lstAlleKeuzeActiviteiten = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // txtVoornaam
@@ -199,20 +199,21 @@
             this.lblDatum.TabIndex = 13;
             this.lblDatum.Text = "_";
             // 
-            // cmbAlleKeuzes
+            // lstAlleKeuzeActiviteiten
             // 
-            this.cmbAlleKeuzes.FormattingEnabled = true;
-            this.cmbAlleKeuzes.Location = new System.Drawing.Point(484, 214);
-            this.cmbAlleKeuzes.Name = "cmbAlleKeuzes";
-            this.cmbAlleKeuzes.Size = new System.Drawing.Size(121, 24);
-            this.cmbAlleKeuzes.TabIndex = 14;
+            this.lstAlleKeuzeActiviteiten.FormattingEnabled = true;
+            this.lstAlleKeuzeActiviteiten.ItemHeight = 16;
+            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(484, 214);
+            this.lstAlleKeuzeActiviteiten.Name = "lstAlleKeuzeActiviteiten";
+            this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(120, 84);
+            this.lstAlleKeuzeActiviteiten.TabIndex = 15;
             // 
             // Gebruiker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 298);
-            this.Controls.Add(this.cmbAlleKeuzes);
+            this.Controls.Add(this.lstAlleKeuzeActiviteiten);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.btnRegistreer);
             this.Controls.Add(this.btnVolgende);
@@ -254,7 +255,7 @@
         private System.Windows.Forms.Button btnVolgende;
         private System.Windows.Forms.Button btnRegistreer;
         private System.Windows.Forms.Label lblDatum;
-        private System.Windows.Forms.ComboBox cmbAlleKeuzes;
+        private System.Windows.Forms.ListBox lstAlleKeuzeActiviteiten;
     }
 }
 

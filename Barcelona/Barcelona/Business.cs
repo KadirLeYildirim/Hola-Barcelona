@@ -48,6 +48,19 @@ namespace Barcelona
 			pers.addLeerlingToDB(item);
 		}
 
+        public List<string> getWantedLeerlingen(string pstrActiviteitNaam)
+        {
+            List<string> lijst = new List<string>();
+
+            foreach(Leerling item in pers.getWantedLeerlingenFromDB(pstrActiviteitNaam))
+            {
+                lijst.Add(item.AlleenNaam());
+            }
+
+            return lijst;
+        }
+
+
         public List<string> getKeuzeActiviteiten(string pstrTijd)
         {
             List<string> result = new List<string>();
@@ -216,9 +229,23 @@ namespace Barcelona
             pers.addActiviteitToDB(item);
         }
 
+        //nifo
         public void connectActiviteitBegeleider(string pstrBegeleider, string pstrActiviteit)
         {
-            pers.connectActiviteitBegeleiderInDB(pstrBegeleider, pstrActiviteit);
+            int intKeuze=0;
+            foreach(Begeleider item in pers.connectActiviteitBegeleiderVerbeteringInDB(pstrActiviteit))
+            {
+                if (pstrBegeleider == item.voornaam)
+                {
+                    intKeuze++;
+                }
+                else { }
+            }
+            if (intKeuze == 0)
+            {
+                pers.connectActiviteitBegeleiderInDB(pstrBegeleider, pstrActiviteit);
+            }
+            else { }
         }
         public void deleteActiviteitBegeleiderConnectie(string pstrBegeleider, string pstrActiviteit)
         {

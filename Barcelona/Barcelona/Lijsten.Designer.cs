@@ -29,44 +29,63 @@
         private void InitializeComponent()
         {
             this.btnTerug = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.cmbActiviteiten = new System.Windows.Forms.ComboBox();
+            this.lstLijst = new System.Windows.Forms.ListBox();
+            this.lstBegleider = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnTerug
             // 
-            this.btnTerug.Location = new System.Drawing.Point(556, 378);
+            this.btnTerug.Location = new System.Drawing.Point(16, 467);
+            this.btnTerug.Margin = new System.Windows.Forms.Padding(4);
             this.btnTerug.Name = "btnTerug";
-            this.btnTerug.Size = new System.Drawing.Size(96, 60);
+            this.btnTerug.Size = new System.Drawing.Size(203, 74);
             this.btnTerug.TabIndex = 0;
             this.btnTerug.Text = "Terug";
             this.btnTerug.UseVisualStyleBackColor = true;
             this.btnTerug.Click += new System.EventHandler(this.btnTerug_Click);
             // 
-            // comboBox1
+            // cmbActiviteiten
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cmbActiviteiten.FormattingEnabled = true;
+            this.cmbActiviteiten.Location = new System.Drawing.Point(16, 15);
+            this.cmbActiviteiten.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbActiviteiten.Name = "cmbActiviteiten";
+            this.cmbActiviteiten.Size = new System.Drawing.Size(203, 24);
+            this.cmbActiviteiten.TabIndex = 1;
+            this.cmbActiviteiten.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
-            // listBox1
+            // lstLijst
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(352, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(300, 329);
-            this.listBox1.TabIndex = 2;
+            this.lstLijst.FormattingEnabled = true;
+            this.lstLijst.ItemHeight = 16;
+            this.lstLijst.Location = new System.Drawing.Point(227, 13);
+            this.lstLijst.Margin = new System.Windows.Forms.Padding(4);
+            this.lstLijst.Name = "lstLijst";
+            this.lstLijst.Size = new System.Drawing.Size(360, 532);
+            this.lstLijst.TabIndex = 2;
+            this.lstLijst.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // lstBegleider
+            // 
+            this.lstBegleider.FormattingEnabled = true;
+            this.lstBegleider.ItemHeight = 16;
+            this.lstBegleider.Location = new System.Drawing.Point(16, 183);
+            this.lstBegleider.Margin = new System.Windows.Forms.Padding(4);
+            this.lstBegleider.Name = "lstBegleider";
+            this.lstBegleider.Size = new System.Drawing.Size(203, 276);
+            this.lstBegleider.TabIndex = 3;
             // 
             // Lijsten
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 450);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(601, 554);
+            this.Controls.Add(this.lstBegleider);
+            this.Controls.Add(this.lstLijst);
+            this.Controls.Add(this.cmbActiviteiten);
             this.Controls.Add(this.btnTerug);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Lijsten";
             this.Text = "Lijsten";
             this.Load += new System.EventHandler(this.Lijsten_Load);
@@ -77,7 +96,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnTerug;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ComboBox cmbActiviteiten;
+        private System.Windows.Forms.ListBox lstLijst;
+        private System.Windows.Forms.ListBox lstBegleider;
     }
 }

@@ -31,13 +31,20 @@ namespace Barcelona
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bus.addBegeleider(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text);
-            lstBegeleiders.Items.Clear();
-            foreach (string lijn in bus.getBegeleiders())
+            if (txtVoornaam.Text != "" || txtAchternaam.Text != "" || txtGsmNummer.Text != "")
             {
-                lstBegeleiders.Items.Add(lijn);
+                bus.addBegeleider(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text);
+                lstBegeleiders.Items.Clear();
+                foreach (string lijn in bus.getBegeleiders())
+                {
+                    lstBegeleiders.Items.Add(lijn);
+                }
             }
-           
+            else
+            {
+                MessageBox.Show("U bent een veld vergeten invullen", "opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)

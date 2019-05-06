@@ -43,24 +43,44 @@ namespace Barcelona
 
 		private void btnVolgende_Click(object sender, EventArgs e)
 		{
+            //nifo
             cmbKeuze.Items.Clear();
             lblDatum.Text = bus.getDatumKeuzeActiviteiten(lblDatum.Text);
             foreach (string item in bus.getKeuzeActiviteiten(lblDatum.Text))
             {
                 cmbKeuze.Items.Add(item);
             }
-            cmbAlleKeuzes.Items.Add(cmbKeuze.SelectedItem);
+            if (cmbKeuze.SelectedItem != null)
+            {
+                lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.SelectedItem.ToString());
+            }
+            else { }
+
 
         }
 
 		private void btnRegistreer_Click(object sender, EventArgs e)
 		{
-            List<string> keuzeActiviteiten = new List<string>();
-			bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.SelectedItem));
-            bus.AddAutoActiviteitLeerlingConnectie(txtVoornaam.Text,txtAchternaam.Text);
-            cmbAlleKeuzes.Items.Add(cmbKeuze.SelectedItem);
-            foreach(string item in cmbAlleKeuzes.ToString())
-            bus.addKeuzeActivteitLeerlingConnectie(keuzeActiviteiten, txtVoornaam.Text, txtAchternaam.Text);
+            if (txtVoornaam.Text != "" || txtAchternaam.Text != "" || txtGsmNummer.Text != "")
+            {
+                List<string> keuzeActiviteiten = new List<string>();
+                bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.SelectedItem));
+                bus.AddAutoActiviteitLeerlingConnectie(txtVoornaam.Text, txtAchternaam.Text);
+                if (cmbKeuze.SelectedItem != null)
+                {
+                    lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.SelectedItem.ToString());
+                }
+                else { }
+                foreach (string item in lstAlleKeuzeActiviteiten.Items)
+                {
+                    keuzeActiviteiten.Add(item);
+                }
+                bus.addKeuzeActivteitLeerlingConnectie(keuzeActiviteiten, txtVoornaam.Text, txtAchternaam.Text);
+            }
+            else
+            {
+                MessageBox.Show("U bent een veld vergeten invullen", "Opgelet",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)

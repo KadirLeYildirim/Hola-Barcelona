@@ -40,14 +40,19 @@ namespace Barcelona
 
         private void lstActiviteiten_SelectedIndexChanged(object sender, EventArgs e)
         {
-            vulIN();            
+            if (lstActiviteiten.SelectedItem != null)
+            {
+                vulIN();
+            }
+            else { }
         }
 
         private void btnVerwijderen_Click(object sender, EventArgs e)
         {
-            bool blnAntwoord;
-            blnAntwoord=Convert.ToBoolean(MessageBox.Show("Bent u zeker dat u deze activiteit wilt verwijderen?", "Activiteit verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning));
-            if (blnAntwoord == true)
+            DialogResult Antwoord;
+            
+            Antwoord=MessageBox.Show("Bent u zeker dat u deze activiteit wilt verwijderen?", "Activiteit verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (Antwoord == DialogResult.Yes)
             {
                 bus.deleteActiviteit(txtNaam.Text);
                 lstActiviteiten.Items.Clear();

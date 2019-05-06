@@ -58,7 +58,11 @@ namespace Barcelona
             _klas = pstrKlas;
             _gsmNummer = pstrGsmNummer;
         }
-
+        public Leerling(string pstrVoornaam, string pstrAchternaam)
+        {
+            _voorNaam = pstrVoornaam;
+            _achterNaam = pstrAchternaam;
+        }
         public Leerling(int pintID)
         {
             _id = pintID;

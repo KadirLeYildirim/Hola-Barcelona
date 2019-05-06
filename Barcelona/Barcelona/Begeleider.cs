@@ -34,7 +34,10 @@ namespace Barcelona
             set { _gsmNummer = value; }
         }
 
-
+        public Begeleider(string pstrVoornaam)
+        {
+            _voornaam = pstrVoornaam;
+        }
         public Begeleider(int pintID,string pstrVoornaam, string pstrAchternaam, string pstrGsmNummer)
         {
             _id = pintID;

@@ -56,37 +56,45 @@ namespace Barcelona
         private void button1_Click(object sender, EventArgs e)
         {
             //Voegt een activiteit toe
-            string strUur = "_";
-            if (rdbNamiddag.Checked == true)
+            if(txtAantalPlaatsen.Text==""|| txtNaam.Text == "" || txtOmschrijving.Text == "" || txtPrijs.Text == "" ||(rdbNamiddag.Checked==false && rdbVoormiddag.Checked == false))
             {
-                strUur = "De namiddag";
-            }
-            if (rdbVoormiddag.Checked == true)
-            {
-                strUur="De voormiddag";
-            }
-            bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
-    Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur);
-            //Dit connecteerd een activiteit en de gekozen begeleider
-            string item;
-            for (int i = 0; i < clbBegeleiders.CheckedItems.Count; i++)
-            {
-                string strLetter = "", strNaam = "";
-                item = clbBegeleiders.CheckedItems[i].ToString();
-                for (int j = 0; j < item.Length; j++)
-                {
-                    strLetter = item.Substring(j, 1);
-                    if (strLetter == " ")
-                    {
-                        j = item.Length;
-                    }
-                    strNaam += strLetter;
-                }
-                bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
-            }
-            makeEmpty();
+                MessageBox.Show("U bent een veld vergeten invullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            toonActiviteiten();
+            }
+            else
+            {
+                string strUur = "_";
+                if (rdbNamiddag.Checked == true)
+                {
+                    strUur = "De namiddag";
+                }
+                if (rdbVoormiddag.Checked == true)
+                {
+                    strUur = "De voormiddag";
+                }
+                bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
+        Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur);
+                //Dit connecteerd een activiteit en de gekozen begeleider
+                string item;
+                for (int i = 0; i < clbBegeleiders.CheckedItems.Count; i++)
+                {
+                    string strLetter = "", strNaam = "";
+                    item = clbBegeleiders.CheckedItems[i].ToString();
+                    for (int j = 0; j < item.Length; j++)
+                    {
+                        strLetter = item.Substring(j, 1);
+                        if (strLetter == " ")
+                        {
+                            j = item.Length;
+                        }
+                        strNaam += strLetter;
+                    }
+                    bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
+                }
+                makeEmpty();
+
+                toonActiviteiten();
+            }
         }
 
         private void clbBegeleiders_SelectedIndexChanged(object sender, EventArgs e)
