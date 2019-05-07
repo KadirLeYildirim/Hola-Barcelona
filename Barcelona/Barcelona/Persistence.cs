@@ -14,7 +14,7 @@ namespace Barcelona
         public Persistence()
         {
             conn = new MySqlConnection("server=ID191774_6itngip22.db.webhosting.be;user id=ID191774_6itngip22;"+
-                "password=dfb21Msf85; database=ID191774_6itngip22");
+                "password=dfb21Msf85; database=ID191774_6itngip22;Convert Zero Datetime=True");
         }
 
         //alles wat met begeleiders te maken heeft
@@ -639,6 +639,7 @@ namespace Barcelona
                     Activiteit a = new Activiteit(Convert.ToInt32(dataReader["idActiviteit"]));
                     idActiviteiten.Add(a);
                 }
+                conn.Close();
             }
 
             MySqlCommand cmd3 = new MySqlCommand("select idLeerling from ID191774_6itngip22.leerlingen where LeerlingVoornaam = '" + strLeerlingVoor + "' and LeerlingAchternaam = '" + strLeerlingAchter + "'", conn);

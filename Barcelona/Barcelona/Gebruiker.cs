@@ -43,18 +43,32 @@ namespace Barcelona
 
 		private void btnVolgende_Click(object sender, EventArgs e)
 		{
-            //nifo
-            cmbKeuze.Items.Clear();
-            lblDatum.Text = bus.getDatumKeuzeActiviteiten(lblDatum.Text);
-            foreach (string item in bus.getKeuzeActiviteiten(lblDatum.Text))
+            if (lblDatum.Text== "1/01/0001  - " || lblDatum.Text== "Dit is het einde")
             {
-                cmbKeuze.Items.Add(item);
+                lblDatum.Text = "Dit is het einde";
+                cmbKeuze.Items.Clear();
+                cmbKeuze.SelectedItem = "";
             }
-            if (cmbKeuze.SelectedItem != null)
+            else
             {
-                lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.SelectedItem.ToString());
+
+                lblDatum.Text = bus.getDatumKeuzeActiviteiten(lblDatum.Text);
+                foreach (string item in bus.getKeuzeActiviteiten(lblDatum.Text))
+                {
+                    cmbKeuze.Items.Add(item);
+                }
+                if (cmbKeuze.SelectedItem != null)
+                {
+                    lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.SelectedItem.ToString());
+                    cmbKeuze.Items.Clear();
+                    cmbKeuze.SelectedItem = "";
+                }
+                else
+                {
+
+                }
             }
-            else { }
+
 
 
         }
