@@ -51,7 +51,6 @@ namespace Barcelona
             }
             else
             {
-
                 lblDatum.Text = bus.getDatumKeuzeActiviteiten(lblDatum.Text);
                 foreach (string item in bus.getKeuzeActiviteiten(lblDatum.Text))
                 {
@@ -75,26 +74,41 @@ namespace Barcelona
 
 		private void btnRegistreer_Click(object sender, EventArgs e)
 		{
-            if (txtVoornaam.Text != "" || txtAchternaam.Text != "" || txtGsmNummer.Text != "")
+            if (cmbKlas.SelectedItem == null)
             {
-                List<string> keuzeActiviteiten = new List<string>();
-                bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.SelectedItem));
-                bus.AddAutoActiviteitLeerlingConnectie(txtVoornaam.Text, txtAchternaam.Text);
-                if (cmbKeuze.SelectedItem != null)
-                {
-                    lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.SelectedItem.ToString());
-                }
-                else { }
-                foreach (string item in lstAlleKeuzeActiviteiten.Items)
-                {
-                    keuzeActiviteiten.Add(item);
-                }
-                bus.addKeuzeActivteitLeerlingConnectie(keuzeActiviteiten, txtVoornaam.Text, txtAchternaam.Text);
+                MessageBox.Show("U bent uw klas vergeten invullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                MessageBox.Show("U bent een veld vergeten invullen", "Opgelet",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                if (txtVoornaam.Text != "" || txtAchternaam.Text != "" || txtGsmNummer.Text != "")
+                {
+                    if (lstAlleKeuzeActiviteiten.Items.Count >= 1)
+                    {
+                        List<string> keuzeActiviteiten = new List<string>();
+                        bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.SelectedItem));
+                        bus.AddAutoActiviteitLeerlingConnectie(txtVoornaam.Text, txtAchternaam.Text);
+                        if (cmbKeuze.SelectedItem != null)
+                        {
+                            lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.SelectedItem.ToString());
+                        }
+                        else { }
+                        foreach (string item in lstAlleKeuzeActiviteiten.Items)
+                        {
+                            keuzeActiviteiten.Add(item);
+                        }
+                        bus.addKeuzeActivteitLeerlingConnectie(keuzeActiviteiten, txtVoornaam.Text, txtAchternaam.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("U bent uw keuzes vergeten ingeven", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("U bent een veld vergeten invullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
+
         }
 
         private void label5_Click(object sender, EventArgs e)
