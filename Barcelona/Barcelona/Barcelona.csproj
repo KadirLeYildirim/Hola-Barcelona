@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -77,6 +77,12 @@
       <DependentUpon>Lijsten.cs</DependentUpon>
     </Compile>
     <Compile Include="Persistence.cs" />
+    <Compile Include="Startscherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Startscherm.Designer.cs">
+      <DependentUpon>Startscherm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VoegBegeleiderToe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Lijsten.resx">
       <DependentUpon>Lijsten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Startscherm.resx">
+      <DependentUpon>Startscherm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VoegBegeleiderToe.resx">
       <DependentUpon>VoegBegeleiderToe.cs</DependentUpon>

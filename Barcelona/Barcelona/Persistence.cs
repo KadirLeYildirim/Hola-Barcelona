@@ -451,23 +451,28 @@ namespace Barcelona
             }
             conn.Close();
 
+            //nifo deze ding werkt niet
             if (pOudeDatum.datum == Convert.ToDateTime("1/01/0001"))
             {
-                Activiteit gewensteDatum = new Activiteit(datumKeuzeActiviteiten.First().datum, datumKeuzeActiviteiten.First().uur);
-                string strDag, strMaand, strJaar, strDatum;
-                strDag = gewensteDatum.datum.ToString().Substring(0, 2);
-                strMaand = gewensteDatum.datum.ToString().Substring(3, 2);
-                strJaar = gewensteDatum.datum.ToString().Substring(6, 4);
-                strDatum = strJaar + "-" + strMaand + "-" + strDag;
-                MySqlCommand cmd2 = new MySqlCommand("select ActiviteitNaam from ID191774_6itngip22.activiteiten where ActiviteitDag='" + strDatum + "' and ActiviteitUUr ='" + gewensteDatum.uur + "'", conn);
-                conn.Open();
-                MySqlDataReader dataReader2 = cmd2.ExecuteReader();
-                while (dataReader2.Read())
+                if (datumKeuzeActiviteiten.Count != 0)
                 {
-                    Activiteit b = new Activiteit(Convert.ToString(dataReader2["ActiviteitNaam"]));
-                    keuzeActiviteiten.Add(b);
+                    Activiteit gewensteDatum = new Activiteit(datumKeuzeActiviteiten.First().datum, datumKeuzeActiviteiten.First().uur);
+                    string strDag, strMaand, strJaar, strDatum;
+                    strDag = gewensteDatum.datum.ToString().Substring(0, 2);
+                    strMaand = gewensteDatum.datum.ToString().Substring(3, 2);
+                    strJaar = gewensteDatum.datum.ToString().Substring(6, 4);
+                    strDatum = strJaar + "-" + strMaand + "-" + strDag;
+                    MySqlCommand cmd2 = new MySqlCommand("select ActiviteitNaam from ID191774_6itngip22.activiteiten where ActiviteitDag='" + strDatum + "' and ActiviteitUUr ='" + gewensteDatum.uur + "'", conn);
+                    conn.Open();
+                    MySqlDataReader dataReader2 = cmd2.ExecuteReader();
+                    while (dataReader2.Read())
+                    {
+                        Activiteit b = new Activiteit(Convert.ToString(dataReader2["ActiviteitNaam"]));
+                        keuzeActiviteiten.Add(b);
+                    }
+                    conn.Close();
                 }
-                conn.Close();
+                else { }
             }
             else
             {
@@ -533,39 +538,43 @@ namespace Barcelona
             }
             conn.Close();
 
-            if (pOudeDatum.datum == Convert.ToDateTime("1/01/0001"))
+            if (datumKeuzeActiviteiten.Count > 1)
             {
-                gewensteDatum.datum = datumKeuzeActiviteiten.First().datum;
-                gewensteDatum.uur = datumKeuzeActiviteiten.First().uur;
-            }
-            else
-            {
-                int intAantal = 0;
-                foreach (Activiteit item in datumKeuzeActiviteiten)
+                if (pOudeDatum.datum == Convert.ToDateTime("1/01/0001"))
                 {
-                    if ((pOudeDatum.datum == item.datum && pOudeDatum.uur == item.uur) || pOudeDatum.datum > item.datum)
-                    {
-                        intAantal++;
-                    }
-                    if (pOudeDatum.datum > item.datum)
-                    {
-                        intAantal++;
-                    }
-                    else
-                    {
-
-                    }
-                }
-                if (intAantal >= datumKeuzeActiviteiten.Count())
-                {
-
+                    gewensteDatum.datum = datumKeuzeActiviteiten.First().datum;
+                    gewensteDatum.uur = datumKeuzeActiviteiten.First().uur;
                 }
                 else
                 {
-                    gewensteDatum.datum = datumKeuzeActiviteiten[intAantal].datum;
-                    gewensteDatum.uur = datumKeuzeActiviteiten[intAantal].uur;
+                    int intAantal = 0;
+                    foreach (Activiteit item in datumKeuzeActiviteiten)
+                    {
+                        if ((pOudeDatum.datum == item.datum && pOudeDatum.uur == item.uur) || pOudeDatum.datum > item.datum)
+                        {
+                            intAantal++;
+                        }
+                        if (pOudeDatum.datum > item.datum)
+                        {
+                            intAantal++;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    if (intAantal >= datumKeuzeActiviteiten.Count())
+                    {
+
+                    }
+                    else
+                    {
+                        gewensteDatum.datum = datumKeuzeActiviteiten[intAantal].datum;
+                        gewensteDatum.uur = datumKeuzeActiviteiten[intAantal].uur;
+                    }
                 }
             }
+            else { }
 
             return gewensteDatum;
         }

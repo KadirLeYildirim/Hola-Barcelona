@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Barcelona
 {
-    public partial class Administrator : Form
+    public partial class Administrator : Form 
     {
         Business bus = new Business();
         public Administrator()
@@ -163,6 +163,13 @@ namespace Barcelona
         {
             Lijsten lijsten = new Lijsten();
             lijsten.Show();
+            this.Close();
+        }
+
+        private void btnTerug_Click(object sender, EventArgs e)
+        {
+            frmStartscherm startscherm = new frmStartscherm();
+            startscherm.Show();
             this.Close();
         }
     }

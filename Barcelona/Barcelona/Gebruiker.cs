@@ -43,7 +43,7 @@ namespace Barcelona
 
 		private void btnVolgende_Click(object sender, EventArgs e)
 		{
-            if (lblDatum.Text== "1/01/0001  - " || lblDatum.Text== "Dit is het einde")
+            if (lblDatum.Text== "1/01/0001  - " || lblDatum.Text== "Dat was alles")
             {
                 lblDatum.Text = "Dit is het einde";
                 cmbKeuze.Items.Clear();
@@ -54,7 +54,11 @@ namespace Barcelona
                 lblDatum.Text = bus.getDatumKeuzeActiviteiten(lblDatum.Text);
                 foreach (string item in bus.getKeuzeActiviteiten(lblDatum.Text))
                 {
-                    cmbKeuze.Items.Add(item);
+                cmbKeuze.Items.Add(item);
+                }
+                if (cmbKeuze.Items.Count > 1)
+                {
+
                 }
                 if (cmbKeuze.SelectedItem != null)
                 {
@@ -62,10 +66,7 @@ namespace Barcelona
                     cmbKeuze.Items.Clear();
                     cmbKeuze.SelectedItem = "";
                 }
-                else
-                {
-
-                }
+                else { }
             }
 
 
@@ -76,7 +77,7 @@ namespace Barcelona
 		{
             if (cmbKlas.SelectedItem == null)
             {
-                MessageBox.Show("U bent uw klas vergeten invullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("U bent een veld vergeten invullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -92,11 +93,15 @@ namespace Barcelona
                             lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.SelectedItem.ToString());
                         }
                         else { }
-                        foreach (string item in lstAlleKeuzeActiviteiten.Items)
+                        if (lstAlleKeuzeActiviteiten.Items.Count > 1)
                         {
-                            keuzeActiviteiten.Add(item);
+                            foreach (string item in lstAlleKeuzeActiviteiten.Items)
+                            {
+                                keuzeActiviteiten.Add(item);
+                            }
+                            bus.addKeuzeActivteitLeerlingConnectie(keuzeActiviteiten, txtVoornaam.Text, txtAchternaam.Text);
                         }
-                        bus.addKeuzeActivteitLeerlingConnectie(keuzeActiviteiten, txtVoornaam.Text, txtAchternaam.Text);
+                        else { }
                     }
                     else
                     {
