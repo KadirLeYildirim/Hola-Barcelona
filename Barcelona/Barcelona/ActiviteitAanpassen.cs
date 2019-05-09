@@ -74,28 +74,35 @@ namespace Barcelona
 
         private void btnBevestigen_Click(object sender, EventArgs e)
         {
-            string strUUR="";
-            if (rdbNamiddag.Checked == true)
+            if (txtNaam.Text!=""|| txtDatum.Text != "" || txtDeelnemers.Text != "" || txtAantalPlaatsen.Text != "")
             {
-                strUUR = "De namiddag";
-            }
-            if (rdbVoormiddag.Checked == true)
-            {
-                strUUR = "De voormiddag";
-            }
-            bus.updateActiviteit(lstActiviteiten.SelectedItem.ToString(), txtNaam.Text, txtOmschrijving.Text,
-                Convert.ToDouble(txtPrijs.Text), Convert.ToInt32(txtAantalPlaatsen.Text),
-                Convert.ToInt32(txtDeelnemers.Text), txtDatum.Text, strUUR, txtURLFoto.Text);
-            foreach (string lijn in bus.getNaamActiviteiten())
-            {
-                lstActiviteiten.Items.Add(lijn);
-            }
+                string strUUR = "";
+                if (rdbNamiddag.Checked == true)
+                {
+                    strUUR = "De namiddag";
+                }
+                if (rdbVoormiddag.Checked == true)
+                {
+                    strUUR = "De voormiddag";
+                }
+                bus.updateActiviteit(lstActiviteiten.SelectedItem.ToString(), txtNaam.Text, txtOmschrijving.Text,
+                    Convert.ToDouble(txtPrijs.Text), Convert.ToInt32(txtAantalPlaatsen.Text),
+                    Convert.ToInt32(txtDeelnemers.Text), txtDatum.Text, strUUR, txtURLFoto.Text);
+                foreach (string lijn in bus.getNaamActiviteiten())
+                {
+                    lstActiviteiten.Items.Add(lijn);
+                }
 
-            vulIN();
-            lstActiviteiten.Items.Clear();
-            foreach (string lijn in bus.getNaamActiviteiten())
+                vulIN();
+                lstActiviteiten.Items.Clear();
+                foreach (string lijn in bus.getNaamActiviteiten())
+                {
+                    lstActiviteiten.Items.Add(lijn);
+                }
+            }
+            else
             {
-                lstActiviteiten.Items.Add(lijn);
+                MessageBox.Show("Er staat een belangerijk veld op, gelieve die in te vullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -108,7 +115,7 @@ namespace Barcelona
             txtDeelnemers.Text = bus.getWantedDeelnemersActiviteiten(lstActiviteiten.SelectedItem.ToString());
             txtPrijs.Text = bus.getWantedKostprijsActiviteiten(lstActiviteiten.SelectedItem.ToString());
             txtDatum.Text = bus.getWantedDatumActiviteiten(lstActiviteiten.SelectedItem.ToString());
-            txtURLFoto.Text = bus.getWantedUrlActiviteiten(lstActiviteiten.SelectedItem.ToString());
+            txtURLFoto.Text = bus.getWantedFotoActiviteiten(lstActiviteiten.SelectedItem.ToString());
             if (bus.getWantedUUrActiviteiten(lstActiviteiten.SelectedItem.ToString()).ToLower() == "de voormiddag")
             {
                 rdbVoormiddag.Select();
@@ -121,7 +128,7 @@ namespace Barcelona
             {
                 lstGekozenBegeleiders.Items.Add(lijn);
             }
-
+            pcbURL.ImageLocation= bus.getWantedFotoActiviteiten(lstActiviteiten.SelectedItem.ToString());
 
         }
 
@@ -148,10 +155,15 @@ namespace Barcelona
                 }
                 bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
             }
+            clbBegeleiders.Items.Clear();
             lstGekozenBegeleiders.Items.Clear();
             foreach (string lijn in bus.getWantedBegeleiders(lstActiviteiten.SelectedItem.ToString()))
             {
                 lstGekozenBegeleiders.Items.Add(lijn);
+            }
+            foreach (string lijn in bus.getBegeleidersNamen())
+            {
+                clbBegeleiders.Items.Add(lijn);
             }
         }
 
@@ -167,9 +179,9 @@ namespace Barcelona
                 }
                 strNaam += strLetter;
             }
-            bool blnAntwoord;
-            blnAntwoord = Convert.ToBoolean(MessageBox.Show("Bent u zeker dat u deze begeleider wilt verwijderen?", "Begeleider verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning));
-            if (blnAntwoord == true)
+            DialogResult Antwoord;
+            Antwoord = MessageBox.Show("Bent u zeker dat u deze begeleider wilt verwijderen?", "Begeleider verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (Antwoord == DialogResult.Yes)
             {
                 bus.deleteActiviteitBegeleiderConnectie(strNaam, txtNaam.Text);
                 lstGekozenBegeleiders.Items.Clear();

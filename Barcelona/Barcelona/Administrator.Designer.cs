@@ -52,6 +52,11 @@
             this.btnLijsten = new System.Windows.Forms.Button();
             this.txtURLFoto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtTest = new System.Windows.Forms.TextBox();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pcbTest = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbTest)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -136,7 +141,7 @@
             this.rdbVoormiddag.Margin = new System.Windows.Forms.Padding(4);
             this.rdbVoormiddag.Name = "rdbVoormiddag";
             this.rdbVoormiddag.Size = new System.Drawing.Size(105, 21);
-            this.rdbVoormiddag.TabIndex = 5;
+            this.rdbVoormiddag.TabIndex = 6;
             this.rdbVoormiddag.TabStop = true;
             this.rdbVoormiddag.Text = "Voormiddag";
             this.rdbVoormiddag.UseVisualStyleBackColor = true;
@@ -148,7 +153,7 @@
             this.rdbNamiddag.Margin = new System.Windows.Forms.Padding(4);
             this.rdbNamiddag.Name = "rdbNamiddag";
             this.rdbNamiddag.Size = new System.Drawing.Size(93, 21);
-            this.rdbNamiddag.TabIndex = 6;
+            this.rdbNamiddag.TabIndex = 7;
             this.rdbNamiddag.Text = "Namiddag";
             this.rdbNamiddag.UseVisualStyleBackColor = true;
             // 
@@ -169,7 +174,7 @@
             this.btnBevestigen.Margin = new System.Windows.Forms.Padding(4);
             this.btnBevestigen.Name = "btnBevestigen";
             this.btnBevestigen.Size = new System.Drawing.Size(129, 78);
-            this.btnBevestigen.TabIndex = 9;
+            this.btnBevestigen.TabIndex = 10;
             this.btnBevestigen.Text = "Bevestig";
             this.btnBevestigen.UseVisualStyleBackColor = true;
             this.btnBevestigen.Click += new System.EventHandler(this.button1_Click);
@@ -182,7 +187,7 @@
             this.clbBegeleiders.Margin = new System.Windows.Forms.Padding(4);
             this.clbBegeleiders.Name = "clbBegeleiders";
             this.clbBegeleiders.Size = new System.Drawing.Size(227, 123);
-            this.clbBegeleiders.TabIndex = 8;
+            this.clbBegeleiders.TabIndex = 9;
             this.clbBegeleiders.SelectedIndexChanged += new System.EventHandler(this.clbBegeleiders_SelectedIndexChanged);
             // 
             // txtOmschrijving
@@ -192,7 +197,7 @@
             this.txtOmschrijving.Multiline = true;
             this.txtOmschrijving.Name = "txtOmschrijving";
             this.txtOmschrijving.Size = new System.Drawing.Size(227, 72);
-            this.txtOmschrijving.TabIndex = 7;
+            this.txtOmschrijving.TabIndex = 8;
             // 
             // txtActiviteiten
             // 
@@ -207,6 +212,7 @@
             // 
             this.mclDag.Location = new System.Drawing.Point(216, 39);
             this.mclDag.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.mclDag.MaxSelectionCount = 1;
             this.mclDag.Name = "mclDag";
             this.mclDag.TabIndex = 1;
             this.mclDag.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mclDag_DateChanged);
@@ -276,7 +282,8 @@
             this.txtURLFoto.Margin = new System.Windows.Forms.Padding(4);
             this.txtURLFoto.Name = "txtURLFoto";
             this.txtURLFoto.Size = new System.Drawing.Size(180, 22);
-            this.txtURLFoto.TabIndex = 24;
+            this.txtURLFoto.TabIndex = 5;
+            this.txtURLFoto.TextChanged += new System.EventHandler(this.txtURLFoto_TextChanged);
             // 
             // label8
             // 
@@ -288,6 +295,45 @@
             this.label8.TabIndex = 25;
             this.label8.Text = "Url voor foto";
             // 
+            // txtTest
+            // 
+            this.txtTest.Location = new System.Drawing.Point(16, 303);
+            this.txtTest.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTest.Name = "txtTest";
+            this.txtTest.Size = new System.Drawing.Size(96, 22);
+            this.txtTest.TabIndex = 26;
+            // 
+            // btnTest
+            // 
+            this.btnTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.Location = new System.Drawing.Point(16, 333);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(96, 29);
+            this.btnTest.TabIndex = 27;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 262);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(265, 17);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Test een URL uit voor dat je het gebruikt";
+            // 
+            // pcbTest
+            // 
+            this.pcbTest.Location = new System.Drawing.Point(141, 303);
+            this.pcbTest.Name = "pcbTest";
+            this.pcbTest.Size = new System.Drawing.Size(209, 108);
+            this.pcbTest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbTest.TabIndex = 29;
+            this.pcbTest.TabStop = false;
+            // 
             // Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -295,6 +341,10 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(905, 684);
+            this.Controls.Add(this.pcbTest);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.btnTest);
+            this.Controls.Add(this.txtTest);
             this.Controls.Add(this.txtURLFoto);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnLijsten);
@@ -325,6 +375,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Administrator_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Administrator_FormClosed);
             this.Load += new System.EventHandler(this.Administrator_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbTest)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,5 +405,9 @@
         private System.Windows.Forms.Button btnLijsten;
         private System.Windows.Forms.TextBox txtURLFoto;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtTest;
+        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pcbTest;
     }
 }

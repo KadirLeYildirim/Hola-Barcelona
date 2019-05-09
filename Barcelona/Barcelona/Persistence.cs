@@ -173,10 +173,11 @@ namespace Barcelona
         //Alles wat met activiteiten te maken heeft
         public void addActiviteitToDB(Activiteit item)
         {
+            string[] arrDate = item.alleenDatum().Split('/');
             string strDag, strMaand, strJaar, strDatum;
-            strDag = item.datum.ToString().Substring(0,2);
-            strMaand = item.datum.ToString().Substring(3, 2);
-            strJaar = item.datum.ToString().Substring(6, 4);
+            strDag = arrDate[0].ToString();
+            strMaand = arrDate[1].ToString();
+            strJaar = arrDate[2].ToString();
             strDatum = strJaar + "-" + strMaand + "-" + strDag;
 
             MySqlCommand cmd = new MySqlCommand("insert into ID191774_6itngip22.activiteiten" +
@@ -193,16 +194,17 @@ namespace Barcelona
 		public void ActiviteitPerDatum(Activiteit item)
 		{
 			MySqlCommand cmd = new MySqlCommand("select * from ID191774_6itngip22.activiteiten groupby CURDATE()", conn);
-			string strDag, strMaand, strJaar, strDatum;
-			strDag = item.datum.ToString().Substring(0, 2);
-			strMaand = item.datum.ToString().Substring(3, 2);
-			strJaar = item.datum.ToString().Substring(6, 4);
-			strDatum = strJaar + "-" + strMaand + "-" + strDag;
-		}
+            string[] arrDate = item.alleenDatum().Split('/');
+            string strDag, strMaand, strJaar, strDatum;
+            strDag = arrDate[0].ToString();
+            strMaand = arrDate[1].ToString();
+            strJaar = arrDate[2].ToString();
+            strDatum = strJaar + "-" + strMaand + "-" + strDag;
+        }
 
 		public void connectActiviteitBegeleiderInDB(string pstrNaam, string pstrAcNaam)
         {
-            int intIDBegeleider, intIDActiviteit;
+            int intIDBegeleider, intIDActiviteit, intCtrl=0;
             MySqlCommand cmd = new MySqlCommand("select idBegeleider from ID191774_6itngip22.begeleiders where BegeleiderVoornaam='" + pstrNaam + "'", conn);
             conn.Open();
             intIDBegeleider = Convert.ToInt32(cmd.ExecuteScalar());
@@ -213,11 +215,24 @@ namespace Barcelona
             intIDActiviteit = Convert.ToInt32(cmd2.ExecuteScalar());
             conn.Close();
 
-            //nifo
-            MySqlCommand cmd3 = new MySqlCommand("insert into ID191774_6itngip22.activiteiten_begeleiders(`activiteiten_idActiviteit`,`begeleiders_idBegeleider`) values(" + intIDActiviteit+","+intIDBegeleider+")", conn);
+            MySqlCommand cmd3 = new MySqlCommand("select activiteiten_idActiviteit from ID191774_6itngip22.activiteiten_begeleiders where activiteiten_idActiviteit ="+intIDActiviteit+" and begeleiders_idBegeleider="+intIDBegeleider, conn);
             conn.Open();
-            cmd3.ExecuteNonQuery();
+            if (cmd3.ExecuteScalar() == null || Convert.ToInt32(cmd3.ExecuteScalar())==0)
+            {
+                intCtrl++;
+            }
+            else { }
             conn.Close();
+
+            if (intCtrl > 0)
+            {
+                MySqlCommand cmd4 = new MySqlCommand("insert into ID191774_6itngip22.activiteiten_begeleiders(`activiteiten_idActiviteit`,`begeleiders_idBegeleider`) values(" + intIDActiviteit + "," + intIDBegeleider + ")", conn);
+                conn.Open();
+                cmd4.ExecuteNonQuery();
+                conn.Close();
+            }
+            else { }
+
         }
 
         public void deleteActiviteitBegeleiderConnectieInDB(string pstrNaam, string pstrAcNaam)
@@ -346,10 +361,11 @@ namespace Barcelona
             double pdblKost, int pintPlaatsen, int pintDeelnemers, string pstrDatum, string pstrUUR, string pstrURL)
         {
             int intID=0;
-            string strDatum, strDag, strMaand, strJaar;
-            strDag = pstrDatum.Substring(0, 2);
-            strMaand = pstrDatum.Substring(3, 2);
-            strJaar = pstrDatum.Substring(6, 4);
+            string[] arrDate = pstrDatum.Split('/');
+            string strDag, strMaand, strJaar, strDatum;
+            strDag = arrDate[0].ToString();
+            strMaand = arrDate[1].ToString();
+            strJaar = arrDate[2].ToString();
             strDatum = strJaar + "-" + strMaand + "-" + strDag;
 
             MySqlCommand cmd = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam='" + pstrOrigineleNaam + "'", conn);
@@ -403,20 +419,16 @@ namespace Barcelona
             List<Activiteit> datumKeuzeActiviteiten = new List<Activiteit>();
             List<Activiteit> keuzeActiviteiten = new List<Activiteit>();
 
-            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal' from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr", conn);
+            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal', AantalPlaatsen , AantalDeelnemers from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr having AantalPlaatsen > AantalDeelnemers and Aantal > 1", conn);
             conn.Open();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                if (Convert.ToInt32(dataReader["Aantal"]) > 1)
-                {
-                    Activiteit a = new Activiteit(Convert.ToDateTime(dataReader["ActiviteitDag"]), Convert.ToString(dataReader["ActiviteitUUr"]));
-                    datumKeuzeActiviteiten.Add(a);
-                }
-                else { }
+                Activiteit a = new Activiteit(Convert.ToDateTime(dataReader["ActiviteitDag"]), Convert.ToString(dataReader["ActiviteitUUr"]));
+                datumKeuzeActiviteiten.Add(a);
+
             }
             conn.Close();
-            //nifo
             if (pOudeDatum.datum == Convert.ToDateTime("1/01/0001"))
             {
                 if (datumKeuzeActiviteiten.Count != 0)
@@ -428,7 +440,7 @@ namespace Barcelona
                     strMaand = arrDate[1].ToString();
                     strJaar = arrDate[2].ToString();
                     strDatum = strJaar + "-" + strMaand + "-" + strDag;
-                    MySqlCommand cmd2 = new MySqlCommand("select ActiviteitNaam from ID191774_6itngip22.activiteiten where ActiviteitDag='" + strDatum + "' and ActiviteitUUr ='" + gewensteDatum.uur + "'", conn);
+                    MySqlCommand cmd2 = new MySqlCommand("select ActiviteitNaam from ID191774_6itngip22.activiteiten where ActiviteitDag='" + strDatum + "' and ActiviteitUUr ='" + gewensteDatum.uur + "' and AantalPlaatsen > AantalDeelnemers", conn);
                     conn.Open();
                     MySqlDataReader dataReader2 = cmd2.ExecuteReader();
                     while (dataReader2.Read())
@@ -465,10 +477,11 @@ namespace Barcelona
                 else
                 {
                     Activiteit gewensteDatum = new Activiteit(datumKeuzeActiviteiten[intAantal].datum, datumKeuzeActiviteiten[intAantal].uur);
+                    string[] arrDate = gewensteDatum.alleenDatum().Split('/');
                     string strDag, strMaand, strJaar, strDatum;
-                    strDag = gewensteDatum.datum.ToString().Substring(0, 2);
-                    strMaand = gewensteDatum.datum.ToString().Substring(3, 2);
-                    strJaar = gewensteDatum.datum.ToString().Substring(6, 4);
+                    strDag = arrDate[0].ToString();
+                    strMaand = arrDate[1].ToString();
+                    strJaar = arrDate[2].ToString();
                     strDatum = strJaar + "-" + strMaand + "-" + strDag;
                     MySqlCommand cmd2 = new MySqlCommand("select ActiviteitNaam from ID191774_6itngip22.activiteiten where ActiviteitDag='" + strDatum + "' and ActiviteitUUr ='" + gewensteDatum.uur + "'", conn);
                     conn.Open();
@@ -485,26 +498,48 @@ namespace Barcelona
             return keuzeActiviteiten;
         }
 
+        public Activiteit getVorigeDatumKeuzeActiviteitenFromDB(Activiteit pOudeDatum)
+        {
+            int intID;
+            List<Activiteit> datumKeuzeActiviteiten = new List<Activiteit>();
+
+            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal', AantalPlaatsen , AantalDeelnemers from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr having AantalPlaatsen > AantalDeelnemers and Aantal > 1", conn);
+            conn.Open();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Activiteit a = new Activiteit(Convert.ToDateTime(dataReader["ActiviteitDag"]), Convert.ToString(dataReader["ActiviteitUUr"]));
+                datumKeuzeActiviteiten.Add(a);
+            }
+
+            foreach(Activiteit item in datumKeuzeActiviteiten)
+            {
+                if (item.alleenDatum() == pOudeDatum.alleenDatum()&&item.alleenUUr()==pOudeDatum.alleenUUr())
+                {
+
+                }
+            }
+
+
+        }
+
+
         public Activiteit getDatumKeuzeActiviteitenFromDB(Activiteit pOudeDatum)
         {
             List<Activiteit> datumKeuzeActiviteiten = new List<Activiteit>();
             Activiteit gewensteDatum = new Activiteit();
 
-            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal' from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr", conn);
+            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal', AantalPlaatsen , AantalDeelnemers from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr having AantalPlaatsen > AantalDeelnemers and Aantal > 1", conn);
             conn.Open();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                if (Convert.ToInt32(dataReader["Aantal"]) > 1)
-                {
-                    Activiteit a = new Activiteit(Convert.ToDateTime(dataReader["ActiviteitDag"]), Convert.ToString(dataReader["ActiviteitUUr"]));
-                    datumKeuzeActiviteiten.Add(a);
-                }
-                else { }
+                Activiteit a = new Activiteit(Convert.ToDateTime(dataReader["ActiviteitDag"]), Convert.ToString(dataReader["ActiviteitUUr"]));
+                datumKeuzeActiviteiten.Add(a);
             }
             conn.Close();
 
-            if (datumKeuzeActiviteiten.Count > 1)
+            if (datumKeuzeActiviteiten.Count >= 1)
             {
                 if (pOudeDatum.datum == Convert.ToDateTime("1/01/0001"))
                 {
@@ -567,10 +602,11 @@ namespace Barcelona
 
             foreach (Activiteit item in ActiviteitenAuto)
             {
+                string[] arrDate = item.alleenDatum().Split('/');
                 string strDag, strMaand, strJaar, strDatum;
-                strDag = item.datum.ToString().Substring(0, 2);
-                strMaand = item.datum.ToString().Substring(3, 2);
-                strJaar = item.datum.ToString().Substring(6, 4);
+                strDag = arrDate[0].ToString();
+                strMaand = arrDate[1].ToString();
+                strJaar = arrDate[2].ToString();
                 strDatum = strJaar + "-" + strMaand + "-" + strDag;
                 MySqlCommand cmd2 = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitDag='" + strDatum + "' and ActiviteitUUr ='" + item.uur + "'", conn);
 
@@ -644,9 +680,17 @@ namespace Barcelona
 
             foreach (Activiteit item in idActiviteiten)
             {
-                MySqlCommand cmd4 = new MySqlCommand("insert into ID191774_6itngip22.activiteiten_leerlingen(`Activiteiten_idActiviteiten`,`Leerlingen_idLeerlingen`) values(" + item.id + ", " + intIDLeerling + ")", conn);
+                int intDeelnemers;
+                MySqlCommand cmd4 = new MySqlCommand("select AantalDeelnemers from ID191774_6itngip22.activiteiten where idActiviteit =" + item.id, conn);
                 conn.Open();
-                cmd4.ExecuteNonQuery();
+                intDeelnemers=Convert.ToInt32(cmd4.ExecuteScalar());
+                conn.Close();
+
+                MySqlCommand cmd5 = new MySqlCommand("update id191774_6itngip22.activiteiten set activiteiten.AantalDeelnemers =" + (intDeelnemers + 1) + " where idActiviteit = " + item.id, conn);
+                MySqlCommand cmd6 = new MySqlCommand("insert into ID191774_6itngip22.activiteiten_leerlingen(`Activiteiten_idActiviteiten`,`Leerlingen_idLeerlingen`) values(" + item.id + ", " + intIDLeerling + ")", conn);
+                conn.Open();
+                cmd5.ExecuteNonQuery();
+                cmd6.ExecuteNonQuery();
                 conn.Close();
             }
 

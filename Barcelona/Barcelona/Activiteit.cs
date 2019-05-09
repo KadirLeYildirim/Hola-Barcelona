@@ -155,7 +155,7 @@ namespace Barcelona
         }
         public string alleenDatum()
         {
-            return Convert.ToString(_datum).Substring(0,10);
+            return Convert.ToString(_datum).Substring(0, 10).Replace(" ", ""); ;
         }
         public string alleenUUr()
         {

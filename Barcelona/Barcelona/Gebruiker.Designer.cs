@@ -40,13 +40,13 @@
             this.txtVoornaam = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGsmNummer = new System.Windows.Forms.TextBox();
-            this.txtAchternaam = new System.Windows.Forms.TextBox();
+            this.strnaam = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblAchternaam = new System.Windows.Forms.Label();
             this.cmbKlas = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pcbURL = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbURL)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -63,10 +63,11 @@
             // 
             this.cmbKeuze.FormattingEnabled = true;
             this.cmbKeuze.Location = new System.Drawing.Point(444, 91);
-            this.cmbKeuze.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbKeuze.Margin = new System.Windows.Forms.Padding(4);
             this.cmbKeuze.Name = "cmbKeuze";
             this.cmbKeuze.Size = new System.Drawing.Size(160, 24);
             this.cmbKeuze.TabIndex = 6;
+            this.cmbKeuze.SelectedIndexChanged += new System.EventHandler(this.cmbKeuze_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -82,7 +83,7 @@
             // btnStartscherm
             // 
             this.btnStartscherm.Location = new System.Drawing.Point(13, 228);
-            this.btnStartscherm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStartscherm.Margin = new System.Windows.Forms.Padding(4);
             this.btnStartscherm.Name = "btnStartscherm";
             this.btnStartscherm.Size = new System.Drawing.Size(145, 73);
             this.btnStartscherm.TabIndex = 12;
@@ -93,7 +94,7 @@
             // btnVolgende
             // 
             this.btnVolgende.Location = new System.Drawing.Point(473, 124);
-            this.btnVolgende.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVolgende.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolgende.Name = "btnVolgende";
             this.btnVolgende.Size = new System.Drawing.Size(132, 28);
             this.btnVolgende.TabIndex = 7;
@@ -104,7 +105,7 @@
             // btnRegistreer
             // 
             this.btnRegistreer.Location = new System.Drawing.Point(420, 160);
-            this.btnRegistreer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegistreer.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistreer.Name = "btnRegistreer";
             this.btnRegistreer.Size = new System.Drawing.Size(184, 47);
             this.btnRegistreer.TabIndex = 5;
@@ -126,7 +127,7 @@
             // 
             this.lstAlleKeuzeActiviteiten.FormattingEnabled = true;
             this.lstAlleKeuzeActiviteiten.ItemHeight = 16;
-            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(323, 218);
+            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(185, 213);
             this.lstAlleKeuzeActiviteiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstAlleKeuzeActiviteiten.Name = "lstAlleKeuzeActiviteiten";
             this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(253, 84);
@@ -135,7 +136,7 @@
             // txtVoornaam
             // 
             this.txtVoornaam.Location = new System.Drawing.Point(196, 28);
-            this.txtVoornaam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVoornaam.Margin = new System.Windows.Forms.Padding(4);
             this.txtVoornaam.Name = "txtVoornaam";
             this.txtVoornaam.Size = new System.Drawing.Size(160, 22);
             this.txtVoornaam.TabIndex = 1;
@@ -153,19 +154,19 @@
             // txtGsmNummer
             // 
             this.txtGsmNummer.Location = new System.Drawing.Point(196, 92);
-            this.txtGsmNummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGsmNummer.Margin = new System.Windows.Forms.Padding(4);
             this.txtGsmNummer.Name = "txtGsmNummer";
             this.txtGsmNummer.Size = new System.Drawing.Size(160, 22);
             this.txtGsmNummer.TabIndex = 3;
             // 
-            // txtAchternaam
+            // strnaam
             // 
-            this.txtAchternaam.Location = new System.Drawing.Point(196, 60);
-            this.txtAchternaam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtAchternaam.Name = "txtAchternaam";
-            this.txtAchternaam.Size = new System.Drawing.Size(160, 22);
-            this.txtAchternaam.TabIndex = 2;
-            this.txtAchternaam.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.strnaam.Location = new System.Drawing.Point(196, 60);
+            this.strnaam.Margin = new System.Windows.Forms.Padding(4);
+            this.strnaam.Name = "strnaam";
+            this.strnaam.Size = new System.Drawing.Size(160, 22);
+            this.strnaam.TabIndex = 2;
+            this.strnaam.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label2
             // 
@@ -207,18 +208,19 @@
             "6MO2",
             "6OMC"});
             this.cmbKlas.Location = new System.Drawing.Point(260, 124);
-            this.cmbKlas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbKlas.Margin = new System.Windows.Forms.Padding(4);
             this.cmbKlas.Name = "cmbKlas";
             this.cmbKlas.Size = new System.Drawing.Size(96, 24);
             this.cmbKlas.TabIndex = 4;
             // 
-            // pictureBox1
+            // pcbURL
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(621, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(255, 289);
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
+            this.pcbURL.Location = new System.Drawing.Point(621, 12);
+            this.pcbURL.Name = "pcbURL";
+            this.pcbURL.Size = new System.Drawing.Size(255, 289);
+            this.pcbURL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbURL.TabIndex = 16;
+            this.pcbURL.TabStop = false;
             // 
             // Gebruiker
             // 
@@ -226,7 +228,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(888, 314);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pcbURL);
             this.Controls.Add(this.lstAlleKeuzeActiviteiten);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.btnRegistreer);
@@ -239,17 +241,17 @@
             this.Controls.Add(this.lblAchternaam);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtAchternaam);
+            this.Controls.Add(this.strnaam);
             this.Controls.Add(this.txtGsmNummer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtVoornaam);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Gebruiker";
             this.Text = "Voeg een leerling toe";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Gebruiker_FormClosed);
             this.Load += new System.EventHandler(this.VoegLeerlingToe_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbURL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,12 +269,12 @@
         private System.Windows.Forms.TextBox txtVoornaam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtGsmNummer;
-        private System.Windows.Forms.TextBox txtAchternaam;
+        private System.Windows.Forms.TextBox strnaam;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblAchternaam;
         private System.Windows.Forms.ComboBox cmbKlas;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pcbURL;
     }
 }
 

@@ -117,6 +117,7 @@ namespace Barcelona
             txtAantalPlaatsen.Text = "";
             txtPrijs.Text = "";
             txtOmschrijving.Text = "";
+            txtURLFoto.Text = "";
             rdbVoormiddag.Checked = false;
             rdbVoormiddag.Checked = false;
             mclDag.ShowToday = true;
@@ -195,5 +196,26 @@ namespace Barcelona
 
         }
 
+        private void txtURLFoto_TextChanged(object sender, EventArgs e)
+        {
+            if (txtURLFoto.TextLength > 400)
+            {
+                txtURLFoto.Text = "";
+                MessageBox.Show("De url onder de 400 karakters houden a.u.b.", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else { }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            if (txtTest.Text != "")
+            {
+                pcbTest.ImageLocation = txtTest.Text;
+            }
+            else
+            {
+                MessageBox.Show("Eerst wel een URL ingeven eh", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }

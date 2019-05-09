@@ -56,6 +56,8 @@
             this.btnVerwijderBegleider = new System.Windows.Forms.Button();
             this.txtURLFoto = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.pcbURL = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbURL)).BeginInit();
             this.SuspendLayout();
             // 
             // lstActiviteiten
@@ -63,16 +65,16 @@
             this.lstActiviteiten.FormattingEnabled = true;
             this.lstActiviteiten.ItemHeight = 16;
             this.lstActiviteiten.Location = new System.Drawing.Point(16, 15);
-            this.lstActiviteiten.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstActiviteiten.Margin = new System.Windows.Forms.Padding(4);
             this.lstActiviteiten.Name = "lstActiviteiten";
-            this.lstActiviteiten.Size = new System.Drawing.Size(437, 532);
+            this.lstActiviteiten.Size = new System.Drawing.Size(437, 340);
             this.lstActiviteiten.TabIndex = 0;
             this.lstActiviteiten.SelectedIndexChanged += new System.EventHandler(this.lstActiviteiten_SelectedIndexChanged);
             // 
             // txtOmschrijving
             // 
             this.txtOmschrijving.Location = new System.Drawing.Point(613, 256);
-            this.txtOmschrijving.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtOmschrijving.Margin = new System.Windows.Forms.Padding(4);
             this.txtOmschrijving.Multiline = true;
             this.txtOmschrijving.Name = "txtOmschrijving";
             this.txtOmschrijving.Size = new System.Drawing.Size(231, 72);
@@ -82,7 +84,7 @@
             // 
             this.clbBegeleiders.FormattingEnabled = true;
             this.clbBegeleiders.Location = new System.Drawing.Point(669, 352);
-            this.clbBegeleiders.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clbBegeleiders.Margin = new System.Windows.Forms.Padding(4);
             this.clbBegeleiders.Name = "clbBegeleiders";
             this.clbBegeleiders.Size = new System.Drawing.Size(175, 106);
             this.clbBegeleiders.TabIndex = 30;
@@ -90,7 +92,7 @@
             // btnBevestigen
             // 
             this.btnBevestigen.Location = new System.Drawing.Point(724, 507);
-            this.btnBevestigen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBevestigen.Margin = new System.Windows.Forms.Padding(4);
             this.btnBevestigen.Name = "btnBevestigen";
             this.btnBevestigen.Size = new System.Drawing.Size(121, 69);
             this.btnBevestigen.TabIndex = 32;
@@ -101,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(712, 332);
+            this.label3.Location = new System.Drawing.Point(710, 332);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 17);
@@ -112,7 +114,7 @@
             // 
             this.rdbNamiddag.AutoSize = true;
             this.rdbNamiddag.Location = new System.Drawing.Point(712, 231);
-            this.rdbNamiddag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbNamiddag.Margin = new System.Windows.Forms.Padding(4);
             this.rdbNamiddag.Name = "rdbNamiddag";
             this.rdbNamiddag.Size = new System.Drawing.Size(93, 21);
             this.rdbNamiddag.TabIndex = 27;
@@ -124,7 +126,7 @@
             // 
             this.rdbVoormiddag.AutoSize = true;
             this.rdbVoormiddag.Location = new System.Drawing.Point(712, 203);
-            this.rdbVoormiddag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbVoormiddag.Margin = new System.Windows.Forms.Padding(4);
             this.rdbVoormiddag.Name = "rdbVoormiddag";
             this.rdbVoormiddag.Size = new System.Drawing.Size(105, 21);
             this.rdbVoormiddag.TabIndex = 25;
@@ -145,7 +147,7 @@
             // txtPrijs
             // 
             this.txtPrijs.Location = new System.Drawing.Point(669, 47);
-            this.txtPrijs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrijs.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrijs.Name = "txtPrijs";
             this.txtPrijs.Size = new System.Drawing.Size(175, 22);
             this.txtPrijs.TabIndex = 22;
@@ -153,7 +155,7 @@
             // txtAantalPlaatsen
             // 
             this.txtAantalPlaatsen.Location = new System.Drawing.Point(669, 79);
-            this.txtAantalPlaatsen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAantalPlaatsen.Margin = new System.Windows.Forms.Padding(4);
             this.txtAantalPlaatsen.Name = "txtAantalPlaatsen";
             this.txtAantalPlaatsen.Size = new System.Drawing.Size(175, 22);
             this.txtAantalPlaatsen.TabIndex = 23;
@@ -171,7 +173,7 @@
             // txtNaam
             // 
             this.txtNaam.Location = new System.Drawing.Point(669, 15);
-            this.txtNaam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNaam.Margin = new System.Windows.Forms.Padding(4);
             this.txtNaam.Name = "txtNaam";
             this.txtNaam.Size = new System.Drawing.Size(175, 22);
             this.txtNaam.TabIndex = 21;
@@ -209,7 +211,7 @@
             // btnTerug
             // 
             this.btnTerug.Location = new System.Drawing.Point(472, 507);
-            this.btnTerug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTerug.Margin = new System.Windows.Forms.Padding(4);
             this.btnTerug.Name = "btnTerug";
             this.btnTerug.Size = new System.Drawing.Size(121, 70);
             this.btnTerug.TabIndex = 36;
@@ -220,7 +222,7 @@
             // txtDeelnemers
             // 
             this.txtDeelnemers.Location = new System.Drawing.Point(669, 109);
-            this.txtDeelnemers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDeelnemers.Margin = new System.Windows.Forms.Padding(4);
             this.txtDeelnemers.Name = "txtDeelnemers";
             this.txtDeelnemers.Size = new System.Drawing.Size(175, 22);
             this.txtDeelnemers.TabIndex = 37;
@@ -238,7 +240,7 @@
             // txtDatum
             // 
             this.txtDatum.Location = new System.Drawing.Point(669, 143);
-            this.txtDatum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDatum.Margin = new System.Windows.Forms.Padding(4);
             this.txtDatum.Name = "txtDatum";
             this.txtDatum.Size = new System.Drawing.Size(175, 22);
             this.txtDatum.TabIndex = 39;
@@ -256,7 +258,7 @@
             // btnVerwijderen
             // 
             this.btnVerwijderen.Location = new System.Drawing.Point(601, 507);
-            this.btnVerwijderen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVerwijderen.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerwijderen.Name = "btnVerwijderen";
             this.btnVerwijderen.Size = new System.Drawing.Size(115, 70);
             this.btnVerwijderen.TabIndex = 41;
@@ -267,7 +269,7 @@
             // g
             // 
             this.g.AutoSize = true;
-            this.g.Location = new System.Drawing.Point(468, 332);
+            this.g.Location = new System.Drawing.Point(467, 332);
             this.g.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.g.Name = "g";
             this.g.Size = new System.Drawing.Size(143, 17);
@@ -278,8 +280,8 @@
             // 
             this.lstGekozenBegeleiders.FormattingEnabled = true;
             this.lstGekozenBegeleiders.ItemHeight = 16;
-            this.lstGekozenBegeleiders.Location = new System.Drawing.Point(472, 352);
-            this.lstGekozenBegeleiders.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstGekozenBegeleiders.Location = new System.Drawing.Point(470, 353);
+            this.lstGekozenBegeleiders.Margin = new System.Windows.Forms.Padding(4);
             this.lstGekozenBegeleiders.Name = "lstGekozenBegeleiders";
             this.lstGekozenBegeleiders.Size = new System.Drawing.Size(175, 116);
             this.lstGekozenBegeleiders.TabIndex = 44;
@@ -288,7 +290,7 @@
             // btnVerwijderBegeleider
             // 
             this.btnVerwijderBegeleider.Location = new System.Drawing.Point(669, 475);
-            this.btnVerwijderBegeleider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVerwijderBegeleider.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerwijderBegeleider.Name = "btnVerwijderBegeleider";
             this.btnVerwijderBegeleider.Size = new System.Drawing.Size(176, 28);
             this.btnVerwijderBegeleider.TabIndex = 45;
@@ -299,7 +301,7 @@
             // btnVerwijderBegleider
             // 
             this.btnVerwijderBegleider.Location = new System.Drawing.Point(472, 476);
-            this.btnVerwijderBegleider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVerwijderBegleider.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerwijderBegleider.Name = "btnVerwijderBegleider";
             this.btnVerwijderBegleider.Size = new System.Drawing.Size(176, 28);
             this.btnVerwijderBegleider.TabIndex = 46;
@@ -325,12 +327,22 @@
             this.label9.TabIndex = 48;
             this.label9.Text = "Url voor foto";
             // 
+            // pcbURL
+            // 
+            this.pcbURL.Location = new System.Drawing.Point(16, 362);
+            this.pcbURL.Name = "pcbURL";
+            this.pcbURL.Size = new System.Drawing.Size(437, 214);
+            this.pcbURL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbURL.TabIndex = 49;
+            this.pcbURL.TabStop = false;
+            // 
             // ActiviteitAanpassen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(860, 619);
+            this.Controls.Add(this.pcbURL);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtURLFoto);
             this.Controls.Add(this.btnVerwijderBegleider);
@@ -359,11 +371,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lstActiviteiten);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ActiviteitAanpassen";
             this.Text = "ActiviteitAanpassen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ActiviteitAanpassen_FormClosed);
             this.Load += new System.EventHandler(this.ActiviteitAanpassen_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbURL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,5 +411,6 @@
         private System.Windows.Forms.Button btnVerwijderBegleider;
         private System.Windows.Forms.TextBox txtURLFoto;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pcbURL;
     }
 }

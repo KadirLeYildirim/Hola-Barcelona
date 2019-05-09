@@ -349,7 +349,7 @@ namespace Barcelona
 
             return result;
         }
-        public string getWantedUrlActiviteiten(string pstrNaam)
+        public string getWantedFotoActiviteiten(string pstrNaam)
         {
             string result = "";
 

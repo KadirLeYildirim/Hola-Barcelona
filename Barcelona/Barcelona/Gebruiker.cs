@@ -49,20 +49,17 @@ namespace Barcelona
             }
             else
             {
-                lblDatum.Text = bus.getDatumKeuzeActiviteiten(lblDatum.Text);
                 foreach (string item in bus.getKeuzeActiviteiten(lblDatum.Text))
                 {
                 cmbKeuze.Items.Add(item);
                 }
-                if (cmbKeuze.Items.Count > 1)
-                {
+                lblDatum.Text = bus.getDatumKeuzeActiviteiten(lblDatum.Text);
 
-                }
                 if (cmbKeuze.SelectedItem != null)
                 {
                     lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.SelectedItem.ToString());
                     cmbKeuze.Items.Clear();
-                    cmbKeuze.SelectedItem = "";
+                    cmbKeuze.SelectedText = "";
                 }
                 else { }
             }
@@ -79,13 +76,13 @@ namespace Barcelona
             }
             else
             {
-                if (txtVoornaam.Text != "" || txtAchternaam.Text != "" || txtGsmNummer.Text != "")
+                if (txtVoornaam.Text != "" || strnaam.Text != "" || txtGsmNummer.Text != "")
                 {
                     if (lstAlleKeuzeActiviteiten.Items.Count >= 1)
                     {
                         List<string> keuzeActiviteiten = new List<string>();
-                        bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.SelectedItem));
-                        bus.AddAutoActiviteitLeerlingConnectie(txtVoornaam.Text, txtAchternaam.Text);
+                        bus.addLeerling(txtVoornaam.Text, strnaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.SelectedItem));
+                        bus.AddAutoActiviteitLeerlingConnectie(txtVoornaam.Text, strnaam.Text);
                         if (cmbKeuze.SelectedItem != null)
                         {
                             lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.SelectedItem.ToString());
@@ -97,7 +94,7 @@ namespace Barcelona
                             {
                                 keuzeActiviteiten.Add(item);
                             }
-                            bus.addKeuzeActivteitLeerlingConnectie(keuzeActiviteiten, txtVoornaam.Text, txtAchternaam.Text);
+                            bus.addKeuzeActivteitLeerlingConnectie(keuzeActiviteiten, txtVoornaam.Text, strnaam.Text);
                         }
                         else { }
                     }
@@ -124,7 +121,17 @@ namespace Barcelona
             frmStartscherm startscherm = new frmStartscherm();
             startscherm.Show();
         }
-    }
 
-	//test
+        private void cmbKeuze_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbKeuze.SelectedItem != null)
+            {
+                pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(cmbKeuze.SelectedItem.ToString());
+            }
+            else
+            {
+
+            }
+        }
+    }
 }
