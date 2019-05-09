@@ -50,7 +50,7 @@ namespace Barcelona
                 DialogResult antwoord=DialogResult.Yes;
                 if (txtAchternaam.Text == ""|| txtVoornaam.Text == "" || txtGsmNummer.Text == "")
                 {
-                    antwoord = MessageBox.Show("U laat een veld open." + Environment.NewLine + " Is dat de bedoeling?", "opgelet", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    antwoord = MessageBox.Show("U hebt een veld open gelaten." + Environment.NewLine + " Is dat de bedoeling?", "opgelet", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 }
                 else { }
                 if (antwoord == DialogResult.Yes)

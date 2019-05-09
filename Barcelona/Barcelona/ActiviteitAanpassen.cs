@@ -85,7 +85,7 @@ namespace Barcelona
             }
             bus.updateActiviteit(lstActiviteiten.SelectedItem.ToString(), txtNaam.Text, txtOmschrijving.Text,
                 Convert.ToDouble(txtPrijs.Text), Convert.ToInt32(txtAantalPlaatsen.Text),
-                Convert.ToInt32(txtDeelnemers.Text), txtDatum.Text, strUUR);
+                Convert.ToInt32(txtDeelnemers.Text), txtDatum.Text, strUUR, txtURLFoto.Text);
             foreach (string lijn in bus.getNaamActiviteiten())
             {
                 lstActiviteiten.Items.Add(lijn);
@@ -108,6 +108,7 @@ namespace Barcelona
             txtDeelnemers.Text = bus.getWantedDeelnemersActiviteiten(lstActiviteiten.SelectedItem.ToString());
             txtPrijs.Text = bus.getWantedKostprijsActiviteiten(lstActiviteiten.SelectedItem.ToString());
             txtDatum.Text = bus.getWantedDatumActiviteiten(lstActiviteiten.SelectedItem.ToString());
+            txtURLFoto.Text = bus.getWantedUrlActiviteiten(lstActiviteiten.SelectedItem.ToString());
             if (bus.getWantedUUrActiviteiten(lstActiviteiten.SelectedItem.ToString()).ToLower() == "de voormiddag")
             {
                 rdbVoormiddag.Select();
@@ -183,6 +184,7 @@ namespace Barcelona
         private void ActiviteitAanpassen_FormClosed(object sender, FormClosedEventArgs e)
         {
             Administrator admin = new Administrator();
+            admin.StartPosition = FormStartPosition.CenterParent;
             admin.Show();
         }
     }

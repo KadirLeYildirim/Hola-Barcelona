@@ -52,6 +52,10 @@ namespace Barcelona
             if (Application.OpenForms.Count == 0)
                 Application.Exit();
         }
-    
+
+        private void frmStartscherm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

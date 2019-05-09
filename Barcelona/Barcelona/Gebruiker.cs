@@ -27,8 +27,6 @@ namespace Barcelona
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmStartscherm startscherm = new frmStartscherm();
-            startscherm.Show();
             this.Close();
         }
 
@@ -45,7 +43,7 @@ namespace Barcelona
 		{
             if (lblDatum.Text== "1/01/0001  - " || lblDatum.Text== "Dat was alles")
             {
-                lblDatum.Text = "Dit is het einde";
+                lblDatum.Text = "Dat was alles";
                 cmbKeuze.Items.Clear();
                 cmbKeuze.SelectedItem = "";
             }

@@ -55,7 +55,7 @@ namespace Barcelona
         private void button1_Click(object sender, EventArgs e)
         {
             //Voegt een activiteit toe
-            if(txtAantalPlaatsen.Text==""|| txtNaam.Text == "" || txtOmschrijving.Text == "" || txtPrijs.Text == "" ||(rdbNamiddag.Checked==false && rdbVoormiddag.Checked == false))
+            if(txtAantalPlaatsen.Text==""|| txtNaam.Text == "" || txtOmschrijving.Text == "" || txtPrijs.Text == "" ||(rdbNamiddag.Checked==false && rdbVoormiddag.Checked == false) || txtURLFoto.Text == "")
             {
                 MessageBox.Show("U bent een veld vergeten invullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
@@ -72,7 +72,7 @@ namespace Barcelona
                     strUur = "De voormiddag";
                 }
                 bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
-        Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur);
+        Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur, txtURLFoto.Text);
                 //Dit connecteerd een activiteit en de gekozen begeleider
                 string item;
                 for (int i = 0; i < clbBegeleiders.CheckedItems.Count; i++)
@@ -176,8 +176,13 @@ namespace Barcelona
 
         private void Administrator_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmStartscherm startscherm = new frmStartscherm();
-            startscherm.Show();
+            if (Application.OpenForms.Count == 0)
+            {
+                frmStartscherm startscherm = new frmStartscherm();
+                startscherm.StartPosition = FormStartPosition.CenterParent;
+                startscherm.Show();
+            }
+            else { }
         }
 
         private void Administrator_FormClosing(object sender, FormClosingEventArgs e)

@@ -45,40 +45,46 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblAchternaam = new System.Windows.Forms.Label();
             this.cmbKlas = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(287, 23);
+            this.label4.Location = new System.Drawing.Point(383, 28);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 13);
+            this.label4.Size = new System.Drawing.Size(127, 17);
             this.label4.TabIndex = 9;
             this.label4.Text = "Kies uw activiteiten";
             // 
             // cmbKeuze
             // 
             this.cmbKeuze.FormattingEnabled = true;
-            this.cmbKeuze.Location = new System.Drawing.Point(333, 74);
+            this.cmbKeuze.Location = new System.Drawing.Point(444, 91);
+            this.cmbKeuze.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbKeuze.Name = "cmbKeuze";
-            this.cmbKeuze.Size = new System.Drawing.Size(121, 21);
+            this.cmbKeuze.Size = new System.Drawing.Size(160, 24);
             this.cmbKeuze.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(287, 52);
+            this.label5.Location = new System.Drawing.Point(383, 64);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.Size = new System.Drawing.Size(42, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Voor:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnStartscherm
             // 
-            this.btnStartscherm.Location = new System.Drawing.Point(12, 184);
+            this.btnStartscherm.Location = new System.Drawing.Point(13, 228);
+            this.btnStartscherm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStartscherm.Name = "btnStartscherm";
-            this.btnStartscherm.Size = new System.Drawing.Size(109, 59);
+            this.btnStartscherm.Size = new System.Drawing.Size(145, 73);
             this.btnStartscherm.TabIndex = 12;
             this.btnStartscherm.Text = "Terug";
             this.btnStartscherm.UseVisualStyleBackColor = true;
@@ -86,9 +92,10 @@
             // 
             // btnVolgende
             // 
-            this.btnVolgende.Location = new System.Drawing.Point(355, 101);
+            this.btnVolgende.Location = new System.Drawing.Point(473, 124);
+            this.btnVolgende.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVolgende.Name = "btnVolgende";
-            this.btnVolgende.Size = new System.Drawing.Size(99, 23);
+            this.btnVolgende.Size = new System.Drawing.Size(132, 28);
             this.btnVolgende.TabIndex = 7;
             this.btnVolgende.Text = "Bevestig keuze";
             this.btnVolgende.UseVisualStyleBackColor = true;
@@ -96,9 +103,10 @@
             // 
             // btnRegistreer
             // 
-            this.btnRegistreer.Location = new System.Drawing.Point(315, 130);
+            this.btnRegistreer.Location = new System.Drawing.Point(420, 160);
+            this.btnRegistreer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegistreer.Name = "btnRegistreer";
-            this.btnRegistreer.Size = new System.Drawing.Size(138, 38);
+            this.btnRegistreer.Size = new System.Drawing.Size(184, 47);
             this.btnRegistreer.TabIndex = 5;
             this.btnRegistreer.Text = "Voeg leerling toe";
             this.btnRegistreer.UseVisualStyleBackColor = true;
@@ -107,76 +115,85 @@
             // lblDatum
             // 
             this.lblDatum.AutoSize = true;
-            this.lblDatum.Location = new System.Drawing.Point(325, 51);
+            this.lblDatum.Location = new System.Drawing.Point(433, 63);
+            this.lblDatum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatum.Name = "lblDatum";
-            this.lblDatum.Size = new System.Drawing.Size(13, 13);
+            this.lblDatum.Size = new System.Drawing.Size(16, 17);
             this.lblDatum.TabIndex = 13;
             this.lblDatum.Text = "_";
             // 
             // lstAlleKeuzeActiviteiten
             // 
             this.lstAlleKeuzeActiviteiten.FormattingEnabled = true;
-            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(363, 174);
-            this.lstAlleKeuzeActiviteiten.Margin = new System.Windows.Forms.Padding(2);
+            this.lstAlleKeuzeActiviteiten.ItemHeight = 16;
+            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(323, 218);
+            this.lstAlleKeuzeActiviteiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstAlleKeuzeActiviteiten.Name = "lstAlleKeuzeActiviteiten";
-            this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(91, 69);
+            this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(253, 84);
             this.lstAlleKeuzeActiviteiten.TabIndex = 15;
             // 
             // txtVoornaam
             // 
-            this.txtVoornaam.Location = new System.Drawing.Point(147, 23);
+            this.txtVoornaam.Location = new System.Drawing.Point(196, 28);
+            this.txtVoornaam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtVoornaam.Name = "txtVoornaam";
-            this.txtVoornaam.Size = new System.Drawing.Size(121, 20);
+            this.txtVoornaam.Size = new System.Drawing.Size(160, 22);
             this.txtVoornaam.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 26);
+            this.label1.Location = new System.Drawing.Point(39, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Voornaam";
             // 
             // txtGsmNummer
             // 
-            this.txtGsmNummer.Location = new System.Drawing.Point(147, 75);
+            this.txtGsmNummer.Location = new System.Drawing.Point(196, 92);
+            this.txtGsmNummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGsmNummer.Name = "txtGsmNummer";
-            this.txtGsmNummer.Size = new System.Drawing.Size(121, 20);
+            this.txtGsmNummer.Size = new System.Drawing.Size(160, 22);
             this.txtGsmNummer.TabIndex = 3;
             // 
             // txtAchternaam
             // 
-            this.txtAchternaam.Location = new System.Drawing.Point(147, 49);
+            this.txtAchternaam.Location = new System.Drawing.Point(196, 60);
+            this.txtAchternaam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAchternaam.Name = "txtAchternaam";
-            this.txtAchternaam.Size = new System.Drawing.Size(121, 20);
+            this.txtAchternaam.Size = new System.Drawing.Size(160, 22);
             this.txtAchternaam.TabIndex = 2;
             this.txtAchternaam.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 104);
+            this.label2.Location = new System.Drawing.Point(39, 128);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.Size = new System.Drawing.Size(35, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Klas";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 78);
+            this.label3.Location = new System.Drawing.Point(39, 96);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.Size = new System.Drawing.Size(88, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Gsmnummer";
             // 
             // lblAchternaam
             // 
             this.lblAchternaam.AutoSize = true;
-            this.lblAchternaam.Location = new System.Drawing.Point(29, 52);
+            this.lblAchternaam.Location = new System.Drawing.Point(39, 64);
+            this.lblAchternaam.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAchternaam.Name = "lblAchternaam";
-            this.lblAchternaam.Size = new System.Drawing.Size(64, 13);
+            this.lblAchternaam.Size = new System.Drawing.Size(84, 17);
             this.lblAchternaam.TabIndex = 7;
             this.lblAchternaam.Text = "Achternaam";
             // 
@@ -189,17 +206,27 @@
             "6MO1",
             "6MO2",
             "6OMC"});
-            this.cmbKlas.Location = new System.Drawing.Point(195, 101);
+            this.cmbKlas.Location = new System.Drawing.Point(260, 124);
+            this.cmbKlas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbKlas.Name = "cmbKlas";
-            this.cmbKlas.Size = new System.Drawing.Size(73, 21);
+            this.cmbKlas.Size = new System.Drawing.Size(96, 24);
             this.cmbKlas.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(621, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(255, 289);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
             // Gebruiker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(666, 255);
+            this.ClientSize = new System.Drawing.Size(888, 314);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lstAlleKeuzeActiviteiten);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.btnRegistreer);
@@ -217,10 +244,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtVoornaam);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Gebruiker";
             this.Text = "Voeg een leerling toe";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Gebruiker_FormClosed);
             this.Load += new System.EventHandler(this.VoegLeerlingToe_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,6 +272,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblAchternaam;
         private System.Windows.Forms.ComboBox cmbKlas;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -62,7 +62,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Moccasin;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImage = global::Barcelona.Properties.Resources.Barcelona;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(735, 405);
@@ -77,6 +77,7 @@
             this.Text = "Activiteiten Barcelona";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmStartscherm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStartscherm_FormClosed);
+            this.Load += new System.EventHandler(this.frmStartscherm_Load);
             this.ResumeLayout(false);
 
         }

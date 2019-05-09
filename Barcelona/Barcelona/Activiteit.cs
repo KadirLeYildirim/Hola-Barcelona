@@ -16,6 +16,8 @@ namespace Barcelona
         private int _deelnemers;
         private DateTime _datum;
         private string _uur;
+        private string _url;
+
 
         public int id
         {
@@ -57,9 +59,14 @@ namespace Barcelona
             get { return _uur; }
             set { _uur = value; }
         }
+        public string url
+        {
+            get { return _url; }
+            set { _url = value; }
+        }
 
         public Activiteit(int pintID ,string pstrNaam, string pstrOmschrijving, double pdblKost,
-    int pintPlaatsen, int pintDeelnemers, DateTime pdteDatum, string pstrUur)
+    int pintPlaatsen, int pintDeelnemers, DateTime pdteDatum, string pstrUur, string pstrURL)
         {
             _id = pintID;
             _activiteitNaam = pstrNaam;
@@ -69,9 +76,10 @@ namespace Barcelona
             _deelnemers = pintDeelnemers;
             _datum = pdteDatum;
             _uur = pstrUur;
+            _url = pstrURL;
         }
         public Activiteit(string pstrNaam, string pstrOmschrijving, double pdblKost,
-            int pintPlaatsen, int pintDeelnemers, DateTime pdteDatum, string pstrUur)
+            int pintPlaatsen, int pintDeelnemers, DateTime pdteDatum, string pstrUur, string pstrURL)
         {
             _activiteitNaam = pstrNaam;
             _omschrijving = pstrOmschrijving;
@@ -80,6 +88,7 @@ namespace Barcelona
             _deelnemers = pintDeelnemers;
             _datum = pdteDatum;
             _uur = pstrUur;
+            _url = pstrURL;
         }
         public Activiteit(DateTime pdteDatum, string pstrUUr)
         {
@@ -151,6 +160,10 @@ namespace Barcelona
         public string alleenUUr()
         {
             return _uur;
+        }
+        public string alleenURL()
+        {
+            return _url;
         }
     }
 }

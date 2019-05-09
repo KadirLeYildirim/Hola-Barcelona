@@ -222,10 +222,10 @@ namespace Barcelona
         
 
         public void addActiviteit(string pstrNaam, string pstrOmschrijving, double pdblKost,
-            int pintPlaatsen, DateTime pdteDatum, string pstrUur)
+            int pintPlaatsen, DateTime pdteDatum, string pstrUur, string pstrURL)
         {
             Activiteit item = new Activiteit(pstrNaam, pstrOmschrijving, pdblKost, pintPlaatsen,
-                0, pdteDatum, pstrUur);
+                0, pdteDatum, pstrUur, pstrURL);
             pers.addActiviteitToDB(item);
         }
 
@@ -349,12 +349,23 @@ namespace Barcelona
 
             return result;
         }
+        public string getWantedUrlActiviteiten(string pstrNaam)
+        {
+            string result = "";
+
+            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(pstrNaam))
+            {
+                result = item.alleenURL();
+            }
+
+            return result;
+        }
         //Gekozen activiteit aanpassen
         public void updateActiviteit(string pstrOrigineleNaam, string pstrNaam, string pstrOmschrijving,
-            double pdblKost, int pintPlaatsen, int pintDeelnemers, string pstrDatum, string pstrUUR)
+            double pdblKost, int pintPlaatsen, int pintDeelnemers, string pstrDatum, string pstrUUR, string pstrURL)
         {
             pers.updateActiviteitenInDB(pstrOrigineleNaam, pstrNaam, pstrOmschrijving, pdblKost,
-                pintPlaatsen, pintDeelnemers, pstrDatum, pstrUUR);
+                pintPlaatsen, pintDeelnemers, pstrDatum, pstrUUR, pstrURL);
         }
         public void deleteActiviteit(string pstrNaam)
         {
