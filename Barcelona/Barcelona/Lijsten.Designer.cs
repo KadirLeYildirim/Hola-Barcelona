@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Lijsten));
             this.btnTerug = new System.Windows.Forms.Button();
             this.cmbActiviteiten = new System.Windows.Forms.ComboBox();
             this.lstLijst = new System.Windows.Forms.ListBox();
@@ -36,10 +37,9 @@
             // 
             // btnTerug
             // 
-            this.btnTerug.Location = new System.Drawing.Point(16, 467);
-            this.btnTerug.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTerug.Location = new System.Drawing.Point(12, 380);
             this.btnTerug.Name = "btnTerug";
-            this.btnTerug.Size = new System.Drawing.Size(203, 74);
+            this.btnTerug.Size = new System.Drawing.Size(152, 60);
             this.btnTerug.TabIndex = 0;
             this.btnTerug.Text = "Terug";
             this.btnTerug.UseVisualStyleBackColor = true;
@@ -48,46 +48,43 @@
             // cmbActiviteiten
             // 
             this.cmbActiviteiten.FormattingEnabled = true;
-            this.cmbActiviteiten.Location = new System.Drawing.Point(16, 15);
-            this.cmbActiviteiten.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbActiviteiten.Location = new System.Drawing.Point(12, 12);
             this.cmbActiviteiten.Name = "cmbActiviteiten";
-            this.cmbActiviteiten.Size = new System.Drawing.Size(203, 24);
+            this.cmbActiviteiten.Size = new System.Drawing.Size(153, 21);
             this.cmbActiviteiten.TabIndex = 1;
             this.cmbActiviteiten.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // lstLijst
             // 
             this.lstLijst.FormattingEnabled = true;
-            this.lstLijst.ItemHeight = 16;
-            this.lstLijst.Location = new System.Drawing.Point(227, 13);
-            this.lstLijst.Margin = new System.Windows.Forms.Padding(4);
+            this.lstLijst.Location = new System.Drawing.Point(170, 11);
             this.lstLijst.Name = "lstLijst";
-            this.lstLijst.Size = new System.Drawing.Size(360, 532);
+            this.lstLijst.Size = new System.Drawing.Size(271, 433);
             this.lstLijst.TabIndex = 2;
             this.lstLijst.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // lstBegleider
             // 
             this.lstBegleider.FormattingEnabled = true;
-            this.lstBegleider.ItemHeight = 16;
-            this.lstBegleider.Location = new System.Drawing.Point(16, 183);
-            this.lstBegleider.Margin = new System.Windows.Forms.Padding(4);
+            this.lstBegleider.Location = new System.Drawing.Point(12, 175);
             this.lstBegleider.Name = "lstBegleider";
-            this.lstBegleider.Size = new System.Drawing.Size(203, 276);
+            this.lstBegleider.Size = new System.Drawing.Size(152, 199);
             this.lstBegleider.TabIndex = 3;
             // 
             // Lijsten
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 554);
+            this.BackColor = System.Drawing.Color.AliceBlue;
+            this.ClientSize = new System.Drawing.Size(451, 450);
             this.Controls.Add(this.lstBegleider);
             this.Controls.Add(this.lstLijst);
             this.Controls.Add(this.cmbActiviteiten);
             this.Controls.Add(this.btnTerug);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Lijsten";
             this.Text = "Lijsten";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Lijsten_FormClosed);
             this.Load += new System.EventHandler(this.Lijsten_Load);
             this.ResumeLayout(false);
 

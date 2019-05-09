@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoegBegeleiderToe));
             this.label1 = new System.Windows.Forms.Label();
             this.txtVoornaam = new System.Windows.Forms.TextBox();
             this.btnBevestigen = new System.Windows.Forms.Button();
@@ -120,6 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(299, 314);
             this.Controls.Add(this.lstBegeleiders);
             this.Controls.Add(this.btnAnnuleren);
@@ -130,8 +132,10 @@
             this.Controls.Add(this.btnBevestigen);
             this.Controls.Add(this.txtVoornaam);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VoegBegeleiderToe";
             this.Text = "Voeg een begeleider toe";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VoegBegeleiderToe_FormClosed);
             this.Load += new System.EventHandler(this.VoegLeerkrachtToe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

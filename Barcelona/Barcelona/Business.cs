@@ -232,21 +232,9 @@ namespace Barcelona
         //nifo
         public void connectActiviteitBegeleider(string pstrBegeleider, string pstrActiviteit)
         {
-            int intKeuze=0;
-            foreach(Begeleider item in pers.connectActiviteitBegeleiderVerbeteringInDB(pstrActiviteit))
-            {
-                if (pstrBegeleider == item.voornaam)
-                {
-                    intKeuze++;
-                }
-                else { }
-            }
-            if (intKeuze == 0)
-            {
-                pers.connectActiviteitBegeleiderInDB(pstrBegeleider, pstrActiviteit);
-            }
-            else { }
+             pers.connectActiviteitBegeleiderInDB(pstrBegeleider, pstrActiviteit);            
         }
+
         public void deleteActiviteitBegeleiderConnectie(string pstrBegeleider, string pstrActiviteit)
         {
             pers.deleteActiviteitBegeleiderConnectieInDB(pstrBegeleider, pstrActiviteit);

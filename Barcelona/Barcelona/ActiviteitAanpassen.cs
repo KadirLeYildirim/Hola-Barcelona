@@ -34,8 +34,6 @@ namespace Barcelona
         private void btnTerug_Click(object sender, EventArgs e)
         {
             this.Close();
-            Administrator admin = new Administrator();
-            admin.Show();
         }
 
         private void lstActiviteiten_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,6 +178,12 @@ namespace Barcelona
                 }
 
             } else { }
+        }
+
+        private void ActiviteitAanpassen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Administrator admin = new Administrator();
+            admin.Show();
         }
     }
 }

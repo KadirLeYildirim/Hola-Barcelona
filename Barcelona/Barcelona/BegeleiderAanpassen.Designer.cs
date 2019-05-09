@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BegeleiderAanpassen));
             this.btnVerwijderen = new System.Windows.Forms.Button();
             this.lstBegeleiders = new System.Windows.Forms.ListBox();
             this.btnAnnuleren = new System.Windows.Forms.Button();
@@ -65,7 +66,7 @@
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(88, 57);
             this.btnAnnuleren.TabIndex = 19;
-            this.btnAnnuleren.Text = "Terug naar administator";
+            this.btnAnnuleren.Text = "Terug";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
             this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
@@ -131,6 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(299, 302);
             this.Controls.Add(this.btnVerwijderen);
             this.Controls.Add(this.lstBegeleiders);
@@ -142,8 +144,10 @@
             this.Controls.Add(this.btnAanpassen);
             this.Controls.Add(this.txtVoornaam);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BegeleiderAanpassen";
             this.Text = "BegeleiderAanpassen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BegeleiderAanpassen_FormClosed);
             this.Load += new System.EventHandler(this.BegeleiderAanpassen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

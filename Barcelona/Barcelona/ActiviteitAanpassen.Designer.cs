@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActiviteitAanpassen));
             this.lstActiviteiten = new System.Windows.Forms.ListBox();
             this.txtOmschrijving = new System.Windows.Forms.TextBox();
             this.clbBegeleiders = new System.Windows.Forms.CheckedListBox();
@@ -281,6 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(645, 455);
             this.Controls.Add(this.btnVerwijderBegleider);
             this.Controls.Add(this.btnVerwijderBegeleider);
@@ -307,8 +309,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lstActiviteiten);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ActiviteitAanpassen";
             this.Text = "ActiviteitAanpassen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ActiviteitAanpassen_FormClosed);
             this.Load += new System.EventHandler(this.ActiviteitAanpassen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

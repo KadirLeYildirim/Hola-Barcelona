@@ -213,48 +213,11 @@ namespace Barcelona
             intIDActiviteit = Convert.ToInt32(cmd2.ExecuteScalar());
             conn.Close();
 
+            //nifo
             MySqlCommand cmd3 = new MySqlCommand("insert into ID191774_6itngip22.activiteiten_begeleiders(`activiteiten_idActiviteit`,`begeleiders_idBegeleider`) values(" + intIDActiviteit+","+intIDBegeleider+")", conn);
             conn.Open();
             cmd3.ExecuteNonQuery();
             conn.Close();
-        }
-
-        //Nog niet klaar Nifo
-        public List<Begeleider> connectActiviteitBegeleiderVerbeteringInDB(string pstrAcNaam)
-        {
-            List<Begeleider> IDLijst = new List<Begeleider>();
-            List<Begeleider> Lijst = new List<Begeleider>();
-            int intIDActiviteit;
-
-            MySqlCommand cmd = new MySqlCommand("select idActiviteit from ID191774_6itngip22.activiteiten where ActiviteitNaam='" + pstrAcNaam + "'", conn);
-            conn.Open();
-            intIDActiviteit = Convert.ToInt32(cmd.ExecuteScalar());
-            conn.Close();
-
-            MySqlCommand cmd2 = new MySqlCommand("select begeleiders_idBegeleider from ID191774_6itngip22.activiteiten_begeleiders where activiteiten_idActiviteit ="+intIDActiviteit, conn);
-            conn.Open();
-            MySqlDataReader dataReader = cmd2.ExecuteReader();
-            while (dataReader.Read())
-            {
-                Begeleider b = new Begeleider(Convert.ToInt32(dataReader["begeleiders_idBegeleider"]));
-                IDLijst.Add(b);
-            }
-            conn.Close();
-
-            foreach(Begeleider item in IDLijst)
-            {
-                MySqlCommand cmd3 = new MySqlCommand("select BegeleiderVoornaam from ID191774_6itngip22.begeleiders where idBegeleider="+item.id, conn);
-                conn.Open();
-                MySqlDataReader dataReader2 = cmd3.ExecuteReader();
-                while (dataReader2.Read())
-                {
-                    Begeleider b2 = new Begeleider(Convert.ToString(dataReader2["BegeleiderVoornaam"]));
-                    Lijst.Add(b2);
-                }
-                conn.Close();
-            }
-
-            return Lijst;
         }
 
         public void deleteActiviteitBegeleiderConnectieInDB(string pstrNaam, string pstrAcNaam)
@@ -451,7 +414,6 @@ namespace Barcelona
             }
             conn.Close();
 
-            //nifo deze ding werkt niet
             if (pOudeDatum.datum == Convert.ToDateTime("1/01/0001"))
             {
                 if (datumKeuzeActiviteiten.Count != 0)
@@ -583,7 +545,7 @@ namespace Barcelona
         {
             List<Activiteit> ActiviteitenAuto = new List<Activiteit>();
             List<Activiteit> ActiviteitenID = new List<Activiteit>();
-            int intIDLeerling;
+            int intIDLeerling, intPlaatsen=0, intDeelnemers=0; 
 
             MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal' from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr", conn);
             conn.Open();
@@ -626,9 +588,29 @@ namespace Barcelona
             foreach (Activiteit item in ActiviteitenID)
             {
                 MySqlCommand cmd4 = new MySqlCommand("insert into ID191774_6itngip22.activiteiten_leerlingen(`Activiteiten_idActiviteiten`,`Leerlingen_idLeerlingen`) values(" + item.id + ", " + intIDLeerling + ")", conn);
+                MySqlCommand cmd5 = new MySqlCommand("select AantalDeelnemers, AantalPlaatsen from ID191774_6itngip22.activiteiten where idActiviteit =" + item.id, conn);
                 conn.Open();
-                cmd4.ExecuteNonQuery();
+                MySqlDataReader dataReader2 = cmd5.ExecuteReader();
+                while (dataReader2.Read())
+                {
+                    intPlaatsen = Convert.ToInt32(dataReader2["AantalPlaatsen"]);
+                    intDeelnemers = Convert.ToInt32(dataReader2["AantalDeelnemers"]);
+                }
                 conn.Close();
+
+                if (intPlaatsen > intDeelnemers)
+                {
+                    MySqlCommand cmd6 = new MySqlCommand("update id191774_6itngip22.activiteiten set activiteiten.AantalDeelnemers =" + (intDeelnemers + 1) + " where idActiviteit = " + item.id, conn);
+                    conn.Open();
+                    cmd6.ExecuteNonQuery();
+                    conn.Close();
+
+
+                    conn.Open();
+                    cmd4.ExecuteNonQuery();
+                    conn.Close();
+                }
+                else { }
             }
         }
 

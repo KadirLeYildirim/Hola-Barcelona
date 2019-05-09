@@ -18,6 +18,7 @@ namespace Barcelona
         {
             InitializeComponent();
         }
+        
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -26,10 +27,9 @@ namespace Barcelona
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Administrator admin = new Administrator();
-            admin.Show();
-
-            
+            frmStartscherm startscherm = new frmStartscherm();
+            startscherm.Show();
+            this.Close();
         }
 
         private void VoegLeerlingToe_Load(object sender, EventArgs e)
@@ -119,6 +119,12 @@ namespace Barcelona
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Gebruiker_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmStartscherm startscherm = new frmStartscherm();
+            startscherm.Show();
         }
     }
 

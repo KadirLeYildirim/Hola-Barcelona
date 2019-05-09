@@ -58,7 +58,7 @@ namespace Barcelona
 
         public override string ToString()
         {
-            return _id + "= Naam:" + _voornaam + _achternaam + " gsm nummer: " + _gsmNummer;
+            return _id + " = Naam: " + _voornaam + " " + _achternaam + " gsm nummer: " + _gsmNummer;
         }
         public string AlleenNaam()
         {

@@ -36,11 +36,10 @@ namespace Barcelona
 
         private void btnVoegLeerkrachtToe_Click(object sender, EventArgs e)
         {
-            //Dit opend een begeleider form om een nieuwe begeleider toe te voegen
             VoegBegeleiderToe Leerkracht = new VoegBegeleiderToe();
             Leerkracht.Show();
             this.Close();
-            clbBegeleiders.Items.Clear();
+            toonBegeleiders();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -150,6 +149,7 @@ namespace Barcelona
             ActiviteitAanpassen form = new ActiviteitAanpassen();
             form.Show();
             this.Close();
+            toonActiviteiten();
         }
 
         private void btnBegeleiderAanpassen_Click(object sender, EventArgs e)
@@ -157,6 +157,7 @@ namespace Barcelona
             BegeleiderAanpassen begaanpassen = new BegeleiderAanpassen();
             begaanpassen.Show();
             this.Close();
+
         }
 
         private void btnLijsten_Click(object sender, EventArgs e)
@@ -172,5 +173,22 @@ namespace Barcelona
             startscherm.Show();
             this.Close();
         }
+
+        private void Administrator_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmStartscherm startscherm = new frmStartscherm();
+            startscherm.Show();
+        }
+
+        private void Administrator_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

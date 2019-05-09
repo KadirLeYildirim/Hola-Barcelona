@@ -16,7 +16,9 @@ namespace Barcelona
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmStartscherm());
+            var main_form = new frmStartscherm();
+            main_form.Show();
+            Application.Run();
         }
     }
 }

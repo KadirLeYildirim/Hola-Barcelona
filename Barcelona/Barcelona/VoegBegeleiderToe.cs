@@ -39,6 +39,9 @@ namespace Barcelona
                 {
                     lstBegeleiders.Items.Add(lijn);
                 }
+                txtAchternaam.Text = "";
+                txtVoornaam.Text = "";
+                txtGsmNummer.Text = "";
             }
             else
             {
@@ -49,14 +52,18 @@ namespace Barcelona
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            Administrator admin = new Administrator();
-            admin.Show();
             this.Close();
         }
 
         private void lstBegeleiders_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void VoegBegeleiderToe_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Administrator admin = new Administrator();
+            admin.Show();
         }
     }
 }

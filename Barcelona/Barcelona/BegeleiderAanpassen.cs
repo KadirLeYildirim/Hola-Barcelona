@@ -40,8 +40,6 @@ namespace Barcelona
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            Administrator admin = new Administrator();
-            admin.Show();
             this.Close();
         }
 
@@ -49,21 +47,34 @@ namespace Barcelona
         {
             if (lstBegeleiders.SelectedItem != null)
             {
-                string strNaam = "", strLetter;
-                for (int i = 0; i < lstBegeleiders.SelectedItem.ToString().Length; i++)
+                DialogResult antwoord=DialogResult.Yes;
+                if (txtAchternaam.Text == ""|| txtVoornaam.Text == "" || txtGsmNummer.Text == "")
                 {
-                    strLetter = lstBegeleiders.SelectedItem.ToString().Substring(i, 1);
-                    if (strLetter == " ")
-                    {
-                        i = lstBegeleiders.SelectedItem.ToString().Length;
-                    }
-                    strNaam += strLetter;
+                    antwoord = MessageBox.Show("U laat een veld open." + Environment.NewLine + " Is dat de bedoeling?", "opgelet", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 }
-                bus.updateBegeleider(strNaam, txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text);
-                lstBegeleiders.Items.Clear();
-                foreach (string lijn in bus.getBegeleidersNamen())
+                else { }
+                if (antwoord == DialogResult.Yes)
                 {
-                    lstBegeleiders.Items.Add(lijn);
+                    string strNaam = "", strLetter;
+                    for (int i = 0; i < lstBegeleiders.SelectedItem.ToString().Length; i++)
+                    {
+                        strLetter = lstBegeleiders.SelectedItem.ToString().Substring(i, 1);
+                        if (strLetter == " ")
+                        {
+                            i = lstBegeleiders.SelectedItem.ToString().Length;
+                        }
+                        strNaam += strLetter;
+                    }
+                    bus.updateBegeleider(strNaam, txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text);
+                    lstBegeleiders.Items.Clear();
+                    foreach (string lijn in bus.getBegeleidersNamen())
+                    {
+                        lstBegeleiders.Items.Add(lijn);
+                    }
+                }
+                else
+                {
+
                 }
             }
             else
@@ -123,6 +134,12 @@ namespace Barcelona
             txtVoornaam.Text = bus.getWantedBegeleiderVoornaam(strNaam);
             txtAchternaam.Text = bus.getWantedBegeleiderAchternaam(strNaam);
             txtGsmNummer.Text = bus.getWantedBegeleiderGsmNummer(strNaam);
+        }
+
+        private void BegeleiderAanpassen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Administrator admin = new Administrator();
+            admin.Show();
         }
     }
 }

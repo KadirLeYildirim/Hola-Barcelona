@@ -21,8 +21,6 @@ namespace Barcelona
 
         private void btnTerug_Click(object sender, EventArgs e)
         {
-            Administrator admin = new Administrator();
-            admin.Show();
             this.Close();
         }
 
@@ -56,6 +54,12 @@ namespace Barcelona
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Lijsten_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Administrator admin = new Administrator();
+            admin.Show();
         }
     }
 }
