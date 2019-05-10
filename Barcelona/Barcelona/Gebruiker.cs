@@ -181,7 +181,7 @@ namespace Barcelona
 
         private void btnVorige_Click(object sender, EventArgs e)
         {
-            if(lstOudeDatums.Items.Count != lstAlleKeuzeActiviteiten.Items.Count)
+            if (lstOudeDatums.Items.Count != lstAlleKeuzeActiviteiten.Items.Count)
             {
                 if (lstOudeDatums.Items.Count > 1)
                 {
@@ -192,17 +192,13 @@ namespace Barcelona
             }
             else
             {
+            }
+
+            if (lstAlleKeuzeActiviteiten.Items.Count > 0)
+            {
                 lstAlleKeuzeActiviteiten.Items.RemoveAt(lstAlleKeuzeActiviteiten.Items.Count - 1);
             }
-
-            if (lstAlleKeuzeActiviteiten.Items.Count > 1)
-            {
-                lstAlleKeuzeActiviteiten.Items.RemoveAt(lstAlleKeuzeActiviteiten.Items.Count -1);
-            }
-            else
-            {
-
-            }
+            else { }
             cmbKeuze.Text = "";
             cmbKeuze.Items.Clear();
             lblDatum.Text = lstOudeDatums.Items[lstOudeDatums.Items.Count - 1].ToString();
@@ -251,6 +247,11 @@ namespace Barcelona
 
                 }
             }
+        }
+
+        private void lstOudeDatums_VisibleChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

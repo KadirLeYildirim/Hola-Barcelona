@@ -97,7 +97,7 @@
             // 
             // btnVolgende
             // 
-            this.btnVolgende.Location = new System.Drawing.Point(513, 121);
+            this.btnVolgende.Location = new System.Drawing.Point(513, 122);
             this.btnVolgende.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolgende.Name = "btnVolgende";
             this.btnVolgende.Size = new System.Drawing.Size(118, 28);
@@ -132,11 +132,12 @@
             this.lstAlleKeuzeActiviteiten.FormattingEnabled = true;
             this.lstAlleKeuzeActiviteiten.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.lstAlleKeuzeActiviteiten.ItemHeight = 16;
-            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(365, 158);
+            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(756, 170);
             this.lstAlleKeuzeActiviteiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstAlleKeuzeActiviteiten.Name = "lstAlleKeuzeActiviteiten";
             this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(242, 84);
             this.lstAlleKeuzeActiviteiten.TabIndex = 15;
+            this.lstAlleKeuzeActiviteiten.Visible = false;
             // 
             // txtVoornaam
             // 
@@ -235,12 +236,14 @@
             // 
             this.lstOudeDatums.FormattingEnabled = true;
             this.lstOudeDatums.ItemHeight = 16;
-            this.lstOudeDatums.Location = new System.Drawing.Point(27, 190);
+            this.lstOudeDatums.Location = new System.Drawing.Point(679, 60);
             this.lstOudeDatums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstOudeDatums.Name = "lstOudeDatums";
             this.lstOudeDatums.Size = new System.Drawing.Size(242, 84);
             this.lstOudeDatums.TabIndex = 19;
+            this.lstOudeDatums.Visible = false;
             this.lstOudeDatums.SelectedIndexChanged += new System.EventHandler(this.lstOudeDatums_SelectedIndexChanged);
+            this.lstOudeDatums.VisibleChanged += new System.EventHandler(this.lstOudeDatums_VisibleChanged);
             // 
             // pcbURL
             // 
