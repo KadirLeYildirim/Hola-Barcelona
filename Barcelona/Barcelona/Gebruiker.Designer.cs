@@ -46,13 +46,15 @@
             this.lblAchternaam = new System.Windows.Forms.Label();
             this.cmbKlas = new System.Windows.Forms.ComboBox();
             this.pcbURL = new System.Windows.Forms.PictureBox();
+            this.btnVorige = new System.Windows.Forms.Button();
+            this.lstOudeDatums = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbURL)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(383, 28);
+            this.label4.Location = new System.Drawing.Point(384, 28);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 17);
@@ -62,7 +64,7 @@
             // cmbKeuze
             // 
             this.cmbKeuze.FormattingEnabled = true;
-            this.cmbKeuze.Location = new System.Drawing.Point(444, 91);
+            this.cmbKeuze.Location = new System.Drawing.Point(471, 90);
             this.cmbKeuze.Margin = new System.Windows.Forms.Padding(4);
             this.cmbKeuze.Name = "cmbKeuze";
             this.cmbKeuze.Size = new System.Drawing.Size(160, 24);
@@ -72,7 +74,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(383, 64);
+            this.label5.Location = new System.Drawing.Point(384, 64);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 17);
@@ -93,10 +95,10 @@
             // 
             // btnVolgende
             // 
-            this.btnVolgende.Location = new System.Drawing.Point(473, 124);
+            this.btnVolgende.Location = new System.Drawing.Point(513, 121);
             this.btnVolgende.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolgende.Name = "btnVolgende";
-            this.btnVolgende.Size = new System.Drawing.Size(132, 28);
+            this.btnVolgende.Size = new System.Drawing.Size(118, 28);
             this.btnVolgende.TabIndex = 7;
             this.btnVolgende.Text = "Bevestig keuze";
             this.btnVolgende.UseVisualStyleBackColor = true;
@@ -104,10 +106,10 @@
             // 
             // btnRegistreer
             // 
-            this.btnRegistreer.Location = new System.Drawing.Point(420, 160);
+            this.btnRegistreer.Location = new System.Drawing.Point(387, 158);
             this.btnRegistreer.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistreer.Name = "btnRegistreer";
-            this.btnRegistreer.Size = new System.Drawing.Size(184, 47);
+            this.btnRegistreer.Size = new System.Drawing.Size(244, 47);
             this.btnRegistreer.TabIndex = 5;
             this.btnRegistreer.Text = "Voeg leerling toe";
             this.btnRegistreer.UseVisualStyleBackColor = true;
@@ -116,7 +118,7 @@
             // lblDatum
             // 
             this.lblDatum.AutoSize = true;
-            this.lblDatum.Location = new System.Drawing.Point(433, 63);
+            this.lblDatum.Location = new System.Drawing.Point(434, 63);
             this.lblDatum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatum.Name = "lblDatum";
             this.lblDatum.Size = new System.Drawing.Size(16, 17);
@@ -127,11 +129,12 @@
             // 
             this.lstAlleKeuzeActiviteiten.FormattingEnabled = true;
             this.lstAlleKeuzeActiviteiten.ItemHeight = 16;
-            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(185, 213);
+            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(389, 211);
             this.lstAlleKeuzeActiviteiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstAlleKeuzeActiviteiten.Name = "lstAlleKeuzeActiviteiten";
-            this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(253, 84);
+            this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(242, 84);
             this.lstAlleKeuzeActiviteiten.TabIndex = 15;
+            this.lstAlleKeuzeActiviteiten.Visible = false;
             // 
             // txtVoornaam
             // 
@@ -215,19 +218,43 @@
             // 
             // pcbURL
             // 
-            this.pcbURL.Location = new System.Drawing.Point(621, 12);
+            this.pcbURL.Location = new System.Drawing.Point(653, 12);
             this.pcbURL.Name = "pcbURL";
-            this.pcbURL.Size = new System.Drawing.Size(255, 289);
+            this.pcbURL.Size = new System.Drawing.Size(415, 289);
             this.pcbURL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbURL.TabIndex = 16;
             this.pcbURL.TabStop = false;
+            // 
+            // btnVorige
+            // 
+            this.btnVorige.Location = new System.Drawing.Point(387, 122);
+            this.btnVorige.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVorige.Name = "btnVorige";
+            this.btnVorige.Size = new System.Drawing.Size(118, 28);
+            this.btnVorige.TabIndex = 17;
+            this.btnVorige.Text = "Vorige keuze";
+            this.btnVorige.UseVisualStyleBackColor = true;
+            this.btnVorige.Click += new System.EventHandler(this.btnVorige_Click);
+            // 
+            // lstOudeDatums
+            // 
+            this.lstOudeDatums.FormattingEnabled = true;
+            this.lstOudeDatums.ItemHeight = 16;
+            this.lstOudeDatums.Location = new System.Drawing.Point(42, 147);
+            this.lstOudeDatums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lstOudeDatums.Name = "lstOudeDatums";
+            this.lstOudeDatums.Size = new System.Drawing.Size(242, 84);
+            this.lstOudeDatums.TabIndex = 19;
+            this.lstOudeDatums.SelectedIndexChanged += new System.EventHandler(this.lstOudeDatums_SelectedIndexChanged);
             // 
             // Gebruiker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(888, 314);
+            this.ClientSize = new System.Drawing.Size(1080, 314);
+            this.Controls.Add(this.lstOudeDatums);
+            this.Controls.Add(this.btnVorige);
             this.Controls.Add(this.pcbURL);
             this.Controls.Add(this.lstAlleKeuzeActiviteiten);
             this.Controls.Add(this.lblDatum);
@@ -275,6 +302,8 @@
         private System.Windows.Forms.Label lblAchternaam;
         private System.Windows.Forms.ComboBox cmbKlas;
         private System.Windows.Forms.PictureBox pcbURL;
+        private System.Windows.Forms.Button btnVorige;
+        private System.Windows.Forms.ListBox lstOudeDatums;
     }
 }
 

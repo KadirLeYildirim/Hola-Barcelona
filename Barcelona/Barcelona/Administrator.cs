@@ -65,11 +65,11 @@ namespace Barcelona
                 string strUur = "_";
                 if (rdbNamiddag.Checked == true)
                 {
-                    strUur = "De namiddag";
+                    strUur = "Namiddag";
                 }
                 if (rdbVoormiddag.Checked == true)
                 {
-                    strUur = "De voormiddag";
+                    strUur = "Voormiddag";
                 }
                 bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
         Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur, txtURLFoto.Text);
@@ -216,6 +216,11 @@ namespace Barcelona
             {
                 MessageBox.Show("Eerst wel een URL ingeven eh", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void rdbVoormiddag_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

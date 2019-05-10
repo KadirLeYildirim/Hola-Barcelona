@@ -145,6 +145,7 @@
             this.rdbVoormiddag.TabStop = true;
             this.rdbVoormiddag.Text = "Voormiddag";
             this.rdbVoormiddag.UseVisualStyleBackColor = true;
+            this.rdbVoormiddag.CheckedChanged += new System.EventHandler(this.rdbVoormiddag_CheckedChanged);
             // 
             // rdbNamiddag
             // 

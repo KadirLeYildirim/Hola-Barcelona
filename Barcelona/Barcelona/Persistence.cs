@@ -454,7 +454,7 @@ namespace Barcelona
             }
             else
             {
-                int intAantal = -1;
+                int intAantal = 0;
                 foreach (Activiteit item in datumKeuzeActiviteiten)
                 {
                     if (pOudeDatum.datum == item.datum && pOudeDatum.uur == item.uur)
@@ -520,7 +520,7 @@ namespace Barcelona
                 }
             }
 
-
+            return pOudeDatum;
         }
 
 
@@ -539,8 +539,7 @@ namespace Barcelona
             }
             conn.Close();
 
-            if (datumKeuzeActiviteiten.Count >= 1)
-            {
+
                 if (pOudeDatum.datum == Convert.ToDateTime("1/01/0001"))
                 {
                     gewensteDatum.datum = datumKeuzeActiviteiten.First().datum;
@@ -574,8 +573,7 @@ namespace Barcelona
                         gewensteDatum.uur = datumKeuzeActiviteiten[intAantal].uur;
                     }
                 }
-            }
-            else { }
+
 
             return gewensteDatum;
         }

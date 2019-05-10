@@ -18,7 +18,8 @@ namespace Barcelona
         {
             InitializeComponent();
         }
-        
+
+
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -49,10 +50,16 @@ namespace Barcelona
             }
             else
             {
+                cmbKeuze.Items.Clear();
                 foreach (string item in bus.getKeuzeActiviteiten(lblDatum.Text))
                 {
                 cmbKeuze.Items.Add(item);
                 }
+                if (lblDatum.Text != "_")
+                {
+                    lstOudeDatums.Items.Add(lblDatum.Text);
+                }
+                else { }
                 lblDatum.Text = bus.getDatumKeuzeActiviteiten(lblDatum.Text);
 
                 if (cmbKeuze.SelectedItem != null)
@@ -132,6 +139,21 @@ namespace Barcelona
             {
 
             }
+        }
+
+        private void test_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstOudeDatums_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVorige_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

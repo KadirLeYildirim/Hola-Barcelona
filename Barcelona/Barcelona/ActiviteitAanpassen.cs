@@ -79,11 +79,11 @@ namespace Barcelona
                 string strUUR = "";
                 if (rdbNamiddag.Checked == true)
                 {
-                    strUUR = "De namiddag";
+                    strUUR = "Namiddag";
                 }
                 if (rdbVoormiddag.Checked == true)
                 {
-                    strUUR = "De voormiddag";
+                    strUUR = "Voormiddag";
                 }
                 bus.updateActiviteit(lstActiviteiten.SelectedItem.ToString(), txtNaam.Text, txtOmschrijving.Text,
                     Convert.ToDouble(txtPrijs.Text), Convert.ToInt32(txtAantalPlaatsen.Text),

@@ -73,11 +73,10 @@ namespace Barcelona
             {
                 string strUUr;
                 DateTime dteDatum;
-                int intAantal;
 
-                dteDatum = Convert.ToDateTime(pstrTijd.Substring(0, 10));
-                intAantal = (pstrTijd.Length) - 13;
-                strUUr = pstrTijd.Substring(pstrTijd.Length - (intAantal), intAantal);
+                string[] arrDate = pstrTijd.Split(' ');
+                dteDatum = Convert.ToDateTime(arrDate[0]);
+                strUUr = arrDate[arrDate.Count()-1];
                 a.datum = dteDatum;
                 a.uur = strUUr;
             }
@@ -95,21 +94,20 @@ namespace Barcelona
         {
             string result;
             Activiteit a = new Activiteit();
-            if (pstrTijd == "_")
-            {
-
-            }
-            else
+            if (pstrTijd != "_")
             {
                 string strUUr;
                 DateTime dteDatum;
-                int intAantal;
 
-                dteDatum = Convert.ToDateTime(pstrTijd.Substring(0, 10));
-                intAantal = (pstrTijd.Length) - 13;
-                strUUr = pstrTijd.Substring(pstrTijd.Length - (intAantal), intAantal);
+                string[] arrDate = pstrTijd.Split(' ');
+                dteDatum = Convert.ToDateTime(arrDate[0]);
+                strUUr = arrDate[arrDate.Count() - 1];
                 a.datum = dteDatum;
                 a.uur = strUUr;
+            }
+            else
+            {
+
             }
 
             result = pers.getDatumKeuzeActiviteitenFromDB(a).alleenTijd();
