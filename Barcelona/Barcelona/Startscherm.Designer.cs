@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStartscherm));
             this.btnAdministrator = new System.Windows.Forms.Button();
             this.btnGebruiker = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdministrator
@@ -58,6 +60,16 @@
             this.btnGebruiker.UseVisualStyleBackColor = true;
             this.btnGebruiker.Click += new System.EventHandler(this.btnGebruiker_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Barcelona.Properties.Resources.output_onlinepngtools;
+            this.pictureBox1.Location = new System.Drawing.Point(50, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(634, 58);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmStartscherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -66,6 +78,7 @@
             this.BackgroundImage = global::Barcelona.Properties.Resources.Barcelona;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(735, 405);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnGebruiker);
             this.Controls.Add(this.btnAdministrator);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -78,6 +91,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmStartscherm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStartscherm_FormClosed);
             this.Load += new System.EventHandler(this.frmStartscherm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -86,5 +100,6 @@
 
         private System.Windows.Forms.Button btnAdministrator;
         private System.Windows.Forms.Button btnGebruiker;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Barcelona.jpg" />
+    <None Include="Resources\output-onlinepngtools.png" />
     <Content Include="Resources\SintLievensIcon.jpg" />
   </ItemGroup>
   <ItemGroup>
