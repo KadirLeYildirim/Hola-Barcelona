@@ -199,5 +199,15 @@ namespace Barcelona
             admin.StartPosition = FormStartPosition.CenterParent;
             admin.Show();
         }
+
+        private void txtURLFoto_TextChanged(object sender, EventArgs e)
+        {
+            if (txtURLFoto.TextLength > 400)
+            {
+                txtURLFoto.Text = "";
+                MessageBox.Show("De url onder de 400 karakters houden a.u.b.", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else { }
+        }
     }
 }

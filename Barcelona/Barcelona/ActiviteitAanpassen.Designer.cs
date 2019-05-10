@@ -316,6 +316,7 @@
             this.txtURLFoto.Name = "txtURLFoto";
             this.txtURLFoto.Size = new System.Drawing.Size(175, 22);
             this.txtURLFoto.TabIndex = 47;
+            this.txtURLFoto.TextChanged += new System.EventHandler(this.txtURLFoto_TextChanged);
             // 
             // label9
             // 
