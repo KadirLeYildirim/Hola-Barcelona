@@ -210,11 +210,20 @@ namespace Barcelona
         {
             if (txtTest.Text != "")
             {
-                pcbTest.ImageLocation = txtTest.Text;
+                if (txtTest.TextLength > 400)
+                {
+                    txtTest.Text = "";
+                    MessageBox.Show("De url onder de 400 karakters houden a.u.b.", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    pcbTest.ImageLocation = txtTest.Text;
+
+                }
             }
             else
             {
-                MessageBox.Show("Eerst wel een URL ingeven eh", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("U moet eerst een URL ingeven", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
