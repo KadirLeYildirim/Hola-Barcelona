@@ -48,6 +48,7 @@
             this.btnVorige = new System.Windows.Forms.Button();
             this.lstOudeDatums = new System.Windows.Forms.ListBox();
             this.pcbURL = new System.Windows.Forms.PictureBox();
+            this.txtOmschrijving = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbURL)).BeginInit();
             this.SuspendLayout();
             // 
@@ -250,12 +251,22 @@
             this.pcbURL.TabIndex = 20;
             this.pcbURL.TabStop = false;
             // 
+            // txtOmschrijving
+            // 
+            this.txtOmschrijving.Location = new System.Drawing.Point(387, 213);
+            this.txtOmschrijving.Margin = new System.Windows.Forms.Padding(4);
+            this.txtOmschrijving.Multiline = true;
+            this.txtOmschrijving.Name = "txtOmschrijving";
+            this.txtOmschrijving.Size = new System.Drawing.Size(244, 88);
+            this.txtOmschrijving.TabIndex = 21;
+            // 
             // Gebruiker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1080, 314);
+            this.Controls.Add(this.txtOmschrijving);
             this.Controls.Add(this.pcbURL);
             this.Controls.Add(this.lstOudeDatums);
             this.Controls.Add(this.btnVorige);
@@ -307,6 +318,7 @@
         private System.Windows.Forms.Button btnVorige;
         private System.Windows.Forms.ListBox lstOudeDatums;
         private System.Windows.Forms.PictureBox pcbURL;
+        private System.Windows.Forms.TextBox txtOmschrijving;
     }
 }
 

@@ -141,6 +141,10 @@ namespace Barcelona
         {
             return _omschrijving;
         }
+        public string omschrijvingPlaatsen()
+        {
+            return _omschrijving + " Er zijn nog " + (_plaatsen - _deelnemers) + " over van de " + _plaatsen + " plaatsen";
+        }
         public string alleenKostprijs()
         {
             return Convert.ToString(_kostprijs);

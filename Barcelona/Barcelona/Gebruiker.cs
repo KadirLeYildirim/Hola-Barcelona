@@ -152,6 +152,7 @@ namespace Barcelona
             if (cmbKeuze.SelectedItem != null)
             {
                 pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(cmbKeuze.SelectedItem.ToString());
+                txtOmschrijving.Text = bus.getWantedOmschrijvingPlaatsenActiviteiten(cmbKeuze.Text);
             }
             else
             {
