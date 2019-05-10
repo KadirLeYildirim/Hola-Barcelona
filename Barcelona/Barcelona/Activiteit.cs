@@ -155,15 +155,15 @@ namespace Barcelona
         }
         public string alleenDatum()
         {
-            return Convert.ToString(_datum).Substring(0, 10).Replace(" ", ""); ;
+            return Convert.ToString(_datum).Substring(0, 10).Replace(" ", "") ;
         }
         public string alleenUUr()
         {
-            return _uur;
+            return Convert.ToString(_uur);
         }
         public string alleenURL()
         {
-            return _url;
+            return Convert.ToString(_url);
         }
     }
 }

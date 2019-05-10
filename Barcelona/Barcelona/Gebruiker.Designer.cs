@@ -40,14 +40,14 @@
             this.txtVoornaam = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGsmNummer = new System.Windows.Forms.TextBox();
-            this.strnaam = new System.Windows.Forms.TextBox();
+            this.txtAchternaam = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblAchternaam = new System.Windows.Forms.Label();
             this.cmbKlas = new System.Windows.Forms.ComboBox();
-            this.pcbURL = new System.Windows.Forms.PictureBox();
             this.btnVorige = new System.Windows.Forms.Button();
             this.lstOudeDatums = new System.Windows.Forms.ListBox();
+            this.pcbURL = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbURL)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +63,7 @@
             // 
             // cmbKeuze
             // 
+            this.cmbKeuze.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKeuze.FormattingEnabled = true;
             this.cmbKeuze.Location = new System.Drawing.Point(471, 90);
             this.cmbKeuze.Margin = new System.Windows.Forms.Padding(4);
@@ -129,7 +130,7 @@
             // 
             this.lstAlleKeuzeActiviteiten.FormattingEnabled = true;
             this.lstAlleKeuzeActiviteiten.ItemHeight = 16;
-            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(389, 211);
+            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(746, 70);
             this.lstAlleKeuzeActiviteiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstAlleKeuzeActiviteiten.Name = "lstAlleKeuzeActiviteiten";
             this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(242, 84);
@@ -162,14 +163,14 @@
             this.txtGsmNummer.Size = new System.Drawing.Size(160, 22);
             this.txtGsmNummer.TabIndex = 3;
             // 
-            // strnaam
+            // txtAchternaam
             // 
-            this.strnaam.Location = new System.Drawing.Point(196, 60);
-            this.strnaam.Margin = new System.Windows.Forms.Padding(4);
-            this.strnaam.Name = "strnaam";
-            this.strnaam.Size = new System.Drawing.Size(160, 22);
-            this.strnaam.TabIndex = 2;
-            this.strnaam.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtAchternaam.Location = new System.Drawing.Point(196, 60);
+            this.txtAchternaam.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAchternaam.Name = "txtAchternaam";
+            this.txtAchternaam.Size = new System.Drawing.Size(160, 22);
+            this.txtAchternaam.TabIndex = 2;
+            this.txtAchternaam.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label2
             // 
@@ -203,6 +204,7 @@
             // 
             // cmbKlas
             // 
+            this.cmbKlas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKlas.FormattingEnabled = true;
             this.cmbKlas.Items.AddRange(new object[] {
             "6AIT",
@@ -215,15 +217,6 @@
             this.cmbKlas.Name = "cmbKlas";
             this.cmbKlas.Size = new System.Drawing.Size(96, 24);
             this.cmbKlas.TabIndex = 4;
-            // 
-            // pcbURL
-            // 
-            this.pcbURL.Location = new System.Drawing.Point(653, 12);
-            this.pcbURL.Name = "pcbURL";
-            this.pcbURL.Size = new System.Drawing.Size(415, 289);
-            this.pcbURL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbURL.TabIndex = 16;
-            this.pcbURL.TabStop = false;
             // 
             // btnVorige
             // 
@@ -240,12 +233,22 @@
             // 
             this.lstOudeDatums.FormattingEnabled = true;
             this.lstOudeDatums.ItemHeight = 16;
-            this.lstOudeDatums.Location = new System.Drawing.Point(42, 147);
+            this.lstOudeDatums.Location = new System.Drawing.Point(746, 158);
             this.lstOudeDatums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstOudeDatums.Name = "lstOudeDatums";
             this.lstOudeDatums.Size = new System.Drawing.Size(242, 84);
             this.lstOudeDatums.TabIndex = 19;
+            this.lstOudeDatums.Visible = false;
             this.lstOudeDatums.SelectedIndexChanged += new System.EventHandler(this.lstOudeDatums_SelectedIndexChanged);
+            // 
+            // pcbURL
+            // 
+            this.pcbURL.Location = new System.Drawing.Point(653, 13);
+            this.pcbURL.Name = "pcbURL";
+            this.pcbURL.Size = new System.Drawing.Size(415, 289);
+            this.pcbURL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbURL.TabIndex = 20;
+            this.pcbURL.TabStop = false;
             // 
             // Gebruiker
             // 
@@ -253,9 +256,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1080, 314);
+            this.Controls.Add(this.pcbURL);
             this.Controls.Add(this.lstOudeDatums);
             this.Controls.Add(this.btnVorige);
-            this.Controls.Add(this.pcbURL);
             this.Controls.Add(this.lstAlleKeuzeActiviteiten);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.btnRegistreer);
@@ -268,7 +271,7 @@
             this.Controls.Add(this.lblAchternaam);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.strnaam);
+            this.Controls.Add(this.txtAchternaam);
             this.Controls.Add(this.txtGsmNummer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtVoornaam);
@@ -296,14 +299,14 @@
         private System.Windows.Forms.TextBox txtVoornaam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtGsmNummer;
-        private System.Windows.Forms.TextBox strnaam;
+        private System.Windows.Forms.TextBox txtAchternaam;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblAchternaam;
         private System.Windows.Forms.ComboBox cmbKlas;
-        private System.Windows.Forms.PictureBox pcbURL;
         private System.Windows.Forms.Button btnVorige;
         private System.Windows.Forms.ListBox lstOudeDatums;
+        private System.Windows.Forms.PictureBox pcbURL;
     }
 }
 
