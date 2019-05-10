@@ -40,17 +40,17 @@ namespace Barcelona
         {
         }
 
+        public int intTeller = 1;
         private void btnVolgende_Click(object sender, EventArgs e)
 		{
             if (lblDatum.Text== "1/01/0001  - " || lblDatum.Text== "Dat was alles")
             {
                 lblDatum.Text = "Dat was alles";
                 cmbKeuze.Items.Clear();
-                cmbKeuze.SelectedItem = "";
+                cmbKeuze.Text = "";
             }
             else
             {
-                cmbKeuze.Items.Clear();
                 if (bus.getDatumKeuzeActiviteiten(lblDatum.Text)== "1/01/0001  - ")
                 {
                     lblDatum.Text = "Dat was alles";
@@ -76,8 +76,15 @@ namespace Barcelona
                 else { }
                 if (cmbKeuze.Text == "")
                 {
-                    MessageBox.Show("U bent uw keuze vergeten ingeven", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    btnVorige.PerformClick();
+                    if (intTeller > 1)
+                    {
+                        MessageBox.Show("U bent uw keuze vergeten ingeven", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        btnVorige.PerformClick();
+                    }
+                    else
+                    {
+                        intTeller++;
+                    }
                 }
                 else
                 {
@@ -130,11 +137,13 @@ namespace Barcelona
                 else
                 {
                     MessageBox.Show("U bent een veld vergeten invullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 }
             }
             
 
         }
+
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -149,9 +158,9 @@ namespace Barcelona
 
         private void cmbKeuze_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbKeuze.SelectedItem != null)
+            if (cmbKeuze.Text != "")
             {
-                pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(cmbKeuze.SelectedItem.ToString());
+                pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(cmbKeuze.Text);
                 txtOmschrijving.Text = bus.getWantedOmschrijvingPlaatsenActiviteiten(cmbKeuze.Text);
             }
             else
@@ -172,17 +181,28 @@ namespace Barcelona
 
         private void btnVorige_Click(object sender, EventArgs e)
         {
-            if (lstOudeDatums.Items.Count > 1)
+            if(lstOudeDatums.Items.Count != lstAlleKeuzeActiviteiten.Items.Count)
             {
-                lstOudeDatums.Items.RemoveAt(lstOudeDatums.Items.Count - 1);
-            }
-            else { }
+                if (lstOudeDatums.Items.Count > 1)
+                {
 
-            if (lstAlleKeuzeActiviteiten.Items.Count > 0)
-            {
-                lstAlleKeuzeActiviteiten.Items.RemoveAt(lstOudeDatums.Items.Count - 1);
+                    lstOudeDatums.Items.RemoveAt(lstOudeDatums.Items.Count - 1);
+                }
+                else { }
             }
-            else { }
+            else
+            {
+                lstAlleKeuzeActiviteiten.Items.RemoveAt(lstAlleKeuzeActiviteiten.Items.Count - 1);
+            }
+
+            if (lstAlleKeuzeActiviteiten.Items.Count > 1)
+            {
+                lstAlleKeuzeActiviteiten.Items.RemoveAt(lstAlleKeuzeActiviteiten.Items.Count -1);
+            }
+            else
+            {
+
+            }
             cmbKeuze.Text = "";
             cmbKeuze.Items.Clear();
             lblDatum.Text = lstOudeDatums.Items[lstOudeDatums.Items.Count - 1].ToString();
@@ -196,6 +216,41 @@ namespace Barcelona
         private void pcbURL_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbKlas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbKeuze_TextChanged(object sender, EventArgs e)
+        {
+            foreach (string item in cmbKeuze.Items)
+            {
+                if (cmbKeuze.Text != item)
+                {
+                    cmbKeuze.Text = "";
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        private void cmbKlas_TextChanged(object sender, EventArgs e)
+        {
+            foreach (string item in cmbKlas.Items)
+            {
+                if (cmbKlas.Text != item)
+                {
+                    cmbKlas.Text = "";
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }

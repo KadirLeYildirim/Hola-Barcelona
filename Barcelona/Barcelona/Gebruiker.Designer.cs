@@ -64,7 +64,6 @@
             // 
             // cmbKeuze
             // 
-            this.cmbKeuze.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKeuze.FormattingEnabled = true;
             this.cmbKeuze.Location = new System.Drawing.Point(471, 90);
             this.cmbKeuze.Margin = new System.Windows.Forms.Padding(4);
@@ -72,6 +71,7 @@
             this.cmbKeuze.Size = new System.Drawing.Size(160, 24);
             this.cmbKeuze.TabIndex = 6;
             this.cmbKeuze.SelectedIndexChanged += new System.EventHandler(this.cmbKeuze_SelectedIndexChanged);
+            this.cmbKeuze.TextChanged += new System.EventHandler(this.cmbKeuze_TextChanged);
             // 
             // label5
             // 
@@ -130,13 +130,13 @@
             // lstAlleKeuzeActiviteiten
             // 
             this.lstAlleKeuzeActiviteiten.FormattingEnabled = true;
+            this.lstAlleKeuzeActiviteiten.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.lstAlleKeuzeActiviteiten.ItemHeight = 16;
-            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(746, 70);
+            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(365, 158);
             this.lstAlleKeuzeActiviteiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstAlleKeuzeActiviteiten.Name = "lstAlleKeuzeActiviteiten";
             this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(242, 84);
             this.lstAlleKeuzeActiviteiten.TabIndex = 15;
-            this.lstAlleKeuzeActiviteiten.Visible = false;
             // 
             // txtVoornaam
             // 
@@ -205,7 +205,6 @@
             // 
             // cmbKlas
             // 
-            this.cmbKlas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKlas.FormattingEnabled = true;
             this.cmbKlas.Items.AddRange(new object[] {
             "6AIT",
@@ -218,6 +217,8 @@
             this.cmbKlas.Name = "cmbKlas";
             this.cmbKlas.Size = new System.Drawing.Size(96, 24);
             this.cmbKlas.TabIndex = 4;
+            this.cmbKlas.SelectedIndexChanged += new System.EventHandler(this.cmbKlas_SelectedIndexChanged);
+            this.cmbKlas.TextChanged += new System.EventHandler(this.cmbKlas_TextChanged);
             // 
             // btnVorige
             // 
@@ -234,12 +235,11 @@
             // 
             this.lstOudeDatums.FormattingEnabled = true;
             this.lstOudeDatums.ItemHeight = 16;
-            this.lstOudeDatums.Location = new System.Drawing.Point(746, 158);
+            this.lstOudeDatums.Location = new System.Drawing.Point(27, 190);
             this.lstOudeDatums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstOudeDatums.Name = "lstOudeDatums";
             this.lstOudeDatums.Size = new System.Drawing.Size(242, 84);
             this.lstOudeDatums.TabIndex = 19;
-            this.lstOudeDatums.Visible = false;
             this.lstOudeDatums.SelectedIndexChanged += new System.EventHandler(this.lstOudeDatums_SelectedIndexChanged);
             // 
             // pcbURL
