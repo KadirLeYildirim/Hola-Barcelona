@@ -116,11 +116,11 @@ namespace Barcelona
             txtPrijs.Text = bus.getWantedKostprijsActiviteiten(lstActiviteiten.SelectedItem.ToString());
             txtDatum.Text = bus.getWantedDatumActiviteiten(lstActiviteiten.SelectedItem.ToString());
             txtURLFoto.Text = bus.getWantedFotoActiviteiten(lstActiviteiten.SelectedItem.ToString());
-            if (bus.getWantedUUrActiviteiten(lstActiviteiten.SelectedItem.ToString()).ToLower() == "de voormiddag")
+            if (bus.getWantedUUrActiviteiten(lstActiviteiten.SelectedItem.ToString()).ToLower() == "voormiddag")
             {
                 rdbVoormiddag.Select();
             }
-            if (bus.getWantedUUrActiviteiten(lstActiviteiten.SelectedItem.ToString()).ToLower() == "de namiddag")
+            if (bus.getWantedUUrActiviteiten(lstActiviteiten.SelectedItem.ToString()).ToLower() == "namiddag")
             {
                 rdbNamiddag.Select();
             }
