@@ -287,6 +287,17 @@ namespace Barcelona
 
             return result;
         }
+        public string getWantedOmschrijvingPlaatsenActiviteiten(string pstrNaam)
+        {
+            string result = "";
+
+            foreach (Activiteit item in pers.getWantedActiviteitenFromDB(pstrNaam))
+            {
+                result = item.omschrijvingPlaatsen();
+            }
+
+            return result;
+        }
 
         public string getWantedKostprijsActiviteiten(string pstrNaam)
         {
