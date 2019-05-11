@@ -165,6 +165,23 @@ namespace Barcelona
                     if (lstDatums.Count() != lstKeuzes.Count() && cmbKeuze.Text != "")
                     {
                         lstKeuzes.Add(cmbKeuze.Text);
+                        bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.Text));
+                        bus.AddAutoActiviteitenLeerlingConnectie(txtVoornaam.Text, txtAchternaam.Text);
+                        bus.addKeuzeActivteitenLeerlingConnectie(lstKeuzes, txtVoornaam.Text, txtAchternaam.Text);
+                        lstKeuzes.Clear();
+                        txtGsmNummer.Text = "";
+                        txtVoornaam.Text = "";
+                        txtAchternaam.Text = "";
+                        cmbKlas.Text = "";
+                        lblDatum.Text = lstDatums[0];
+                        cmbKeuze.Text = "";
+                        foreach (string lijn in bus.getKeuzeActiviteiten(lblDatum.Text))
+                        {
+                            cmbKeuze.Items.Add(lijn);
+                        }
+                        lblGetal.Text = "Keuze 1 van de " + lstDatums.Count;
+                        txtOmschrijving.Text = "";
+                        pcbURL.InitialImage = null;
                     }
                     else
                     {
