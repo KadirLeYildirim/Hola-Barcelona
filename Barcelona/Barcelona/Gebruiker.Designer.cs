@@ -36,7 +36,7 @@
             this.btnVolgende = new System.Windows.Forms.Button();
             this.btnRegistreer = new System.Windows.Forms.Button();
             this.lblDatum = new System.Windows.Forms.Label();
-            this.lstAlleKeuzeActiviteiten = new System.Windows.Forms.ListBox();
+            this.lstKeuzesActiviteiten = new System.Windows.Forms.ListBox();
             this.txtVoornaam = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGsmNummer = new System.Windows.Forms.TextBox();
@@ -46,9 +46,10 @@
             this.lblAchternaam = new System.Windows.Forms.Label();
             this.cmbKlas = new System.Windows.Forms.ComboBox();
             this.btnVorige = new System.Windows.Forms.Button();
-            this.lstOudeDatums = new System.Windows.Forms.ListBox();
+            this.lstDatums2 = new System.Windows.Forms.ListBox();
             this.pcbURL = new System.Windows.Forms.PictureBox();
             this.txtOmschrijving = new System.Windows.Forms.TextBox();
+            this.lblGetal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbURL)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,6 @@
             this.cmbKeuze.Name = "cmbKeuze";
             this.cmbKeuze.Size = new System.Drawing.Size(160, 24);
             this.cmbKeuze.TabIndex = 6;
-            this.cmbKeuze.SelectedIndexChanged += new System.EventHandler(this.cmbKeuze_SelectedIndexChanged);
             this.cmbKeuze.TextChanged += new System.EventHandler(this.cmbKeuze_TextChanged);
             // 
             // label5
@@ -82,7 +82,6 @@
             this.label5.Size = new System.Drawing.Size(42, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Voor:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnStartscherm
             // 
@@ -93,7 +92,6 @@
             this.btnStartscherm.TabIndex = 12;
             this.btnStartscherm.Text = "Terug";
             this.btnStartscherm.UseVisualStyleBackColor = true;
-            this.btnStartscherm.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnVolgende
             // 
@@ -126,17 +124,18 @@
             this.lblDatum.Size = new System.Drawing.Size(16, 17);
             this.lblDatum.TabIndex = 13;
             this.lblDatum.Text = "_";
+            this.lblDatum.TextChanged += new System.EventHandler(this.lblDatum_TextChanged);
             // 
-            // lstAlleKeuzeActiviteiten
+            // lstKeuzesActiviteiten
             // 
-            this.lstAlleKeuzeActiviteiten.FormattingEnabled = true;
-            this.lstAlleKeuzeActiviteiten.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.lstAlleKeuzeActiviteiten.ItemHeight = 16;
-            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(54, 158);
-            this.lstAlleKeuzeActiviteiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lstAlleKeuzeActiviteiten.Name = "lstAlleKeuzeActiviteiten";
-            this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(242, 84);
-            this.lstAlleKeuzeActiviteiten.TabIndex = 15;
+            this.lstKeuzesActiviteiten.FormattingEnabled = true;
+            this.lstKeuzesActiviteiten.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.lstKeuzesActiviteiten.ItemHeight = 16;
+            this.lstKeuzesActiviteiten.Location = new System.Drawing.Point(138, 213);
+            this.lstKeuzesActiviteiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lstKeuzesActiviteiten.Name = "lstKeuzesActiviteiten";
+            this.lstKeuzesActiviteiten.Size = new System.Drawing.Size(242, 84);
+            this.lstKeuzesActiviteiten.TabIndex = 15;
             // 
             // txtVoornaam
             // 
@@ -217,7 +216,6 @@
             this.cmbKlas.Name = "cmbKlas";
             this.cmbKlas.Size = new System.Drawing.Size(96, 24);
             this.cmbKlas.TabIndex = 4;
-            this.cmbKlas.SelectedIndexChanged += new System.EventHandler(this.cmbKlas_SelectedIndexChanged);
             this.cmbKlas.TextChanged += new System.EventHandler(this.cmbKlas_TextChanged);
             // 
             // btnVorige
@@ -231,17 +229,15 @@
             this.btnVorige.UseVisualStyleBackColor = true;
             this.btnVorige.Click += new System.EventHandler(this.btnVorige_Click);
             // 
-            // lstOudeDatums
+            // lstDatums2
             // 
-            this.lstOudeDatums.FormattingEnabled = true;
-            this.lstOudeDatums.ItemHeight = 16;
-            this.lstOudeDatums.Location = new System.Drawing.Point(54, 61);
-            this.lstOudeDatums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lstOudeDatums.Name = "lstOudeDatums";
-            this.lstOudeDatums.Size = new System.Drawing.Size(242, 84);
-            this.lstOudeDatums.TabIndex = 19;
-            this.lstOudeDatums.SelectedIndexChanged += new System.EventHandler(this.lstOudeDatums_SelectedIndexChanged);
-            this.lstOudeDatums.VisibleChanged += new System.EventHandler(this.lstOudeDatums_VisibleChanged);
+            this.lstDatums2.FormattingEnabled = true;
+            this.lstDatums2.ItemHeight = 16;
+            this.lstDatums2.Location = new System.Drawing.Point(114, 115);
+            this.lstDatums2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lstDatums2.Name = "lstDatums2";
+            this.lstDatums2.Size = new System.Drawing.Size(242, 84);
+            this.lstDatums2.TabIndex = 19;
             // 
             // pcbURL
             // 
@@ -261,17 +257,28 @@
             this.txtOmschrijving.Size = new System.Drawing.Size(244, 88);
             this.txtOmschrijving.TabIndex = 21;
             // 
+            // lblGetal
+            // 
+            this.lblGetal.AutoSize = true;
+            this.lblGetal.Location = new System.Drawing.Point(573, 65);
+            this.lblGetal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGetal.Name = "lblGetal";
+            this.lblGetal.Size = new System.Drawing.Size(16, 17);
+            this.lblGetal.TabIndex = 22;
+            this.lblGetal.Text = "_";
+            // 
             // Gebruiker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1080, 314);
+            this.Controls.Add(this.lblGetal);
             this.Controls.Add(this.txtOmschrijving);
             this.Controls.Add(this.pcbURL);
-            this.Controls.Add(this.lstOudeDatums);
+            this.Controls.Add(this.lstDatums2);
             this.Controls.Add(this.btnVorige);
-            this.Controls.Add(this.lstAlleKeuzeActiviteiten);
+            this.Controls.Add(this.lstKeuzesActiviteiten);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.btnRegistreer);
             this.Controls.Add(this.btnVolgende);
@@ -307,7 +314,7 @@
         private System.Windows.Forms.Button btnVolgende;
         private System.Windows.Forms.Button btnRegistreer;
         private System.Windows.Forms.Label lblDatum;
-        private System.Windows.Forms.ListBox lstAlleKeuzeActiviteiten;
+        private System.Windows.Forms.ListBox lstKeuzesActiviteiten;
         private System.Windows.Forms.TextBox txtVoornaam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtGsmNummer;
@@ -317,9 +324,10 @@
         private System.Windows.Forms.Label lblAchternaam;
         private System.Windows.Forms.ComboBox cmbKlas;
         private System.Windows.Forms.Button btnVorige;
-        private System.Windows.Forms.ListBox lstOudeDatums;
+        private System.Windows.Forms.ListBox lstDatums2;
         private System.Windows.Forms.PictureBox pcbURL;
         private System.Windows.Forms.TextBox txtOmschrijving;
+        private System.Windows.Forms.Label lblGetal;
     }
 }
 

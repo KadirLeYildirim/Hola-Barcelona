@@ -437,10 +437,9 @@ namespace Barcelona
             return keuzeActiviteiten;
         }
 
-        public Activiteit getDatumKeuzeActiviteitenFromDB(Activiteit pOudeDatum)
+        public List<Activiteit> getDatumsKeuzeActiviteitenFromDB()
         {
             List<Activiteit> datumKeuzeActiviteiten = new List<Activiteit>();
-            Activiteit gewensteDatum = new Activiteit();
 
             MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal', AantalPlaatsen , AantalDeelnemers from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr having AantalPlaatsen > AantalDeelnemers and Aantal > 1 order by ActiviteitDag asc, ActiviteitUUr desc", conn);
             conn.Open();
@@ -452,67 +451,10 @@ namespace Barcelona
             }
             conn.Close();
 
-
-                if (pOudeDatum.datum == Convert.ToDateTime("1/01/0001"))
-                {
-                    gewensteDatum.datum = datumKeuzeActiviteiten.First().datum;
-                    gewensteDatum.uur = datumKeuzeActiviteiten.First().uur;
-                }
-                else
-                {
-                    int intAantal = 0;
-                    foreach (Activiteit item in datumKeuzeActiviteiten)
-                    {
-                        if (pOudeDatum.datum == item.datum && pOudeDatum.uur == item.uur)
-                        {
-                            intAantal++;
-                        }
-                        if (pOudeDatum.datum > item.datum)
-                        {
-                            intAantal++;
-                        }
-                        else
-                        {
-
-                        }
-                    }
-                    if (intAantal > datumKeuzeActiviteiten.Count())
-                    {
-
-                    }
-                    else
-                    {
-                        gewensteDatum.datum = datumKeuzeActiviteiten[intAantal].datum;
-                        gewensteDatum.uur = datumKeuzeActiviteiten[intAantal].uur;
-                    }
-                }
-
-
-            return gewensteDatum;
+            return datumKeuzeActiviteiten;
         }
 
-        public Activiteit getLaatsteDatumKeuzeActiviteitenFromDB()
-        {
-            List<Activiteit> datumKeuzeActiviteiten = new List<Activiteit>();
-            Activiteit gewensteDatum = new Activiteit();
-
-            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal', AantalPlaatsen , AantalDeelnemers from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr having AantalPlaatsen > AantalDeelnemers and Aantal > 1 order by ActiviteitDag asc, ActiviteitUUr desc", conn);
-            conn.Open();
-            MySqlDataReader dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
-            {
-                Activiteit a = new Activiteit(Convert.ToDateTime(dataReader["ActiviteitDag"]), Convert.ToString(dataReader["ActiviteitUUr"]));
-                datumKeuzeActiviteiten.Add(a);
-            }
-            conn.Close();
-
-            gewensteDatum.datum = datumKeuzeActiviteiten.Last().datum;
-            gewensteDatum.uur = datumKeuzeActiviteiten.Last().uur;
-
-            return gewensteDatum;
-        }
-
-        public void AddAutoActiviteitLeerlingConnectieToDB(string strLeerlingVoor, string strLeerlingAchter)
+        public void AddAutoActiviteitenLeerlingConnectieToDB(string strLeerlingVoor, string strLeerlingAchter)
         {
             List<Activiteit> ActiviteitenAuto = new List<Activiteit>();
             List<Activiteit> ActiviteitenID = new List<Activiteit>();
@@ -586,7 +528,7 @@ namespace Barcelona
             }
         }
 
-        public void addKeuzeActivteitLeerlingConnectieToDB(List<Activiteit> lijst, string strLeerlingVoor, string strLeerlingAchter)
+        public void addKeuzeActivteitenLeerlingConnectieToDB(List<Activiteit> lijst, string strLeerlingVoor, string strLeerlingAchter)
         {
             List<Activiteit> idActiviteiten = new List<Activiteit>();
             int intIDLeerling;
