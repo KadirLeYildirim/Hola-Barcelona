@@ -132,12 +132,11 @@
             this.lstAlleKeuzeActiviteiten.FormattingEnabled = true;
             this.lstAlleKeuzeActiviteiten.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.lstAlleKeuzeActiviteiten.ItemHeight = 16;
-            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(756, 170);
+            this.lstAlleKeuzeActiviteiten.Location = new System.Drawing.Point(54, 158);
             this.lstAlleKeuzeActiviteiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstAlleKeuzeActiviteiten.Name = "lstAlleKeuzeActiviteiten";
             this.lstAlleKeuzeActiviteiten.Size = new System.Drawing.Size(242, 84);
             this.lstAlleKeuzeActiviteiten.TabIndex = 15;
-            this.lstAlleKeuzeActiviteiten.Visible = false;
             // 
             // txtVoornaam
             // 
@@ -236,18 +235,17 @@
             // 
             this.lstOudeDatums.FormattingEnabled = true;
             this.lstOudeDatums.ItemHeight = 16;
-            this.lstOudeDatums.Location = new System.Drawing.Point(679, 60);
+            this.lstOudeDatums.Location = new System.Drawing.Point(54, 61);
             this.lstOudeDatums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstOudeDatums.Name = "lstOudeDatums";
             this.lstOudeDatums.Size = new System.Drawing.Size(242, 84);
             this.lstOudeDatums.TabIndex = 19;
-            this.lstOudeDatums.Visible = false;
             this.lstOudeDatums.SelectedIndexChanged += new System.EventHandler(this.lstOudeDatums_SelectedIndexChanged);
             this.lstOudeDatums.VisibleChanged += new System.EventHandler(this.lstOudeDatums_VisibleChanged);
             // 
             // pcbURL
             // 
-            this.pcbURL.Location = new System.Drawing.Point(653, 13);
+            this.pcbURL.Location = new System.Drawing.Point(653, 12);
             this.pcbURL.Name = "pcbURL";
             this.pcbURL.Size = new System.Drawing.Size(415, 289);
             this.pcbURL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

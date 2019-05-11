@@ -442,7 +442,7 @@ namespace Barcelona
             List<Activiteit> datumKeuzeActiviteiten = new List<Activiteit>();
             Activiteit gewensteDatum = new Activiteit();
 
-            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal', AantalPlaatsen , AantalDeelnemers from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr having AantalPlaatsen > AantalDeelnemers and Aantal > 1", conn);
+            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal', AantalPlaatsen , AantalDeelnemers from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr having AantalPlaatsen > AantalDeelnemers and Aantal > 1 order by ActiviteitDag asc, ActiviteitUUr desc", conn);
             conn.Open();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -463,7 +463,7 @@ namespace Barcelona
                     int intAantal = 0;
                     foreach (Activiteit item in datumKeuzeActiviteiten)
                     {
-                        if ((pOudeDatum.datum == item.datum && pOudeDatum.uur == item.uur) || pOudeDatum.datum > item.datum)
+                        if (pOudeDatum.datum == item.datum && pOudeDatum.uur == item.uur)
                         {
                             intAantal++;
                         }
@@ -476,7 +476,7 @@ namespace Barcelona
 
                         }
                     }
-                    if (intAantal >= datumKeuzeActiviteiten.Count())
+                    if (intAantal > datumKeuzeActiviteiten.Count())
                     {
 
                     }
@@ -487,6 +487,27 @@ namespace Barcelona
                     }
                 }
 
+
+            return gewensteDatum;
+        }
+
+        public Activiteit getLaatsteDatumKeuzeActiviteitenFromDB()
+        {
+            List<Activiteit> datumKeuzeActiviteiten = new List<Activiteit>();
+            Activiteit gewensteDatum = new Activiteit();
+
+            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal', AantalPlaatsen , AantalDeelnemers from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr having AantalPlaatsen > AantalDeelnemers and Aantal > 1 order by ActiviteitDag asc, ActiviteitUUr desc", conn);
+            conn.Open();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Activiteit a = new Activiteit(Convert.ToDateTime(dataReader["ActiviteitDag"]), Convert.ToString(dataReader["ActiviteitUUr"]));
+                datumKeuzeActiviteiten.Add(a);
+            }
+            conn.Close();
+
+            gewensteDatum.datum = datumKeuzeActiviteiten.Last().datum;
+            gewensteDatum.uur = datumKeuzeActiviteiten.Last().uur;
 
             return gewensteDatum;
         }

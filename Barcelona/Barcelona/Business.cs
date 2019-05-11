@@ -114,6 +114,14 @@ namespace Barcelona
 
             return result;
         }
+        public string getLaatsteDatumKeuzeActiviteiten()
+        {
+            string result;
+
+            result = pers.getLaatsteDatumKeuzeActiviteitenFromDB().alleenTijd();
+
+            return result;
+        }
 
         public void AddAutoActiviteitLeerlingConnectie(string strLeerlingVoor, string strLeerlingAchter)
         {

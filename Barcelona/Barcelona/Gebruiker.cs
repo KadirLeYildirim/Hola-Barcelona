@@ -43,7 +43,12 @@ namespace Barcelona
         public int intTeller = 1;
         private void btnVolgende_Click(object sender, EventArgs e)
 		{
-            if (lblDatum.Text== "1/01/0001  - " || lblDatum.Text== "Dat was alles")
+            string strLaatste="";
+            if (strLaatste == "")
+            {
+                strLaatste = bus.getLaatsteDatumKeuzeActiviteiten();
+            }
+            if (lblDatum.Text== "1/01/0001  - " || lblDatum.Text== "Dat was alles"||(lstOudeDatums.Items.Count == lstAlleKeuzeActiviteiten.Items.Count&& lblDatum.Text== strLaatste))
             {
                 lblDatum.Text = "Dat was alles";
                 cmbKeuze.Items.Clear();
@@ -65,7 +70,11 @@ namespace Barcelona
                         cmbKeuze.Items.Add(item);
                     }
                 }
-                if (lblDatum.Text != "Dat was alles")
+                if (lblDatum.Text == "Dat was alles"|| (lstOudeDatums.Items.Count == lstAlleKeuzeActiviteiten.Items.Count && lblDatum.Text == strLaatste))
+                {
+  
+                }
+                else
                 {
                     if (lblDatum.Text != "_" || lblDatum.Text != "1/01/0001  - ")
                     {
@@ -73,13 +82,19 @@ namespace Barcelona
                     }
                     else { }
                 }
-                else { }
                 if (cmbKeuze.Text == "")
                 {
                     if (intTeller > 1)
                     {
-                        MessageBox.Show("U bent uw keuze vergeten ingeven", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnVorige.PerformClick();
+                        if (lstOudeDatums.Items.Count == lstAlleKeuzeActiviteiten.Items.Count && lblDatum.Text == strLaatste)
+                        {
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("U bent uw keuze vergeten ingeven", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            btnVorige.PerformClick();
+                        }
                     }
                     else
                     {
@@ -158,15 +173,7 @@ namespace Barcelona
 
         private void cmbKeuze_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbKeuze.Text != "")
-            {
-                pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(cmbKeuze.Text);
-                txtOmschrijving.Text = bus.getWantedOmschrijvingPlaatsenActiviteiten(cmbKeuze.Text);
-            }
-            else
-            {
 
-            }
         }
 
         private void test_Click(object sender, EventArgs e)
@@ -196,6 +203,7 @@ namespace Barcelona
 
             if (lstAlleKeuzeActiviteiten.Items.Count > 0)
             {
+
                 lstAlleKeuzeActiviteiten.Items.RemoveAt(lstAlleKeuzeActiviteiten.Items.Count - 1);
             }
             else { }
@@ -221,6 +229,15 @@ namespace Barcelona
 
         private void cmbKeuze_TextChanged(object sender, EventArgs e)
         {
+            if (cmbKeuze.Text != "")
+            {
+                pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(cmbKeuze.Text);
+                txtOmschrijving.Text = bus.getWantedOmschrijvingPlaatsenActiviteiten(cmbKeuze.Text);
+            }
+            else
+            {
+
+            }
             foreach (string item in cmbKeuze.Items)
             {
                 if (cmbKeuze.Text != item)
