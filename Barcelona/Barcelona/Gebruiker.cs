@@ -14,12 +14,12 @@ namespace Barcelona
     {
 		Business bus = new Business();
 
-		public Gebruiker()
+        public List<string> lstDatums = new List<string>();
+        public List<string> lstKeuzes = new List<string>();
+        public Gebruiker()
         {
             InitializeComponent();
         }
-
-
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -33,111 +33,191 @@ namespace Barcelona
 
         private void VoegLeerlingToe_Load(object sender, EventArgs e)
         {
-            btnVolgende.PerformClick();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
+            //vult de de datums in een lijst en weergeeft dan de eerste
+            foreach (string lijn in bus.getDatumsKeuzeActiviteiten())
+            {
+                lstDatums.Add(lijn);
+            }
+            lblDatum.Text = lstDatums[0];
+            lblGetal.Text = "Keuze 1 van de " + lstDatums.Count;
+            foreach (string lijn in bus.getKeuzeActiviteiten(lblDatum.Text))
+            {
+                cmbKeuze.Items.Add(lijn);
+            }
         }
 
         private void btnVolgende_Click(object sender, EventArgs e)
 		{
-            if (lblDatum.Text== "1/01/0001  - " || lblDatum.Text== "Dat was alles")
+            if (cmbKeuze.Text == ""|| lblDatum.Text == lstDatums[lstDatums.Count-1])
             {
-                lblDatum.Text = "Dat was alles";
-                cmbKeuze.Items.Clear();
-                cmbKeuze.SelectedItem = "";
+                if(lblDatum.Text == lstDatums[lstDatums.Count - 1])
+                {
+                    if (lstDatums.Count == lstKeuzes.Count)
+                    {
+                        cmbKeuze.Text = "";
+                        cmbKeuze.Items.Clear();
+                    }
+                    else
+                    {
+                        lstKeuzes.Add(cmbKeuze.Text);
+                        txtOmschrijving.Text = "";
+                        pcbURL.InitialImage = null;
+                        cmbKeuze.Text = "";
+                        cmbKeuze.Items.Clear();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("U moet eerst een keuze maken", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {
-                cmbKeuze.Items.Clear();
-                if (bus.getDatumKeuzeActiviteiten(lblDatum.Text)== "1/01/0001  - ")
+                if (lstKeuzes.Count == lstDatums.Count)
                 {
                     lblDatum.Text = "Dat was alles";
                 }
                 else
                 {
-
-                    lblDatum.Text = bus.getDatumKeuzeActiviteiten(lblDatum.Text);                   
-                    cmbKeuze.Items.Clear();
-                    foreach (string item in bus.getKeuzeActiviteiten(lblDatum.Text))
-                    {
-                        cmbKeuze.Items.Add(item);
-                    }
-                }
-                if (lblDatum.Text != "Dat was alles")
-                {
-                    if (lblDatum.Text != "_" || lblDatum.Text != "1/01/0001  - ")
-                    {
-                        lstOudeDatums.Items.Add(lblDatum.Text);
-                    }
-                    else { }
-                }
-                else { }
-                if (cmbKeuze.Text == "")
-                {
-                    MessageBox.Show("U bent uw keuze vergeten ingeven", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    btnVorige.PerformClick();
-                }
-                else
-                {
-                    lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.Text);
-                    cmbKeuze.SelectedText = "";
+                    //zet de vorige keuze in de lijst
+                    lstKeuzes.Add(cmbKeuze.Text);
+                    //verwijdert vorige keuzes in cmb
                     cmbKeuze.Text = "";
+                    cmbKeuze.Items.Clear();
+                    //verandert datum en keuzes
+                    if (lstKeuzes.Count == lstDatums.Count)
+                    {
+                        lblDatum.Text = lstDatums[lstKeuzes.Count - 1];
+                    }
+                    else
+                    {
+                        lblDatum.Text = lstDatums[lstKeuzes.Count];
+
+                    }
+                    int intTeller = 1;
+                    foreach (string datum in lstDatums)
+                    {
+                        if (datum == lblDatum.Text)
+                        {
+                            lblGetal.Text = "Keuze " + intTeller + " van de " + lstDatums.Count;
+                        }
+                        else
+                        {
+                            intTeller++;
+                        }
+                    } 
+                    foreach (string lijn in bus.getKeuzeActiviteiten(lblDatum.Text))
+                    {
+                        cmbKeuze.Items.Add(lijn);
+                    }
+                    txtOmschrijving.Text = "";
+                    pcbURL.InitialImage = null;
                 }
-
-            }
-
-
+            }            
 
         }
-        private static int intteller = 0;
-		private void btnRegistreer_Click(object sender, EventArgs e)
-		{
 
-            if (txtVoornaam.Text != "" || txtAchternaam.Text != "" || txtGsmNummer.Text != ""|| cmbKlas.Text == "")
+        private void btnVorige_Click(object sender, EventArgs e)
+        {
+            if (lstKeuzes.Count == 0)
             {
-                int intLaatste = lstAlleKeuzeActiviteiten.Items.Count - 1;
-                if (cmbKeuze.Text != lstAlleKeuzeActiviteiten.Items[intLaatste].ToString())
-                {
-                    lstAlleKeuzeActiviteiten.Items.Add(cmbKeuze.Text);
-                }
-                else { }
-                List<string> keuzeActiviteiten = new List<string>();
-                bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.Text));
-                bus.AddAutoActiviteitLeerlingConnectie(txtVoornaam.Text, txtAchternaam.Text);
-                foreach (string item in lstAlleKeuzeActiviteiten.Items)
-                {
-                    keuzeActiviteiten.Add(item);
-                }
-                bus.addKeuzeActivteitLeerlingConnectie(keuzeActiviteiten, txtVoornaam.Text, txtAchternaam.Text);
-                lstAlleKeuzeActiviteiten.Items.Clear();
-                lstOudeDatums.Items.Clear();
-                txtGsmNummer.Text = "";
-                txtVoornaam.Text = "";
-                txtAchternaam.Text = "";
-                cmbKlas.Text = "";
-                lblDatum.Text = "_";
-                btnVolgende.PerformClick();
 
             }
             else
             {
-                if (intteller == 0)
+                lblDatum.Text = lstDatums[lstKeuzes.Count - 1];
+                lstKeuzes.RemoveAt(lstKeuzes.Count - 1);
+                cmbKeuze.Text = "";
+                cmbKeuze.Items.Clear();
+                foreach (string lijn in bus.getKeuzeActiviteiten(lblDatum.Text))
                 {
-                    intteller++;
+                    cmbKeuze.Items.Add(lijn);
+                }
+                txtOmschrijving.Text = "";
+                pcbURL.InitialImage = null;
+                int intTeller =1;
+                foreach (string datum in lstDatums)
+                {
+                    if (datum == lblDatum.Text)
+                    {
+                        lblGetal.Text = "Keuze " + intTeller + " van de " + lstDatums.Count;
+                    }
+                    else
+                    {
+                        intTeller++;
+                    }
+                }
+            }
+
+        }
+
+        private void btnRegistreer_Click(object sender, EventArgs e)
+		{
+            if (lstKeuzes.Count < lstDatums.Count-1)
+            {
+                MessageBox.Show("U moet eerst uw keuzes ingeven", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+            else
+            {
+                if (txtVoornaam.Text != "" || txtAchternaam.Text != "" || txtGsmNummer.Text != "" || cmbKlas.Text != "")
+                {
+                    if (lstDatums.Count() != lstKeuzes.Count() && cmbKeuze.Text != "")
+                    {
+                        lstKeuzes.Add(cmbKeuze.Text);
+                        bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.Text));
+                        bus.AddAutoActiviteitenLeerlingConnectie(txtVoornaam.Text, txtAchternaam.Text);
+                        bus.addKeuzeActivteitenLeerlingConnectie(lstKeuzes, txtVoornaam.Text, txtAchternaam.Text);
+                        lstKeuzes.Clear();
+                        txtGsmNummer.Text = "";
+                        txtVoornaam.Text = "";
+                        txtAchternaam.Text = "";
+                        cmbKlas.Text = "";
+                        lblDatum.Text = lstDatums[0];
+                        cmbKeuze.Text = "";
+                        foreach (string lijn in bus.getKeuzeActiviteiten(lblDatum.Text))
+                        {
+                            cmbKeuze.Items.Add(lijn);
+                        }
+                        lblGetal.Text = "Keuze 1 van de " + lstDatums.Count;
+                        txtOmschrijving.Text = "";
+                        pcbURL.InitialImage = null;
+                    }
+                    else
+                    {
+                        if (lstDatums.Count == lstKeuzes.Count)
+                        {
+                            bus.addLeerling(txtVoornaam.Text, txtAchternaam.Text, txtGsmNummer.Text, Convert.ToString(cmbKlas.Text));
+                            bus.AddAutoActiviteitenLeerlingConnectie(txtVoornaam.Text, txtAchternaam.Text);
+                            bus.addKeuzeActivteitenLeerlingConnectie(lstKeuzes, txtVoornaam.Text, txtAchternaam.Text);
+                            lstKeuzes.Clear();
+                            txtGsmNummer.Text = "";
+                            txtVoornaam.Text = "";
+                            txtAchternaam.Text = "";
+                            cmbKlas.Text = "";
+                            lblDatum.Text = lstDatums[0];
+                            cmbKeuze.Text = "";
+                            foreach (string lijn in bus.getKeuzeActiviteiten(lblDatum.Text))
+                            {
+                                cmbKeuze.Items.Add(lijn);
+                            }
+                            lblGetal.Text = "Keuze 1 van de " + lstDatums.Count;
+                            txtOmschrijving.Text = "";
+                            pcbURL.InitialImage = null;
+                        }
+                        else
+                        {
+                            MessageBox.Show("U moet eerst een keuze maken", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+
                 }
                 else
                 {
                     MessageBox.Show("U bent een veld vergeten invullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+
             }
-            
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -147,55 +227,52 @@ namespace Barcelona
             startscherm.Show();
         }
 
-        private void cmbKeuze_SelectedIndexChanged(object sender, EventArgs e)
+        private void test_Click(object sender, EventArgs e)
         {
-            if (cmbKeuze.SelectedItem != null)
+
+        }
+
+        private void cmbKeuze_TextChanged(object sender, EventArgs e)
+        {
+            if (cmbKeuze.Text != "")
             {
-                pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(cmbKeuze.SelectedItem.ToString());
+                pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(cmbKeuze.Text);
                 txtOmschrijving.Text = bus.getWantedOmschrijvingPlaatsenActiviteiten(cmbKeuze.Text);
             }
             else
             {
 
             }
-        }
-
-        private void test_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstOudeDatums_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnVorige_Click(object sender, EventArgs e)
-        {
-            if (lstOudeDatums.Items.Count > 1)
+            foreach (string item in cmbKeuze.Items)
             {
-                lstOudeDatums.Items.RemoveAt(lstOudeDatums.Items.Count - 1);
-            }
-            else { }
+                if (cmbKeuze.Text != item)
+                {
+                    cmbKeuze.Text = "";
+                }
+                else
+                {
 
-            if (lstAlleKeuzeActiviteiten.Items.Count > 0)
-            {
-                lstAlleKeuzeActiviteiten.Items.RemoveAt(lstOudeDatums.Items.Count - 1);
+                }
             }
-            else { }
-            cmbKeuze.Text = "";
-            cmbKeuze.Items.Clear();
-            lblDatum.Text = lstOudeDatums.Items[lstOudeDatums.Items.Count - 1].ToString();
-            foreach (string item in bus.getKeuzeActiviteiten(lblDatum.Text))
-            {
-                cmbKeuze.Items.Add(item);
-            }
-
         }
 
-        private void pcbURL_Click(object sender, EventArgs e)
+        private void cmbKlas_TextChanged(object sender, EventArgs e)
         {
+            foreach (string item in cmbKlas.Items)
+            {
+                if (cmbKlas.Text != item)
+                {
+                    cmbKlas.Text = "";
+                }
+                else
+                {
 
+                }
+            }
+        }
+
+        private void lblDatum_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -143,7 +143,7 @@ namespace Barcelona
         }
         public string omschrijvingPlaatsen()
         {
-            return _omschrijving + " Er zijn nog " + (_plaatsen - _deelnemers) + " over van de " + _plaatsen + " plaatsen";
+            return _omschrijving + " heeft nog " + (_plaatsen - _deelnemers) + " over van de " + _plaatsen + " plaatsen";
         }
         public string alleenKostprijs()
         {

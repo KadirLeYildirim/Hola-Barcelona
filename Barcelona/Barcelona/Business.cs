@@ -65,21 +65,16 @@ namespace Barcelona
         {
             List<string> result = new List<string>();
             Activiteit a = new Activiteit();
-            if (pstrTijd == "_")
-            {
 
-            }
-            else
-            {
-                string strUUr;
-                DateTime dteDatum;
+            string strUUr;
+            DateTime dteDatum;
 
-                string[] arrDate = pstrTijd.Split(' ');
-                dteDatum = Convert.ToDateTime(arrDate[0]);
-                strUUr = arrDate[arrDate.Count()-1];
-                a.datum = dteDatum;
-                a.uur = strUUr;
-            }
+            string[] arrDate = pstrTijd.Split(' ');
+            dteDatum = Convert.ToDateTime(arrDate[0]);
+            strUUr = arrDate[arrDate.Count()-1];
+            a.datum = dteDatum;
+            a.uur = strUUr;
+            
 
 
             foreach (Activiteit item in pers.getKeuzeActiviteitenFromDB(a))
@@ -90,50 +85,35 @@ namespace Barcelona
             return result;
         }
 
-        public string getDatumKeuzeActiviteiten(string pstrTijd)
+        public List<string> getDatumsKeuzeActiviteiten()
         {
-            string result;
-            Activiteit a = new Activiteit();
-            if (pstrTijd != "_")
+            List<string> result = new List<string>();
+
+            foreach(Activiteit item in pers.getDatumsKeuzeActiviteitenFromDB())
             {
-                string strUUr;
-                DateTime dteDatum;
-
-                string[] arrDate = pstrTijd.Split(' ');
-                dteDatum = Convert.ToDateTime(arrDate[0]);
-                strUUr = arrDate[arrDate.Count() - 1];
-                a.datum = dteDatum;
-                a.uur = strUUr;
+                result.Add(item.alleenTijd());
             }
-            else
-            {
-
-            }
-
-            result = pers.getDatumKeuzeActiviteitenFromDB(a).alleenTijd();
 
             return result;
         }
 
-        public void AddAutoActiviteitLeerlingConnectie(string strLeerlingVoor, string strLeerlingAchter)
+        public void AddAutoActiviteitenLeerlingConnectie(string strLeerlingVoor, string strLeerlingAchter)
         {
-            pers.AddAutoActiviteitLeerlingConnectieToDB(strLeerlingVoor, strLeerlingAchter);
+            pers.AddAutoActiviteitenLeerlingConnectieToDB(strLeerlingVoor, strLeerlingAchter);
         }
 
-        public void addKeuzeActivteitLeerlingConnectie(List<string> lijst, string strLeerlingVoor, string strLeerlingAchter)
+        public void addKeuzeActivteitenLeerlingConnectie(List<string> lijst, string strLeerlingVoor, string strLeerlingAchter)
         {
             List<Activiteit> activiteiten = new List<Activiteit>();
+
             foreach(string item in lijst)
             {
-                if (item != "")
-                {
-                    Activiteit a = new Activiteit(item);
-                    activiteiten.Add(a);
-                }
-                else { }
+                Activiteit a = new Activiteit(item);
+                activiteiten.Add(a);
+
             }
 
-            pers.addKeuzeActivteitLeerlingConnectieToDB(activiteiten,strLeerlingVoor,strLeerlingAchter);
+            pers.addKeuzeActivteitenLeerlingConnectieToDB(activiteiten,strLeerlingVoor,strLeerlingAchter);
         }
 
         public List<string> getBegeleiders()
