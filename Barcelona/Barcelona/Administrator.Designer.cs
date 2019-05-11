@@ -369,6 +369,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mclDag);
             this.Controls.Add(this.btnVoegLeerkrachtToe);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Administrator";

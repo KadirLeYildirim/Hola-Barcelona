@@ -37,9 +37,10 @@
             // 
             // btnTerug
             // 
-            this.btnTerug.Location = new System.Drawing.Point(12, 380);
+            this.btnTerug.Location = new System.Drawing.Point(16, 468);
+            this.btnTerug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTerug.Name = "btnTerug";
-            this.btnTerug.Size = new System.Drawing.Size(152, 60);
+            this.btnTerug.Size = new System.Drawing.Size(203, 74);
             this.btnTerug.TabIndex = 0;
             this.btnTerug.Text = "Terug";
             this.btnTerug.UseVisualStyleBackColor = true;
@@ -48,40 +49,47 @@
             // cmbActiviteiten
             // 
             this.cmbActiviteiten.FormattingEnabled = true;
-            this.cmbActiviteiten.Location = new System.Drawing.Point(12, 12);
+            this.cmbActiviteiten.Location = new System.Drawing.Point(16, 15);
+            this.cmbActiviteiten.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbActiviteiten.Name = "cmbActiviteiten";
-            this.cmbActiviteiten.Size = new System.Drawing.Size(153, 21);
+            this.cmbActiviteiten.Size = new System.Drawing.Size(203, 24);
             this.cmbActiviteiten.TabIndex = 1;
             this.cmbActiviteiten.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // lstLijst
             // 
             this.lstLijst.FormattingEnabled = true;
-            this.lstLijst.Location = new System.Drawing.Point(170, 11);
+            this.lstLijst.ItemHeight = 16;
+            this.lstLijst.Location = new System.Drawing.Point(227, 14);
+            this.lstLijst.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstLijst.Name = "lstLijst";
-            this.lstLijst.Size = new System.Drawing.Size(271, 433);
+            this.lstLijst.Size = new System.Drawing.Size(360, 532);
             this.lstLijst.TabIndex = 2;
             this.lstLijst.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // lstBegleider
             // 
             this.lstBegleider.FormattingEnabled = true;
-            this.lstBegleider.Location = new System.Drawing.Point(12, 175);
+            this.lstBegleider.ItemHeight = 16;
+            this.lstBegleider.Location = new System.Drawing.Point(16, 215);
+            this.lstBegleider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstBegleider.Name = "lstBegleider";
-            this.lstBegleider.Size = new System.Drawing.Size(152, 199);
+            this.lstBegleider.Size = new System.Drawing.Size(201, 244);
             this.lstBegleider.TabIndex = 3;
             // 
             // Lijsten
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(451, 450);
+            this.ClientSize = new System.Drawing.Size(601, 554);
             this.Controls.Add(this.lstBegleider);
             this.Controls.Add(this.lstLijst);
             this.Controls.Add(this.cmbActiviteiten);
             this.Controls.Add(this.btnTerug);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Lijsten";
             this.Text = "Lijsten";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Lijsten_FormClosed);

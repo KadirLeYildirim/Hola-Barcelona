@@ -32,7 +32,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbKeuze = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnStartscherm = new System.Windows.Forms.Button();
             this.btnVolgende = new System.Windows.Forms.Button();
             this.btnRegistreer = new System.Windows.Forms.Button();
             this.lblDatum = new System.Windows.Forms.Label();
@@ -80,16 +79,6 @@
             this.label5.Size = new System.Drawing.Size(42, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Voor:";
-            // 
-            // btnStartscherm
-            // 
-            this.btnStartscherm.Location = new System.Drawing.Point(13, 228);
-            this.btnStartscherm.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStartscherm.Name = "btnStartscherm";
-            this.btnStartscherm.Size = new System.Drawing.Size(145, 73);
-            this.btnStartscherm.TabIndex = 12;
-            this.btnStartscherm.Text = "Terug";
-            this.btnStartscherm.UseVisualStyleBackColor = true;
             // 
             // btnVolgende
             // 
@@ -257,7 +246,6 @@
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.btnRegistreer);
             this.Controls.Add(this.btnVolgende);
-            this.Controls.Add(this.btnStartscherm);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbKeuze);
             this.Controls.Add(this.label4);
@@ -269,6 +257,7 @@
             this.Controls.Add(this.txtGsmNummer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtVoornaam);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Gebruiker";
@@ -285,7 +274,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbKeuze;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnStartscherm;
         private System.Windows.Forms.Button btnVolgende;
         private System.Windows.Forms.Button btnRegistreer;
         private System.Windows.Forms.Label lblDatum;
