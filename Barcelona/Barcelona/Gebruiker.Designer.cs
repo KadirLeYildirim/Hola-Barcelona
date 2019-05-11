@@ -36,7 +36,6 @@
             this.btnVolgende = new System.Windows.Forms.Button();
             this.btnRegistreer = new System.Windows.Forms.Button();
             this.lblDatum = new System.Windows.Forms.Label();
-            this.lstKeuzesActiviteiten = new System.Windows.Forms.ListBox();
             this.txtVoornaam = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGsmNummer = new System.Windows.Forms.TextBox();
@@ -46,7 +45,6 @@
             this.lblAchternaam = new System.Windows.Forms.Label();
             this.cmbKlas = new System.Windows.Forms.ComboBox();
             this.btnVorige = new System.Windows.Forms.Button();
-            this.lstDatums2 = new System.Windows.Forms.ListBox();
             this.pcbURL = new System.Windows.Forms.PictureBox();
             this.txtOmschrijving = new System.Windows.Forms.TextBox();
             this.lblGetal = new System.Windows.Forms.Label();
@@ -56,7 +54,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(384, 28);
+            this.label4.Location = new System.Drawing.Point(384, 12);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 17);
@@ -76,7 +74,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(384, 64);
+            this.label5.Location = new System.Drawing.Point(384, 31);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 17);
@@ -118,24 +116,13 @@
             // lblDatum
             // 
             this.lblDatum.AutoSize = true;
-            this.lblDatum.Location = new System.Drawing.Point(434, 63);
+            this.lblDatum.Location = new System.Drawing.Point(434, 31);
             this.lblDatum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatum.Name = "lblDatum";
             this.lblDatum.Size = new System.Drawing.Size(16, 17);
             this.lblDatum.TabIndex = 13;
             this.lblDatum.Text = "_";
             this.lblDatum.TextChanged += new System.EventHandler(this.lblDatum_TextChanged);
-            // 
-            // lstKeuzesActiviteiten
-            // 
-            this.lstKeuzesActiviteiten.FormattingEnabled = true;
-            this.lstKeuzesActiviteiten.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.lstKeuzesActiviteiten.ItemHeight = 16;
-            this.lstKeuzesActiviteiten.Location = new System.Drawing.Point(138, 213);
-            this.lstKeuzesActiviteiten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lstKeuzesActiviteiten.Name = "lstKeuzesActiviteiten";
-            this.lstKeuzesActiviteiten.Size = new System.Drawing.Size(242, 84);
-            this.lstKeuzesActiviteiten.TabIndex = 15;
             // 
             // txtVoornaam
             // 
@@ -229,16 +216,6 @@
             this.btnVorige.UseVisualStyleBackColor = true;
             this.btnVorige.Click += new System.EventHandler(this.btnVorige_Click);
             // 
-            // lstDatums2
-            // 
-            this.lstDatums2.FormattingEnabled = true;
-            this.lstDatums2.ItemHeight = 16;
-            this.lstDatums2.Location = new System.Drawing.Point(114, 115);
-            this.lstDatums2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lstDatums2.Name = "lstDatums2";
-            this.lstDatums2.Size = new System.Drawing.Size(242, 84);
-            this.lstDatums2.TabIndex = 19;
-            // 
             // pcbURL
             // 
             this.pcbURL.Location = new System.Drawing.Point(653, 12);
@@ -260,7 +237,7 @@
             // lblGetal
             // 
             this.lblGetal.AutoSize = true;
-            this.lblGetal.Location = new System.Drawing.Point(573, 65);
+            this.lblGetal.Location = new System.Drawing.Point(384, 60);
             this.lblGetal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGetal.Name = "lblGetal";
             this.lblGetal.Size = new System.Drawing.Size(16, 17);
@@ -276,9 +253,7 @@
             this.Controls.Add(this.lblGetal);
             this.Controls.Add(this.txtOmschrijving);
             this.Controls.Add(this.pcbURL);
-            this.Controls.Add(this.lstDatums2);
             this.Controls.Add(this.btnVorige);
-            this.Controls.Add(this.lstKeuzesActiviteiten);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.btnRegistreer);
             this.Controls.Add(this.btnVolgende);
@@ -314,7 +289,6 @@
         private System.Windows.Forms.Button btnVolgende;
         private System.Windows.Forms.Button btnRegistreer;
         private System.Windows.Forms.Label lblDatum;
-        private System.Windows.Forms.ListBox lstKeuzesActiviteiten;
         private System.Windows.Forms.TextBox txtVoornaam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtGsmNummer;
@@ -324,7 +298,6 @@
         private System.Windows.Forms.Label lblAchternaam;
         private System.Windows.Forms.ComboBox cmbKlas;
         private System.Windows.Forms.Button btnVorige;
-        private System.Windows.Forms.ListBox lstDatums2;
         private System.Windows.Forms.PictureBox pcbURL;
         private System.Windows.Forms.TextBox txtOmschrijving;
         private System.Windows.Forms.Label lblGetal;

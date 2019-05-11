@@ -14,13 +14,11 @@ namespace Barcelona
     {
 		Business bus = new Business();
 
-        public List<string> lstDatums;
-        public List<string> lstKeuzes;
+        public List<string> lstDatums = new List<string>();
+        public List<string> lstKeuzes = new List<string>();
         public Gebruiker()
         {
             InitializeComponent();
-            lstDatums = new List<string>();
-            lstKeuzes = new List<string>();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -38,10 +36,6 @@ namespace Barcelona
             //vult de de datums in een lijst en weergeeft dan de eerste
             foreach (string lijn in bus.getDatumsKeuzeActiviteiten())
             {
-                lstDatums2.Items.Add(lijn);
-            }
-            foreach (string lijn in bus.getDatumsKeuzeActiviteiten())
-            {
                 lstDatums.Add(lijn);
             }
             lblDatum.Text = lstDatums[0];
@@ -54,9 +48,28 @@ namespace Barcelona
 
         private void btnVolgende_Click(object sender, EventArgs e)
 		{
-            if (cmbKeuze.Text == ""|| lblDatum.Text == "Dat was het")
+            if (cmbKeuze.Text == ""|| lblDatum.Text == lstDatums[lstDatums.Count-1])
             {
-                MessageBox.Show("U moet eerst een keuze maken","Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if(lblDatum.Text == lstDatums[lstDatums.Count - 1])
+                {
+                    if (lstDatums.Count == lstKeuzes.Count)
+                    {
+                        cmbKeuze.Text = "";
+                        cmbKeuze.Items.Clear();
+                    }
+                    else
+                    {
+                        lstKeuzes.Add(cmbKeuze.Text);
+                        txtOmschrijving.Text = "";
+                        pcbURL.InitialImage = null;
+                        cmbKeuze.Text = "";
+                        cmbKeuze.Items.Clear();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("U moet eerst een keuze maken", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {
@@ -68,7 +81,6 @@ namespace Barcelona
                 {
                     //zet de vorige keuze in de lijst
                     lstKeuzes.Add(cmbKeuze.Text);
-                    lstKeuzesActiviteiten.Items.Add(cmbKeuze.Text);
                     //verwijdert vorige keuzes in cmb
                     cmbKeuze.Text = "";
                     cmbKeuze.Items.Clear();
@@ -82,12 +94,12 @@ namespace Barcelona
                         lblDatum.Text = lstDatums[lstKeuzes.Count];
 
                     }
+                    int intTeller = 1;
                     foreach (string datum in lstDatums)
                     {
-                        int intTeller = 1;
                         if (datum == lblDatum.Text)
                         {
-                            lblGetal.Text = "Keuze" + intTeller + " van de " + lstDatums.Count;
+                            lblGetal.Text = "Keuze " + intTeller + " van de " + lstDatums.Count;
                         }
                         else
                         {
@@ -98,6 +110,8 @@ namespace Barcelona
                     {
                         cmbKeuze.Items.Add(lijn);
                     }
+                    txtOmschrijving.Text = "";
+                    pcbURL.InitialImage = null;
                 }
             }            
 
@@ -113,12 +127,25 @@ namespace Barcelona
             {
                 lblDatum.Text = lstDatums[lstKeuzes.Count - 1];
                 lstKeuzes.RemoveAt(lstKeuzes.Count - 1);
-                lstKeuzesActiviteiten.Items.RemoveAt(lstKeuzesActiviteiten.Items.Count - 1);
                 cmbKeuze.Text = "";
                 cmbKeuze.Items.Clear();
                 foreach (string lijn in bus.getKeuzeActiviteiten(lblDatum.Text))
                 {
                     cmbKeuze.Items.Add(lijn);
+                }
+                txtOmschrijving.Text = "";
+                pcbURL.InitialImage = null;
+                int intTeller =1;
+                foreach (string datum in lstDatums)
+                {
+                    if (datum == lblDatum.Text)
+                    {
+                        lblGetal.Text = "Keuze " + intTeller + " van de " + lstDatums.Count;
+                    }
+                    else
+                    {
+                        intTeller++;
+                    }
                 }
             }
 
@@ -135,7 +162,7 @@ namespace Barcelona
             {
                 if (txtVoornaam.Text != "" || txtAchternaam.Text != "" || txtGsmNummer.Text != "" || cmbKlas.Text != "")
                 {
-                    if (lstDatums.Count() != lstKeuzes.Count() || cmbKeuze.Text != "")
+                    if (lstDatums.Count() != lstKeuzes.Count() && cmbKeuze.Text != "")
                     {
                         lstKeuzes.Add(cmbKeuze.Text);
                     }
@@ -147,12 +174,19 @@ namespace Barcelona
                             bus.AddAutoActiviteitenLeerlingConnectie(txtVoornaam.Text, txtAchternaam.Text);
                             bus.addKeuzeActivteitenLeerlingConnectie(lstKeuzes, txtVoornaam.Text, txtAchternaam.Text);
                             lstKeuzes.Clear();
-                            lstKeuzesActiviteiten.Items.Clear();
                             txtGsmNummer.Text = "";
                             txtVoornaam.Text = "";
                             txtAchternaam.Text = "";
                             cmbKlas.Text = "";
                             lblDatum.Text = lstDatums[0];
+                            cmbKeuze.Text = "";
+                            foreach (string lijn in bus.getKeuzeActiviteiten(lblDatum.Text))
+                            {
+                                cmbKeuze.Items.Add(lijn);
+                            }
+                            lblGetal.Text = "Keuze 1 van de " + lstDatums.Count;
+                            txtOmschrijving.Text = "";
+                            pcbURL.InitialImage = null;
                         }
                         else
                         {
