@@ -74,7 +74,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(384, 31);
+            this.label5.Location = new System.Drawing.Point(384, 65);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 17);
@@ -116,7 +116,7 @@
             // lblDatum
             // 
             this.lblDatum.AutoSize = true;
-            this.lblDatum.Location = new System.Drawing.Point(434, 31);
+            this.lblDatum.Location = new System.Drawing.Point(434, 65);
             this.lblDatum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatum.Name = "lblDatum";
             this.lblDatum.Size = new System.Drawing.Size(16, 17);
@@ -126,7 +126,7 @@
             // 
             // txtVoornaam
             // 
-            this.txtVoornaam.Location = new System.Drawing.Point(196, 28);
+            this.txtVoornaam.Location = new System.Drawing.Point(196, 30);
             this.txtVoornaam.Margin = new System.Windows.Forms.Padding(4);
             this.txtVoornaam.Name = "txtVoornaam";
             this.txtVoornaam.Size = new System.Drawing.Size(160, 22);
@@ -135,7 +135,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 32);
+            this.label1.Location = new System.Drawing.Point(39, 33);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
@@ -237,7 +237,7 @@
             // lblGetal
             // 
             this.lblGetal.AutoSize = true;
-            this.lblGetal.Location = new System.Drawing.Point(384, 60);
+            this.lblGetal.Location = new System.Drawing.Point(384, 39);
             this.lblGetal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGetal.Name = "lblGetal";
             this.lblGetal.Size = new System.Drawing.Size(16, 17);
