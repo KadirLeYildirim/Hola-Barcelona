@@ -44,9 +44,9 @@
             this.lblAchternaam = new System.Windows.Forms.Label();
             this.cmbKlas = new System.Windows.Forms.ComboBox();
             this.btnVorige = new System.Windows.Forms.Button();
-            this.pcbURL = new System.Windows.Forms.PictureBox();
             this.txtOmschrijving = new System.Windows.Forms.TextBox();
             this.lblGetal = new System.Windows.Forms.Label();
+            this.pcbURL = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbURL)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,6 +68,7 @@
             this.cmbKeuze.Name = "cmbKeuze";
             this.cmbKeuze.Size = new System.Drawing.Size(160, 24);
             this.cmbKeuze.TabIndex = 6;
+            this.cmbKeuze.SelectedIndexChanged += new System.EventHandler(this.cmbKeuze_SelectedIndexChanged);
             this.cmbKeuze.TextChanged += new System.EventHandler(this.cmbKeuze_TextChanged);
             // 
             // label5
@@ -205,15 +206,6 @@
             this.btnVorige.UseVisualStyleBackColor = true;
             this.btnVorige.Click += new System.EventHandler(this.btnVorige_Click);
             // 
-            // pcbURL
-            // 
-            this.pcbURL.Location = new System.Drawing.Point(653, 12);
-            this.pcbURL.Name = "pcbURL";
-            this.pcbURL.Size = new System.Drawing.Size(415, 289);
-            this.pcbURL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbURL.TabIndex = 20;
-            this.pcbURL.TabStop = false;
-            // 
             // txtOmschrijving
             // 
             this.txtOmschrijving.Location = new System.Drawing.Point(387, 213);
@@ -232,6 +224,15 @@
             this.lblGetal.Size = new System.Drawing.Size(16, 17);
             this.lblGetal.TabIndex = 22;
             this.lblGetal.Text = "_";
+            // 
+            // pcbURL
+            // 
+            this.pcbURL.Location = new System.Drawing.Point(653, 12);
+            this.pcbURL.Name = "pcbURL";
+            this.pcbURL.Size = new System.Drawing.Size(415, 289);
+            this.pcbURL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbURL.TabIndex = 20;
+            this.pcbURL.TabStop = false;
             // 
             // Gebruiker
             // 

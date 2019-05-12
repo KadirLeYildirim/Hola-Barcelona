@@ -128,7 +128,14 @@ namespace Barcelona
             {
                 lstGekozenBegeleiders.Items.Add(lijn);
             }
-            pcbURL.ImageLocation= bus.getWantedFotoActiviteiten(lstActiviteiten.SelectedItem.ToString());
+            if (txtURLFoto.Text == "")
+            {
+                pcbURL.Image = Properties.Resources.GeenFoto2;
+            }
+            else
+            {
+                pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(lstActiviteiten.SelectedItem.ToString());
+            }
 
         }
 

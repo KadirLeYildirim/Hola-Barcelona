@@ -44,7 +44,7 @@
             // btnVerwijderen
             // 
             this.btnVerwijderen.Location = new System.Drawing.Point(141, 290);
-            this.btnVerwijderen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVerwijderen.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerwijderen.Name = "btnVerwijderen";
             this.btnVerwijderen.Size = new System.Drawing.Size(121, 70);
             this.btnVerwijderen.TabIndex = 22;
@@ -57,7 +57,7 @@
             this.lstBegeleiders.FormattingEnabled = true;
             this.lstBegeleiders.ItemHeight = 16;
             this.lstBegeleiders.Location = new System.Drawing.Point(16, 15);
-            this.lstBegeleiders.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstBegeleiders.Margin = new System.Windows.Forms.Padding(4);
             this.lstBegeleiders.Name = "lstBegeleiders";
             this.lstBegeleiders.Size = new System.Drawing.Size(365, 164);
             this.lstBegeleiders.TabIndex = 21;
@@ -66,7 +66,7 @@
             // btnAnnuleren
             // 
             this.btnAnnuleren.Location = new System.Drawing.Point(16, 290);
-            this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(117, 70);
             this.btnAnnuleren.TabIndex = 19;
@@ -77,7 +77,7 @@
             // txtAchternaam
             // 
             this.txtAchternaam.Location = new System.Drawing.Point(187, 219);
-            this.txtAchternaam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAchternaam.Margin = new System.Windows.Forms.Padding(4);
             this.txtAchternaam.Name = "txtAchternaam";
             this.txtAchternaam.Size = new System.Drawing.Size(195, 22);
             this.txtAchternaam.TabIndex = 15;
@@ -85,7 +85,7 @@
             // txtGsmNummer
             // 
             this.txtGsmNummer.Location = new System.Drawing.Point(187, 251);
-            this.txtGsmNummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGsmNummer.Margin = new System.Windows.Forms.Padding(4);
             this.txtGsmNummer.Name = "txtGsmNummer";
             this.txtGsmNummer.Size = new System.Drawing.Size(195, 22);
             this.txtGsmNummer.TabIndex = 16;
@@ -113,7 +113,7 @@
             // btnAanpassen
             // 
             this.btnAanpassen.Location = new System.Drawing.Point(271, 290);
-            this.btnAanpassen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAanpassen.Margin = new System.Windows.Forms.Padding(4);
             this.btnAanpassen.Name = "btnAanpassen";
             this.btnAanpassen.Size = new System.Drawing.Size(112, 70);
             this.btnAanpassen.TabIndex = 18;
@@ -124,7 +124,7 @@
             // txtVoornaam
             // 
             this.txtVoornaam.Location = new System.Drawing.Point(187, 187);
-            this.txtVoornaam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVoornaam.Margin = new System.Windows.Forms.Padding(4);
             this.txtVoornaam.Name = "txtVoornaam";
             this.txtVoornaam.Size = new System.Drawing.Size(195, 22);
             this.txtVoornaam.TabIndex = 14;
@@ -157,7 +157,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BegeleiderAanpassen";
             this.Text = "BegeleiderAanpassen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BegeleiderAanpassen_FormClosed);

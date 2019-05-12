@@ -38,7 +38,7 @@
             // btnTerug
             // 
             this.btnTerug.Location = new System.Drawing.Point(16, 468);
-            this.btnTerug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTerug.Margin = new System.Windows.Forms.Padding(4);
             this.btnTerug.Name = "btnTerug";
             this.btnTerug.Size = new System.Drawing.Size(203, 74);
             this.btnTerug.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.cmbActiviteiten.FormattingEnabled = true;
             this.cmbActiviteiten.Location = new System.Drawing.Point(16, 15);
-            this.cmbActiviteiten.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbActiviteiten.Margin = new System.Windows.Forms.Padding(4);
             this.cmbActiviteiten.Name = "cmbActiviteiten";
             this.cmbActiviteiten.Size = new System.Drawing.Size(203, 24);
             this.cmbActiviteiten.TabIndex = 1;
@@ -61,7 +61,7 @@
             this.lstLijst.FormattingEnabled = true;
             this.lstLijst.ItemHeight = 16;
             this.lstLijst.Location = new System.Drawing.Point(227, 14);
-            this.lstLijst.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstLijst.Margin = new System.Windows.Forms.Padding(4);
             this.lstLijst.Name = "lstLijst";
             this.lstLijst.Size = new System.Drawing.Size(360, 532);
             this.lstLijst.TabIndex = 2;
@@ -72,7 +72,7 @@
             this.lstBegleider.FormattingEnabled = true;
             this.lstBegleider.ItemHeight = 16;
             this.lstBegleider.Location = new System.Drawing.Point(16, 215);
-            this.lstBegleider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstBegleider.Margin = new System.Windows.Forms.Padding(4);
             this.lstBegleider.Name = "lstBegleider";
             this.lstBegleider.Size = new System.Drawing.Size(201, 244);
             this.lstBegleider.TabIndex = 3;
@@ -89,7 +89,7 @@
             this.Controls.Add(this.btnTerug);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Lijsten";
             this.Text = "Lijsten";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Lijsten_FormClosed);

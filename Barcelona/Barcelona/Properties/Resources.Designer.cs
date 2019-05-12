@@ -63,9 +63,59 @@ namespace Barcelona.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _Logo {
+            get {
+                object obj = ResourceManager.GetObject("_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Barcelona {
             get {
                 object obj = ResourceManager.GetObject("Barcelona", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GeenFoto {
+            get {
+                object obj = ResourceManager.GetObject("GeenFoto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GeenFoto2 {
+            get {
+                object obj = ResourceManager.GetObject("GeenFoto2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageedit_1_3029380977 {
+            get {
+                object obj = ResourceManager.GetObject("imageedit_1_3029380977", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogoPrgm {
+            get {
+                object obj = ResourceManager.GetObject("LogoPrgm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

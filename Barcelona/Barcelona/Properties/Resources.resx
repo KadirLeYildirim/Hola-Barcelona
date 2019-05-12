@@ -118,10 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Barcelona" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Barcelona.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GeenFoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GeenFoto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageedit_1_3029380977" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imageedit_1_3029380977.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="output-onlinepngtools" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\output-onlinepngtools.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LogoPrgm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoPrgm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Barcelona" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Barcelona.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GeenFoto2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GeenFoto2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

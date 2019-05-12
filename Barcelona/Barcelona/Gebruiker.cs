@@ -236,7 +236,14 @@ namespace Barcelona
         {
             if (cmbKeuze.Text != "")
             {
-                pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(cmbKeuze.Text);
+                if(""== bus.getWantedFotoActiviteiten(cmbKeuze.Text))
+                {
+                    pcbURL.Image = Properties.Resources.GeenFoto2;
+                }
+                else
+                {
+                    pcbURL.ImageLocation = bus.getWantedFotoActiviteiten(cmbKeuze.Text);
+                }
                 txtOmschrijving.Text = bus.getWantedOmschrijvingPlaatsenActiviteiten(cmbKeuze.Text);
             }
             else
@@ -273,6 +280,11 @@ namespace Barcelona
 
         private void lblDatum_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void cmbKeuze_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

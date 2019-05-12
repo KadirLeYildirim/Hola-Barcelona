@@ -55,7 +55,7 @@ namespace Barcelona
         private void button1_Click(object sender, EventArgs e)
         {
             //Voegt een activiteit toe
-            if(txtAantalPlaatsen.Text==""|| txtNaam.Text == "" || txtOmschrijving.Text == "" || txtPrijs.Text == "" ||(rdbNamiddag.Checked==false && rdbVoormiddag.Checked == false) || txtURLFoto.Text == "")
+            if(txtAantalPlaatsen.Text==""|| txtNaam.Text == "" || txtOmschrijving.Text == "" || txtPrijs.Text == "" ||(rdbNamiddag.Checked==false && rdbVoormiddag.Checked == false))
             {
                 MessageBox.Show("U bent een veld vergeten invullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 

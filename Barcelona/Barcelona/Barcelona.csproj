@@ -160,7 +160,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Barcelona.jpg" />
+    <None Include="Resources\_Logo.png" />
     <None Include="Resources\output-onlinepngtools.png" />
+    <None Include="Resources\LogoPrgm.png" />
+    <None Include="Resources\imageedit_1_3029380977.png" />
+    <None Include="Resources\GeenFoto.jpg" />
+    <Content Include="Resources\GeenFoto.png" />
+    <None Include="Resources\GeenFoto2.jpg" />
     <Content Include="Resources\SintLievensIcon.jpg" />
   </ItemGroup>
   <ItemGroup>

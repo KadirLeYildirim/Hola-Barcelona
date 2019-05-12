@@ -37,7 +37,14 @@ namespace Barcelona
             }
             else
             {
-                MessageBox.Show("U heeft het verkeerd wachtwoord ingegeven", "Verkeerd wachtwoord!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (strAntwoord == "")
+                {
+                    MessageBox.Show("U moet wel een iets ingeven", "Geen wachtwoord!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("U heeft het verkeerd wachtwoord ingegeven", "Verkeerd wachtwoord!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             
         }
@@ -54,6 +61,11 @@ namespace Barcelona
         }
 
         private void frmStartscherm_Load(object sender, EventArgs e)
+        {
+            pictureBox2.BackColor = Color.Transparent;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
