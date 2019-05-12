@@ -167,6 +167,7 @@
     <None Include="Resources\GeenFoto.jpg" />
     <Content Include="Resources\GeenFoto.png" />
     <None Include="Resources\GeenFoto2.jpg" />
+    <None Include="Resources\HOLA.png" />
     <Content Include="Resources\SintLievensIcon.jpg" />
   </ItemGroup>
   <ItemGroup>

@@ -103,6 +103,16 @@ namespace Barcelona.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HOLA {
+            get {
+                object obj = ResourceManager.GetObject("HOLA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imageedit_1_3029380977 {
             get {
                 object obj = ResourceManager.GetObject("imageedit_1_3029380977", resourceCulture);

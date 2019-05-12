@@ -65,10 +65,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::Barcelona.Properties.Resources.output_onlinepngtools;
-            this.pictureBox1.Location = new System.Drawing.Point(51, 12);
+            this.pictureBox1.Image = global::Barcelona.Properties.Resources.HOLA;
+            this.pictureBox1.Location = new System.Drawing.Point(106, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(634, 58);
+            this.pictureBox1.Size = new System.Drawing.Size(535, 58);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -106,7 +106,7 @@
             this.MaximumSize = new System.Drawing.Size(753, 452);
             this.MinimumSize = new System.Drawing.Size(753, 452);
             this.Name = "frmStartscherm";
-            this.Text = "Activiteiten Barcelona";
+            this.Text = "Hola Barcelona";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmStartscherm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStartscherm_FormClosed);
             this.Load += new System.EventHandler(this.frmStartscherm_Load);
