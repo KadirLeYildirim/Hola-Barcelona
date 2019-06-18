@@ -441,7 +441,7 @@ namespace Barcelona
         {
             List<Activiteit> datumKeuzeActiviteiten = new List<Activiteit>();
 
-            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal', AantalPlaatsen , AantalDeelnemers from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr having AantalPlaatsen > AantalDeelnemers and Aantal > 1 order by ActiviteitDag asc, ActiviteitUUr desc", conn);
+            MySqlCommand cmd = new MySqlCommand("select ActiviteitDag, ActiviteitUUr, count(ActiviteitUUr) as 'Aantal' from ID191774_6itngip22.activiteiten group by ActiviteitDag, activiteitUUr having Aantal > 1 order by ActiviteitDag asc, ActiviteitUUr desc", conn);
             conn.Open();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())

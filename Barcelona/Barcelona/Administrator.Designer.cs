@@ -206,6 +206,7 @@
             this.txtActiviteiten.Margin = new System.Windows.Forms.Padding(4);
             this.txtActiviteiten.Multiline = true;
             this.txtActiviteiten.Name = "txtActiviteiten";
+            this.txtActiviteiten.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtActiviteiten.Size = new System.Drawing.Size(872, 253);
             this.txtActiviteiten.TabIndex = 20;
             // 

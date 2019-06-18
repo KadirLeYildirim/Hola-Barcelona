@@ -71,28 +71,38 @@ namespace Barcelona
                 {
                     strUur = "Voormiddag";
                 }
-                bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
-        Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur, txtURLFoto.Text);
-                //Dit connecteerd een activiteit en de gekozen begeleider
-                string item;
-                for (int i = 0; i < clbBegeleiders.CheckedItems.Count; i++)
+                int aantal;
+                double price;
+                if (Double.TryParse(txtPrijs.Text, out price)&& int.TryParse(txtAantalPlaatsen.Text, out aantal))
                 {
-                    string strLetter = "", strNaam = "";
-                    item = clbBegeleiders.CheckedItems[i].ToString();
-                    for (int j = 0; j < item.Length; j++)
+                    bus.addActiviteit(txtNaam.Text, txtOmschrijving.Text, Convert.ToDouble(txtPrijs.Text),
+            Convert.ToInt32(txtAantalPlaatsen.Text), mclDag.SelectionStart, strUur, txtURLFoto.Text);
+                    //Dit connecteerd een activiteit en de gekozen begeleider
+                    string item;
+                    for (int i = 0; i < clbBegeleiders.CheckedItems.Count; i++)
                     {
-                        strLetter = item.Substring(j, 1);
-                        if (strLetter == " ")
+                        string strLetter = "", strNaam = "";
+                        item = clbBegeleiders.CheckedItems[i].ToString();
+                        for (int j = 0; j < item.Length; j++)
                         {
-                            j = item.Length;
+                            strLetter = item.Substring(j, 1);
+                            if (strLetter == " ")
+                            {
+                                j = item.Length;
+                            }
+                            strNaam += strLetter;
                         }
-                        strNaam += strLetter;
+                        bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
                     }
-                    bus.connectActiviteitBegeleider(strNaam, txtNaam.Text);
-                }
-                makeEmpty();
+                    makeEmpty();
 
-                toonActiviteiten();
+                    toonActiviteiten();
+                }
+                else
+                {
+                    MessageBox.Show("Er staat een belangerijk veld op, gelieve die in te vullen", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
             }
         }
 

@@ -76,28 +76,38 @@ namespace Barcelona
         {
             if (txtNaam.Text!=""|| txtDatum.Text != "" || txtDeelnemers.Text != "" || txtAantalPlaatsen.Text != "")
             {
-                string strUUR = "";
-                if (rdbNamiddag.Checked == true)
+                DateTime testdte;
+                int aantal;
+                double price;
+                if (Double.TryParse(txtPrijs.Text, out price) && int.TryParse(txtAantalPlaatsen.Text, out aantal)&&DateTime.TryParse(txtDatum.Text, out testdte))
                 {
-                    strUUR = "Namiddag";
-                }
-                if (rdbVoormiddag.Checked == true)
-                {
-                    strUUR = "Voormiddag";
-                }
-                bus.updateActiviteit(lstActiviteiten.SelectedItem.ToString(), txtNaam.Text, txtOmschrijving.Text,
-                    Convert.ToDouble(txtPrijs.Text), Convert.ToInt32(txtAantalPlaatsen.Text),
-                    Convert.ToInt32(txtDeelnemers.Text), txtDatum.Text, strUUR, txtURLFoto.Text);
-                foreach (string lijn in bus.getNaamActiviteiten())
-                {
-                    lstActiviteiten.Items.Add(lijn);
-                }
+                    string strUUR = "";
+                    if (rdbNamiddag.Checked == true)
+                    {
+                        strUUR = "Namiddag";
+                    }
+                    if (rdbVoormiddag.Checked == true)
+                    {
+                        strUUR = "Voormiddag";
+                    }
+                    bus.updateActiviteit(lstActiviteiten.SelectedItem.ToString(), txtNaam.Text, txtOmschrijving.Text,
+Convert.ToDouble(txtPrijs.Text), Convert.ToInt32(txtAantalPlaatsen.Text),
+Convert.ToInt32(txtDeelnemers.Text), txtDatum.Text, strUUR, txtURLFoto.Text);
+                    foreach (string lijn in bus.getNaamActiviteiten())
+                    {
+                        lstActiviteiten.Items.Add(lijn);
+                    }
 
-                vulIN();
-                lstActiviteiten.Items.Clear();
-                foreach (string lijn in bus.getNaamActiviteiten())
+                    vulIN();
+                    lstActiviteiten.Items.Clear();
+                    foreach (string lijn in bus.getNaamActiviteiten())
+                    {
+                        lstActiviteiten.Items.Add(lijn);
+                    }
+                }
+                else
                 {
-                    lstActiviteiten.Items.Add(lijn);
+                    MessageBox.Show("U moet wel de waarden juist ingeven", "Opgelet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else
